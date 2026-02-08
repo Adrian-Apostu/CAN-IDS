@@ -1,0 +1,940 @@
+CAN Bus Intrusion Detection Experiments
+Started: 2026-02-09 00:59:35
+================================================================================
+
+
+================================================================================
+Experiment Set 1/9: Vehicle A - Fuzzing
+Dataset: Vehicle A - 0x181 - IDs_Datafield_Classification.csv
+================================================================================
+[1/18] Running LogisticRegression...
+✓ Success
+Loading data from ./Datasets with attacks/Fuzzing/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv...
+Original dataset shape: (1178862, 14)
+Sampled 1.0% of the dataset. New shape: (11789, 14)
+
+Class distribution:
+13
+0    11315
+1      474
+Name: count, dtype: int64
+Class balance: 13
+0    0.959793
+1    0.040207
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training LogisticRegression...
+--- LogisticRegression Results ---
+Dataset: ./Datasets with attacks/Fuzzing/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9941
+Precision (binary): 0.9880
+Recall (binary): 0.8632
+F1-score (binary): 0.9213
+
+Confusion Matrix:
+[[2262    1]
+ [  13   82]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.99      1.00      1.00      2263
+           1       0.99      0.86      0.92        95
+
+    accuracy                           0.99      2358
+   macro avg       0.99      0.93      0.96      2358
+weighted avg       0.99      0.99      0.99      2358
+
+
+Results saved to results/Vehicle_A___0x181___IDs_Datafield_Classification_logisticregression_results.txt
+
+ROC AUC (binary): 0.9980
+
+
+--------------------------------------------------------------------------------
+[2/18] Running RandomForest...
+✓ Success
+Loading data from ./Datasets with attacks/Fuzzing/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv...
+Original dataset shape: (1178862, 14)
+Sampled 1.0% of the dataset. New shape: (11789, 14)
+
+Class distribution:
+13
+0    11315
+1      474
+Name: count, dtype: int64
+Class balance: 13
+0    0.959793
+1    0.040207
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training RandomForest...
+--- RandomForest Results ---
+Dataset: ./Datasets with attacks/Fuzzing/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 1.0000
+Precision (binary): 1.0000
+Recall (binary): 1.0000
+F1-score (binary): 1.0000
+
+Confusion Matrix:
+[[2263    0]
+ [   0   95]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      2263
+           1       1.00      1.00      1.00        95
+
+    accuracy                           1.00      2358
+   macro avg       1.00      1.00      1.00      2358
+weighted avg       1.00      1.00      1.00      2358
+
+
+Results saved to results/Vehicle_A___0x181___IDs_Datafield_Classification_randomforest_results.txt
+
+ROC AUC (binary): 1.0000
+
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Experiment Set 2/9: Vehicle B - Fuzzing
+Dataset: Vehicle B - all IDs - IDs_Datafield_Classification.csv
+================================================================================
+[3/18] Running LogisticRegression...
+✓ Success
+Loading data from ./Datasets with attacks/Fuzzing/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv...
+Original dataset shape: (697197, 14)
+Sampled 1.0% of the dataset. New shape: (6972, 14)
+
+Class distribution:
+13
+0    5577
+1    1395
+Name: count, dtype: int64
+Class balance: 13
+0    0.799914
+1    0.200086
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training LogisticRegression...
+--- LogisticRegression Results ---
+Dataset: ./Datasets with attacks/Fuzzing/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9118
+Precision (binary): 0.8714
+Recall (binary): 0.6559
+F1-score (binary): 0.7485
+
+Confusion Matrix:
+[[1089   27]
+ [  96  183]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.92      0.98      0.95      1116
+           1       0.87      0.66      0.75       279
+
+    accuracy                           0.91      1395
+   macro avg       0.90      0.82      0.85      1395
+weighted avg       0.91      0.91      0.91      1395
+
+
+Results saved to results/Vehicle_B___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
+
+ROC AUC (binary): 0.8933
+
+
+--------------------------------------------------------------------------------
+[4/18] Running RandomForest...
+✓ Success
+Loading data from ./Datasets with attacks/Fuzzing/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv...
+Original dataset shape: (697197, 14)
+Sampled 1.0% of the dataset. New shape: (6972, 14)
+
+Class distribution:
+13
+0    5577
+1    1395
+Name: count, dtype: int64
+Class balance: 13
+0    0.799914
+1    0.200086
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training RandomForest...
+--- RandomForest Results ---
+Dataset: ./Datasets with attacks/Fuzzing/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9993
+Precision (binary): 1.0000
+Recall (binary): 0.9964
+F1-score (binary): 0.9982
+
+Confusion Matrix:
+[[1116    0]
+ [   1  278]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      1116
+           1       1.00      1.00      1.00       279
+
+    accuracy                           1.00      1395
+   macro avg       1.00      1.00      1.00      1395
+weighted avg       1.00      1.00      1.00      1395
+
+
+Results saved to results/Vehicle_B___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
+
+ROC AUC (binary): 1.0000
+
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Experiment Set 3/9: Vehicle C - Fuzzing
+Dataset: Vehicle C - all IDs - IDs_Datafield_Classification.csv
+================================================================================
+[5/18] Running LogisticRegression...
+✓ Success
+Loading data from ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv...
+Original dataset shape: (997245, 14)
+Sampled 1.0% of the dataset. New shape: (9972, 14)
+
+Class distribution:
+13
+0    7962
+1    2010
+Name: count, dtype: int64
+Class balance: 13
+0    0.798436
+1    0.201564
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training LogisticRegression...
+--- LogisticRegression Results ---
+Dataset: ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9138
+Precision (binary): 0.8859
+Recall (binary): 0.6567
+F1-score (binary): 0.7543
+
+Confusion Matrix:
+[[1559   34]
+ [ 138  264]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.92      0.98      0.95      1593
+           1       0.89      0.66      0.75       402
+
+    accuracy                           0.91      1995
+   macro avg       0.90      0.82      0.85      1995
+weighted avg       0.91      0.91      0.91      1995
+
+
+Results saved to results/Vehicle_C___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
+
+ROC AUC (binary): 0.8983
+
+
+--------------------------------------------------------------------------------
+[6/18] Running RandomForest...
+✓ Success
+Loading data from ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv...
+Original dataset shape: (997245, 14)
+Sampled 1.0% of the dataset. New shape: (9972, 14)
+
+Class distribution:
+13
+0    7962
+1    2010
+Name: count, dtype: int64
+Class balance: 13
+0    0.798436
+1    0.201564
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training RandomForest...
+--- RandomForest Results ---
+Dataset: ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 1.0000
+Precision (binary): 1.0000
+Recall (binary): 1.0000
+F1-score (binary): 1.0000
+
+Confusion Matrix:
+[[1593    0]
+ [   0  402]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      1593
+           1       1.00      1.00      1.00       402
+
+    accuracy                           1.00      1995
+   macro avg       1.00      1.00      1.00      1995
+weighted avg       1.00      1.00      1.00      1995
+
+
+Results saved to results/Vehicle_C___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
+
+ROC AUC (binary): 1.0000
+
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Experiment Set 4/9: Vehicle A - Replay
+Dataset: Vehicle A - 0x181 - IDs_Datafield_Classification.csv
+================================================================================
+[7/18] Running LogisticRegression...
+✓ Success
+Loading data from ./Datasets with attacks/Replay/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv...
+Original dataset shape: (1179069, 14)
+Sampled 1.0% of the dataset. New shape: (11791, 14)
+
+Class distribution:
+13
+0    11314
+1      477
+Name: count, dtype: int64
+Class balance: 13
+0    0.959545
+1    0.040455
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training LogisticRegression...
+--- LogisticRegression Results ---
+Dataset: ./Datasets with attacks/Replay/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9580
+Precision (binary): 0.3333
+Recall (binary): 0.0421
+F1-score (binary): 0.0748
+
+Confusion Matrix:
+[[2256    8]
+ [  91    4]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.96      1.00      0.98      2264
+           1       0.33      0.04      0.07        95
+
+    accuracy                           0.96      2359
+   macro avg       0.65      0.52      0.53      2359
+weighted avg       0.94      0.96      0.94      2359
+
+
+Results saved to results/Vehicle_A___0x181___IDs_Datafield_Classification_logisticregression_results.txt
+
+ROC AUC (binary): 0.9624
+
+
+--------------------------------------------------------------------------------
+[8/18] Running RandomForest...
+✓ Success
+Loading data from ./Datasets with attacks/Replay/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv...
+Original dataset shape: (1179069, 14)
+Sampled 1.0% of the dataset. New shape: (11791, 14)
+
+Class distribution:
+13
+0    11314
+1      477
+Name: count, dtype: int64
+Class balance: 13
+0    0.959545
+1    0.040455
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training RandomForest...
+--- RandomForest Results ---
+Dataset: ./Datasets with attacks/Replay/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9987
+Precision (binary): 0.9894
+Recall (binary): 0.9789
+F1-score (binary): 0.9841
+
+Confusion Matrix:
+[[2263    1]
+ [   2   93]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      2264
+           1       0.99      0.98      0.98        95
+
+    accuracy                           1.00      2359
+   macro avg       0.99      0.99      0.99      2359
+weighted avg       1.00      1.00      1.00      2359
+
+
+Results saved to results/Vehicle_A___0x181___IDs_Datafield_Classification_randomforest_results.txt
+
+ROC AUC (binary): 0.9940
+
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Experiment Set 5/9: Vehicle B - Replay
+Dataset: Vehicle B - all IDs - IDs_Datafield_Classification.csv
+================================================================================
+[9/18] Running LogisticRegression...
+✓ Success
+Loading data from ./Datasets with attacks/Replay/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv...
+Original dataset shape: (696755, 14)
+Sampled 1.0% of the dataset. New shape: (6968, 14)
+
+Class distribution:
+13
+0    5580
+1    1388
+Name: count, dtype: int64
+Class balance: 13
+0    0.800804
+1    0.199196
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training LogisticRegression...
+--- LogisticRegression Results ---
+Dataset: ./Datasets with attacks/Replay/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.8006
+Precision (binary): 0.0000
+Recall (binary): 0.0000
+F1-score (binary): 0.0000
+
+Confusion Matrix:
+[[1116    0]
+ [ 278    0]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.80      1.00      0.89      1116
+           1       0.00      0.00      0.00       278
+
+    accuracy                           0.80      1394
+   macro avg       0.40      0.50      0.44      1394
+weighted avg       0.64      0.80      0.71      1394
+
+
+Results saved to results/Vehicle_B___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
+
+ROC AUC (binary): 0.5803
+
+
+--------------------------------------------------------------------------------
+[10/18] Running RandomForest...
+✓ Success
+Loading data from ./Datasets with attacks/Replay/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv...
+Original dataset shape: (696755, 14)
+Sampled 1.0% of the dataset. New shape: (6968, 14)
+
+Class distribution:
+13
+0    5580
+1    1388
+Name: count, dtype: int64
+Class balance: 13
+0    0.800804
+1    0.199196
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training RandomForest...
+--- RandomForest Results ---
+Dataset: ./Datasets with attacks/Replay/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.8795
+Precision (binary): 0.7835
+Recall (binary): 0.5468
+F1-score (binary): 0.6441
+
+Confusion Matrix:
+[[1074   42]
+ [ 126  152]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.90      0.96      0.93      1116
+           1       0.78      0.55      0.64       278
+
+    accuracy                           0.88      1394
+   macro avg       0.84      0.75      0.79      1394
+weighted avg       0.87      0.88      0.87      1394
+
+
+Results saved to results/Vehicle_B___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
+
+ROC AUC (binary): 0.8782
+
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Experiment Set 6/9: Vehicle C - Replay
+Dataset: Vehicle C - all IDs - IDs_Datafield_Classification.csv
+================================================================================
+[11/18] Running LogisticRegression...
+✓ Success
+Loading data from ./Datasets with attacks/Replay/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv...
+Original dataset shape: (997245, 14)
+Sampled 1.0% of the dataset. New shape: (9972, 14)
+
+Class distribution:
+13
+0    7928
+1    2044
+Name: count, dtype: int64
+Class balance: 13
+0    0.795026
+1    0.204974
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training LogisticRegression...
+--- LogisticRegression Results ---
+Dataset: ./Datasets with attacks/Replay/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.7950
+Precision (binary): 0.0000
+Recall (binary): 0.0000
+F1-score (binary): 0.0000
+
+Confusion Matrix:
+[[1586    0]
+ [ 409    0]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.79      1.00      0.89      1586
+           1       0.00      0.00      0.00       409
+
+    accuracy                           0.79      1995
+   macro avg       0.40      0.50      0.44      1995
+weighted avg       0.63      0.79      0.70      1995
+
+
+Results saved to results/Vehicle_C___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
+
+ROC AUC (binary): 0.5964
+
+
+--------------------------------------------------------------------------------
+[12/18] Running RandomForest...
+✓ Success
+Loading data from ./Datasets with attacks/Replay/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv...
+Original dataset shape: (997245, 14)
+Sampled 1.0% of the dataset. New shape: (9972, 14)
+
+Class distribution:
+13
+0    7928
+1    2044
+Name: count, dtype: int64
+Class balance: 13
+0    0.795026
+1    0.204974
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training RandomForest...
+--- RandomForest Results ---
+Dataset: ./Datasets with attacks/Replay/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.8832
+Precision (binary): 0.7716
+Recall (binary): 0.6112
+F1-score (binary): 0.6821
+
+Confusion Matrix:
+[[1512   74]
+ [ 159  250]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.90      0.95      0.93      1586
+           1       0.77      0.61      0.68       409
+
+    accuracy                           0.88      1995
+   macro avg       0.84      0.78      0.81      1995
+weighted avg       0.88      0.88      0.88      1995
+
+
+Results saved to results/Vehicle_C___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
+
+ROC AUC (binary): 0.8816
+
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Experiment Set 7/9: Vehicle A - Combined
+Dataset: Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
+================================================================================
+[13/18] Running LogisticRegression...
+✓ Success
+Loading data from ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv...
+Original dataset shape: (1327919, 14)
+Sampled 1.0% of the dataset. New shape: (13279, 14)
+
+Class distribution:
+13
+0    11299
+1     1980
+Name: count, dtype: int64
+Class balance: 13
+0    0.850892
+1    0.149108
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training LogisticRegression...
+--- LogisticRegression Results ---
+Dataset: ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.8652
+Precision (binary): 0.7639
+Recall (binary): 0.1389
+F1-score (binary): 0.2350
+
+Confusion Matrix:
+[[2243   17]
+ [ 341   55]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.87      0.99      0.93      2260
+           1       0.76      0.14      0.24       396
+
+    accuracy                           0.87      2656
+   macro avg       0.82      0.57      0.58      2656
+weighted avg       0.85      0.87      0.82      2656
+
+
+Results saved to results/Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_logisticregression_results.txt
+
+ROC AUC (binary): 0.7627
+
+
+--------------------------------------------------------------------------------
+[14/18] Running RandomForest...
+✓ Success
+Loading data from ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv...
+Original dataset shape: (1327919, 14)
+Sampled 1.0% of the dataset. New shape: (13279, 14)
+
+Class distribution:
+13
+0    11299
+1     1980
+Name: count, dtype: int64
+Class balance: 13
+0    0.850892
+1    0.149108
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training RandomForest...
+--- RandomForest Results ---
+Dataset: ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9292
+Precision (binary): 0.7640
+Recall (binary): 0.7601
+F1-score (binary): 0.7620
+
+Confusion Matrix:
+[[2167   93]
+ [  95  301]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.96      0.96      0.96      2260
+           1       0.76      0.76      0.76       396
+
+    accuracy                           0.93      2656
+   macro avg       0.86      0.86      0.86      2656
+weighted avg       0.93      0.93      0.93      2656
+
+
+Results saved to results/Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_randomforest_results.txt
+
+ROC AUC (binary): 0.9503
+
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Experiment Set 8/9: Vehicle B - Combined
+Dataset: Vehicle B - Replay 0x181 - IDs_Datafield_Classification.csv
+================================================================================
+[15/18] Running LogisticRegression...
+✓ Success
+Loading data from ./Datasets with attacks/Combined/Vehicle B/Vehicle B - Replay 0x181 - IDs_Datafield_Classification.csv...
+Original dataset shape: (579957, 14)
+Sampled 1.0% of the dataset. New shape: (5800, 14)
+
+Class distribution:
+13
+0    5571
+1     229
+Name: count, dtype: int64
+Class balance: 13
+0    0.960517
+1    0.039483
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training LogisticRegression...
+--- LogisticRegression Results ---
+Dataset: ./Datasets with attacks/Combined/Vehicle B/Vehicle B - Replay 0x181 - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9629
+Precision (binary): 0.8000
+Recall (binary): 0.0870
+F1-score (binary): 0.1569
+
+Confusion Matrix:
+[[1113    1]
+ [  42    4]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.96      1.00      0.98      1114
+           1       0.80      0.09      0.16        46
+
+    accuracy                           0.96      1160
+   macro avg       0.88      0.54      0.57      1160
+weighted avg       0.96      0.96      0.95      1160
+
+
+Results saved to results/Vehicle_B___Replay_0x181___IDs_Datafield_Classification_logisticregression_results.txt
+
+ROC AUC (binary): 0.9316
+
+
+--------------------------------------------------------------------------------
+[16/18] Running RandomForest...
+✓ Success
+Loading data from ./Datasets with attacks/Combined/Vehicle B/Vehicle B - Replay 0x181 - IDs_Datafield_Classification.csv...
+Original dataset shape: (579957, 14)
+Sampled 1.0% of the dataset. New shape: (5800, 14)
+
+Class distribution:
+13
+0    5571
+1     229
+Name: count, dtype: int64
+Class balance: 13
+0    0.960517
+1    0.039483
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training RandomForest...
+--- RandomForest Results ---
+Dataset: ./Datasets with attacks/Combined/Vehicle B/Vehicle B - Replay 0x181 - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9974
+Precision (binary): 0.9574
+Recall (binary): 0.9783
+F1-score (binary): 0.9677
+
+Confusion Matrix:
+[[1112    2]
+ [   1   45]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      1114
+           1       0.96      0.98      0.97        46
+
+    accuracy                           1.00      1160
+   macro avg       0.98      0.99      0.98      1160
+weighted avg       1.00      1.00      1.00      1160
+
+
+Results saved to results/Vehicle_B___Replay_0x181___IDs_Datafield_Classification_randomforest_results.txt
+
+ROC AUC (binary): 0.9989
+
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Experiment Set 9/9: Vehicle C - Combined
+Dataset: Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
+================================================================================
+[17/18] Running LogisticRegression...
+✓ Success
+Loading data from ./Datasets with attacks/Combined/Vehicle C/Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv...
+Original dataset shape: (936187, 14)
+Sampled 1.0% of the dataset. New shape: (9362, 14)
+
+Class distribution:
+13
+0    7977
+1    1385
+Name: count, dtype: int64
+Class balance: 13
+0    0.852062
+1    0.147938
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training LogisticRegression...
+--- LogisticRegression Results ---
+Dataset: ./Datasets with attacks/Combined/Vehicle C/Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.8735
+Precision (binary): 0.7778
+Recall (binary): 0.2022
+F1-score (binary): 0.3209
+
+Confusion Matrix:
+[[1580   16]
+ [ 221   56]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.99      0.93      1596
+           1       0.78      0.20      0.32       277
+
+    accuracy                           0.87      1873
+   macro avg       0.83      0.60      0.63      1873
+weighted avg       0.86      0.87      0.84      1873
+
+
+Results saved to results/Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_logisticregression_results.txt
+
+ROC AUC (binary): 0.7993
+
+
+--------------------------------------------------------------------------------
+[18/18] Running RandomForest...
+✓ Success
+Loading data from ./Datasets with attacks/Combined/Vehicle C/Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv...
+Original dataset shape: (936187, 14)
+Sampled 1.0% of the dataset. New shape: (9362, 14)
+
+Class distribution:
+13
+0    7977
+1    1385
+Name: count, dtype: int64
+Class balance: 13
+0    0.852062
+1    0.147938
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training RandomForest...
+--- RandomForest Results ---
+Dataset: ./Datasets with attacks/Combined/Vehicle C/Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9162
+Precision (binary): 0.7479
+Recall (binary): 0.6534
+F1-score (binary): 0.6975
+
+Confusion Matrix:
+[[1535   61]
+ [  96  181]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.94      0.96      0.95      1596
+           1       0.75      0.65      0.70       277
+
+    accuracy                           0.92      1873
+   macro avg       0.84      0.81      0.82      1873
+weighted avg       0.91      0.92      0.91      1873
+
+
+Results saved to results/Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_randomforest_results.txt
+
+ROC AUC (binary): 0.9203
+
+
+--------------------------------------------------------------------------------
+
+================================================================================
+EXPERIMENT SUMMARY
+================================================================================
+Total experiments: 18
+Completed: 18
+Failed: 0
+Success rate: 100.0%
+Finished: 2026-02-09 01:00:00
