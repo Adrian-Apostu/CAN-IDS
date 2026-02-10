@@ -92,10 +92,12 @@ Detailed Classification Report:
     print(results_summary)
 
     # Sanitize dataset_name for filename
+    # Include parent folder (attack type) in filename to avoid overwriting
+    parent_folder = os.path.basename(os.path.dirname(os.path.dirname(dataset_name)))
     sanitized_dataset_name = os.path.basename(dataset_name).replace('.csv', '').replace(' ', '_').replace('-',
                                                                                                           '_').replace(
         '.', '_')
-    file_name = f"{sanitized_dataset_name}_{model_name.lower().replace(' ', '_')}_results.txt"
+    file_name = f"{parent_folder}___{sanitized_dataset_name}_{model_name.lower().replace(' ', '_')}_results.txt"
 
     os.makedirs(results_dir, exist_ok=True)
     with open(os.path.join(results_dir, file_name), "w") as f:

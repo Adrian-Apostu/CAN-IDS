@@ -1,0 +1,24 @@
+--- RandomForest Results ---
+Dataset: ./Datasets with attacks/Combined/Vehicle C/Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9235
+Precision (binary): 0.7303
+Recall (binary): 0.7652
+F1-score (binary): 0.7474
+
+Confusion Matrix:
+[[15174   782]
+ [  650  2118]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.96      0.95      0.95     15956
+           1       0.73      0.77      0.75      2768
+
+    accuracy                           0.92     18724
+   macro avg       0.84      0.86      0.85     18724
+weighted avg       0.93      0.92      0.92     18724
+
+
+ROC AUC (binary): 0.9476

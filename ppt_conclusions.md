@@ -3,9 +3,9 @@
 ## Model Performance Summary
 
 - **Random Forest (RF) Significantly Outperforms Logistic Regression (LR)**
-  - Average Accuracy: RF 94.2% vs LR 87.8% (+6.4%)
-  - Average Recall: RF 82.3% vs LR 6.3% (+76.0%)
-  - Average F1-Score: RF 82.7% vs LR 10.8% (+72.0%)
+  - Average Accuracy: RF 95.4% vs LR 89.1% (+6.2%)
+  - Average Recall: RF 85.9% vs LR 20.2% (+65.6%)
+  - Average F1-Score: RF 86.2% vs LR 25.3% (+60.9%)
 
 ## Attack Detection Performance
 
@@ -27,4 +27,4 @@
 
 ---
 
-**Conclusion**: Random Forest achieves 94% average accuracy and 82% average recall, significantly outperforming Logistic Regression (88% accuracy, 6% recall).
+**Conclusion**: Random Forest achieves 95% average accuracy and 86% average recall, significantly outperforming Logistic Regression (89% accuracy, 20% recall).

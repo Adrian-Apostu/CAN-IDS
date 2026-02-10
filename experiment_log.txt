@@ -1,5 +1,5 @@
 CAN Bus Intrusion Detection Experiments
-Started: 2026-02-10 20:53:25
+Started: 2026-02-10 21:06:07
 ================================================================================
 
 
@@ -50,7 +50,7 @@ Detailed Classification Report:
 weighted avg       1.00      1.00      1.00     23578
 
 
-Results saved to results/Vehicle_A___0x181___IDs_Datafield_Classification_logisticregression_results.txt
+Results saved to results/Fuzzing___Vehicle_A___0x181___IDs_Datafield_Classification_logisticregression_results.txt
 
 ROC AUC (binary): 0.9969
 
@@ -99,7 +99,7 @@ Detailed Classification Report:
 weighted avg       1.00      1.00      1.00     23578
 
 
-Results saved to results/Vehicle_A___0x181___IDs_Datafield_Classification_randomforest_results.txt
+Results saved to results/Fuzzing___Vehicle_A___0x181___IDs_Datafield_Classification_randomforest_results.txt
 
 ROC AUC (binary): 1.0000
 
@@ -153,7 +153,7 @@ Detailed Classification Report:
 weighted avg       0.92      0.92      0.91     13944
 
 
-Results saved to results/Vehicle_B___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
+Results saved to results/Fuzzing___Vehicle_B___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
 
 ROC AUC (binary): 0.9077
 
@@ -202,7 +202,7 @@ Detailed Classification Report:
 weighted avg       1.00      1.00      1.00     13944
 
 
-Results saved to results/Vehicle_B___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
+Results saved to results/Fuzzing___Vehicle_B___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
 
 ROC AUC (binary): 1.0000
 
@@ -256,7 +256,7 @@ Detailed Classification Report:
 weighted avg       0.92      0.92      0.91     19945
 
 
-Results saved to results/Vehicle_C___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
+Results saved to results/Fuzzing___Vehicle_C___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
 
 ROC AUC (binary): 0.9033
 
@@ -305,7 +305,7 @@ Detailed Classification Report:
 weighted avg       1.00      1.00      1.00     19945
 
 
-Results saved to results/Vehicle_C___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
+Results saved to results/Fuzzing___Vehicle_C___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
 
 ROC AUC (binary): 1.0000
 
@@ -359,7 +359,7 @@ Detailed Classification Report:
 weighted avg       0.93      0.96      0.94     23582
 
 
-Results saved to results/Vehicle_A___0x181___IDs_Datafield_Classification_logisticregression_results.txt
+Results saved to results/Replay___Vehicle_A___0x181___IDs_Datafield_Classification_logisticregression_results.txt
 
 ROC AUC (binary): 0.9665
 
@@ -408,7 +408,7 @@ Detailed Classification Report:
 weighted avg       1.00      1.00      1.00     23582
 
 
-Results saved to results/Vehicle_A___0x181___IDs_Datafield_Classification_randomforest_results.txt
+Results saved to results/Replay___Vehicle_A___0x181___IDs_Datafield_Classification_randomforest_results.txt
 
 ROC AUC (binary): 0.9954
 
@@ -462,7 +462,7 @@ Detailed Classification Report:
 weighted avg       0.64      0.80      0.71     13936
 
 
-Results saved to results/Vehicle_B___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
+Results saved to results/Replay___Vehicle_B___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
 
 ROC AUC (binary): 0.6033
 
@@ -511,7 +511,7 @@ Detailed Classification Report:
 weighted avg       0.89      0.90      0.89     13936
 
 
-Results saved to results/Vehicle_B___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
+Results saved to results/Replay___Vehicle_B___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
 
 ROC AUC (binary): 0.9017
 
@@ -565,7 +565,7 @@ Detailed Classification Report:
 weighted avg       0.64      0.80      0.71     19945
 
 
-Results saved to results/Vehicle_C___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
+Results saved to results/Replay___Vehicle_C___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
 
 ROC AUC (binary): 0.6052
 
@@ -614,7 +614,7 @@ Detailed Classification Report:
 weighted avg       0.89      0.90      0.89     19945
 
 
-Results saved to results/Vehicle_C___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
+Results saved to results/Replay___Vehicle_C___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
 
 ROC AUC (binary): 0.9048
 
@@ -668,7 +668,7 @@ Detailed Classification Report:
 weighted avg       0.87      0.87      0.84     26559
 
 
-Results saved to results/Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_logisticregression_results.txt
+Results saved to results/Combined___Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_logisticregression_results.txt
 
 ROC AUC (binary): 0.7650
 
@@ -717,7 +717,7 @@ Detailed Classification Report:
 weighted avg       0.94      0.94      0.94     26559
 
 
-Results saved to results/Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_randomforest_results.txt
+Results saved to results/Combined___Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_randomforest_results.txt
 
 ROC AUC (binary): 0.9645
 
@@ -771,7 +771,7 @@ Detailed Classification Report:
 weighted avg       0.95      0.96      0.94     11600
 
 
-Results saved to results/Vehicle_B___Replay_0x181___IDs_Datafield_Classification_logisticregression_results.txt
+Results saved to results/Combined___Vehicle_B___Replay_0x181___IDs_Datafield_Classification_logisticregression_results.txt
 
 ROC AUC (binary): 0.9494
 
@@ -820,7 +820,7 @@ Detailed Classification Report:
 weighted avg       1.00      1.00      1.00     11600
 
 
-Results saved to results/Vehicle_B___Replay_0x181___IDs_Datafield_Classification_randomforest_results.txt
+Results saved to results/Combined___Vehicle_B___Replay_0x181___IDs_Datafield_Classification_randomforest_results.txt
 
 ROC AUC (binary): 0.9942
 
@@ -874,7 +874,7 @@ Detailed Classification Report:
 weighted avg       0.88      0.88      0.84     18724
 
 
-Results saved to results/Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_logisticregression_results.txt
+Results saved to results/Combined___Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_logisticregression_results.txt
 
 ROC AUC (binary): 0.7902
 
@@ -923,7 +923,7 @@ Detailed Classification Report:
 weighted avg       0.93      0.92      0.92     18724
 
 
-Results saved to results/Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_randomforest_results.txt
+Results saved to results/Combined___Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_randomforest_results.txt
 
 ROC AUC (binary): 0.9476
 
@@ -937,4 +937,4 @@ Total experiments: 18
 Completed: 18
 Failed: 0
 Success rate: 100.0%
-Finished: 2026-02-10 20:54:19
+Finished: 2026-02-10 21:07:00

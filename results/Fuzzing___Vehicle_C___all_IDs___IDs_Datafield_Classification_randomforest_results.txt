@@ -1,0 +1,24 @@
+--- RandomForest Results ---
+Dataset: ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9999
+Precision (binary): 1.0000
+Recall (binary): 0.9995
+F1-score (binary): 0.9998
+
+Confusion Matrix:
+[[15924     0]
+ [    2  4019]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00     15924
+           1       1.00      1.00      1.00      4021
+
+    accuracy                           1.00     19945
+   macro avg       1.00      1.00      1.00     19945
+weighted avg       1.00      1.00      1.00     19945
+
+
+ROC AUC (binary): 1.0000
