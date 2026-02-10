@@ -21,4 +21,4 @@ Detailed Classification Report:
 weighted avg       0.92      0.92      0.91     19945
 
 
-ROC AUC (binary): 0.9033
+ROC AUC (binary): 0.9034

@@ -1,14 +1,14 @@
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.9182
+Accuracy: 0.9183
 Precision (binary): 0.9041
-Recall (binary): 0.6632
-F1-score (binary): 0.7651
+Recall (binary): 0.6636
+F1-score (binary): 0.7654
 
 Confusion Matrix:
 [[10947   197]
- [  943  1857]]
+ [  942  1858]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support

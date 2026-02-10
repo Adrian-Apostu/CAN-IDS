@@ -13,7 +13,12 @@ from sklearn.svm import SVC
 
 
 def load_and_preprocess_data(file_path, sample_frac=None, random_state=42):
-    '''Loads a CSV file, preprocesses it, and splits into features and labels.'''
+    """Loads a CSV file, preprocesses it, and returns UNSCALED features + labels.
+
+    FIXED: No longer applies StandardScaler here. Scaling must happen AFTER
+    train/test split to prevent data leakage (test set statistics leaking
+    into training via the scaler).
+    """
     print(f"Loading data from {file_path}...")
     # Assuming semicolon as separator and no header
     df = pd.read_csv(file_path, sep=';', header=None)
@@ -51,12 +56,21 @@ def load_and_preprocess_data(file_path, sample_frac=None, random_state=42):
     print(f"\nNumber of classes: {n_classes}")
     is_binary = n_classes == 2
 
-    # Standardize features
-    scaler = StandardScaler()
-    X_scaled = scaler.fit_transform(X)
-    print("Data loaded and preprocessed.")
+    # FIXED: Return raw (unscaled) features — scaling happens after split
+    print("Data loaded and preprocessed (unscaled).")
+    return X.values, y.values, is_binary, label_encoder
 
-    return X_scaled, y, is_binary, label_encoder
+
+def scale_features(X_train, X_test):
+    """Fit StandardScaler on training data only, then transform both sets.
+
+    This prevents data leakage: the scaler learns statistics (mean, std)
+    only from the training set, so the test set remains truly unseen.
+    """
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
+    return X_train_scaled, X_test_scaled
 
 
 def train_and_evaluate_model(X_train, y_train, X_test, y_test, model, model_name,
@@ -142,17 +156,20 @@ def main():
 
     args = parser.parse_args()
 
+    # Step 1: Load data (returns UNSCALED features)
     X, y, is_binary, label_encoder = load_and_preprocess_data(
         args.dataset, sample_frac=args.sample_frac
     )
 
-    # Stratified split to maintain class distribution
+    # Step 2: Stratified split to maintain class distribution
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=42, stratify=y
     )
 
+    # Step 3: FIXED — Scale AFTER splitting, fit only on training data
+    X_train, X_test = scale_features(X_train, X_test)
+
     # Model selection with appropriate parameters
-    # FIXED: Removed multi_class parameter for compatibility
     if args.model == "LogisticRegression":
         model = LogisticRegression(
             random_state=42,

@@ -3,12 +3,12 @@ Dataset: ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Dat
 Classification Type: Binary
 Accuracy: 0.9990
 Precision (binary): 1.0000
-Recall (binary): 0.9950
-F1-score (binary): 0.9975
+Recall (binary): 0.9953
+F1-score (binary): 0.9976
 
 Confusion Matrix:
 [[15924     0]
- [   20  4001]]
+ [   19  4002]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support

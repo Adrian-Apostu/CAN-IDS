@@ -1,13 +1,13 @@
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.8971
-Precision (binary): 0.7787
+Accuracy: 0.8975
+Precision (binary): 0.7803
 Recall (binary): 0.6748
-F1-score (binary): 0.7231
+F1-score (binary): 0.7238
 
 Confusion Matrix:
-[[10630   532]
+[[10635   527]
  [  902  1872]]
 
 Detailed Classification Report:

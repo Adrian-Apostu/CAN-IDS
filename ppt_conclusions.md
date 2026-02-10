@@ -26,4 +26,4 @@
 
 ---
 
-**Conclusion**: Random Forest achieves 96% average accuracy and 88% average recall, significantly outperforming Logistic Regression (90% accuracy, 29% recall).
+**Conclusion**: Random Forest achieves 96% average accuracy and 88% average recall, significantly outperforming Logistic Regression (90% accuracy, 30% recall).

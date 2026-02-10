@@ -1,5 +1,5 @@
 CAN Bus Intrusion Detection Experiments
-Started: 2026-02-10 21:39:10
+Started: 2026-02-10 22:00:49
 ================================================================================
 
 
@@ -24,20 +24,20 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training LogisticRegression...
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.9972
-Precision (binary): 0.9863
-Recall (binary): 0.9424
-F1-score (binary): 0.9639
+Accuracy: 0.9973
+Precision (binary): 0.9864
+Recall (binary): 0.9435
+F1-score (binary): 0.9644
 
 Confusion Matrix:
 [[22646    12]
- [   53   867]]
+ [   52   868]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
@@ -73,7 +73,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training RandomForest...
 --- RandomForest Results ---
@@ -122,7 +122,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training GradientBoosting...
 --- GradientBoosting Results ---
@@ -176,20 +176,20 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training LogisticRegression...
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.9182
+Accuracy: 0.9183
 Precision (binary): 0.9041
-Recall (binary): 0.6632
-F1-score (binary): 0.7651
+Recall (binary): 0.6636
+F1-score (binary): 0.7654
 
 Confusion Matrix:
 [[10947   197]
- [  943  1857]]
+ [  942  1858]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
@@ -225,7 +225,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training RandomForest...
 --- RandomForest Results ---
@@ -274,7 +274,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training GradientBoosting...
 --- GradientBoosting Results ---
@@ -328,7 +328,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training LogisticRegression...
 --- LogisticRegression Results ---
@@ -356,7 +356,7 @@ weighted avg       0.92      0.92      0.91     19945
 
 Results saved to results/Fuzzing___Vehicle_C___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
 
-ROC AUC (binary): 0.9033
+ROC AUC (binary): 0.9034
 
 
 --------------------------------------------------------------------------------
@@ -377,7 +377,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training RandomForest...
 --- RandomForest Results ---
@@ -426,7 +426,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training GradientBoosting...
 --- GradientBoosting Results ---
@@ -434,12 +434,12 @@ Dataset: ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Dat
 Classification Type: Binary
 Accuracy: 0.9990
 Precision (binary): 1.0000
-Recall (binary): 0.9950
-F1-score (binary): 0.9975
+Recall (binary): 0.9953
+F1-score (binary): 0.9976
 
 Confusion Matrix:
 [[15924     0]
- [   20  4001]]
+ [   19  4002]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
@@ -480,29 +480,29 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training LogisticRegression...
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.9576
-Precision (binary): 0.0800
+Accuracy: 0.9573
+Precision (binary): 0.0741
 Recall (binary): 0.0064
-F1-score (binary): 0.0119
+F1-score (binary): 0.0118
 
 Confusion Matrix:
-[[22576    69]
+[[22570    75]
  [  931     6]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
            0       0.96      1.00      0.98     22645
-           1       0.08      0.01      0.01       937
+           1       0.07      0.01      0.01       937
 
     accuracy                           0.96     23582
-   macro avg       0.52      0.50      0.50     23582
+   macro avg       0.52      0.50      0.49     23582
 weighted avg       0.93      0.96      0.94     23582
 
 
@@ -529,7 +529,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training RandomForest...
 --- RandomForest Results ---
@@ -578,7 +578,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training GradientBoosting...
 --- GradientBoosting Results ---
@@ -632,7 +632,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training LogisticRegression...
 --- LogisticRegression Results ---
@@ -660,7 +660,7 @@ weighted avg       0.64      0.80      0.71     13936
 
 Results saved to results/Replay___Vehicle_B___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
 
-ROC AUC (binary): 0.6033
+ROC AUC (binary): 0.6034
 
 
 --------------------------------------------------------------------------------
@@ -681,19 +681,19 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training RandomForest...
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.8971
-Precision (binary): 0.7787
+Accuracy: 0.8975
+Precision (binary): 0.7803
 Recall (binary): 0.6748
-F1-score (binary): 0.7231
+F1-score (binary): 0.7238
 
 Confusion Matrix:
-[[10630   532]
+[[10635   527]
  [  902  1872]]
 
 Detailed Classification Report:
@@ -730,7 +730,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training GradientBoosting...
 --- GradientBoosting Results ---
@@ -784,7 +784,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training LogisticRegression...
 --- LogisticRegression Results ---
@@ -812,7 +812,7 @@ weighted avg       0.64      0.80      0.71     19945
 
 Results saved to results/Replay___Vehicle_C___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
 
-ROC AUC (binary): 0.6052
+ROC AUC (binary): 0.6062
 
 
 --------------------------------------------------------------------------------
@@ -833,19 +833,19 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training RandomForest...
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.8966
-Precision (binary): 0.7689
+Accuracy: 0.8965
+Precision (binary): 0.7683
 Recall (binary): 0.6932
-F1-score (binary): 0.7291
+F1-score (binary): 0.7288
 
 Confusion Matrix:
-[[15108   834]
+[[15105   837]
  [ 1228  2775]]
 
 Detailed Classification Report:
@@ -861,7 +861,7 @@ weighted avg       0.89      0.90      0.89     19945
 
 Results saved to results/Replay___Vehicle_C___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
 
-ROC AUC (binary): 0.9048
+ROC AUC (binary): 0.9049
 
 
 --------------------------------------------------------------------------------
@@ -882,7 +882,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training GradientBoosting...
 --- GradientBoosting Results ---
@@ -936,19 +936,19 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training LogisticRegression...
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
 Classification Type: Binary
 Accuracy: 0.8742
-Precision (binary): 0.8717
+Precision (binary): 0.8729
 Recall (binary): 0.1628
-F1-score (binary): 0.2744
+F1-score (binary): 0.2745
 
 Confusion Matrix:
-[[22585    93]
+[[22586    92]
  [ 3249   632]]
 
 Detailed Classification Report:
@@ -985,20 +985,20 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training RandomForest...
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.9392
-Precision (binary): 0.7687
-Recall (binary): 0.8351
-F1-score (binary): 0.8005
+Accuracy: 0.9388
+Precision (binary): 0.7667
+Recall (binary): 0.8356
+F1-score (binary): 0.7997
 
 Confusion Matrix:
-[[21703   975]
- [  640  3241]]
+[[21691   987]
+ [  638  3243]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
@@ -1013,7 +1013,7 @@ weighted avg       0.94      0.94      0.94     26559
 
 Results saved to results/Combined___Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_randomforest_results.txt
 
-ROC AUC (binary): 0.9645
+ROC AUC (binary): 0.9646
 
 
 --------------------------------------------------------------------------------
@@ -1034,7 +1034,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training GradientBoosting...
 --- GradientBoosting Results ---
@@ -1088,7 +1088,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training LogisticRegression...
 --- LogisticRegression Results ---
@@ -1116,7 +1116,7 @@ weighted avg       0.95      0.96      0.94     11600
 
 Results saved to results/Combined___Vehicle_B___Replay_0x181___IDs_Datafield_Classification_logisticregression_results.txt
 
-ROC AUC (binary): 0.9494
+ROC AUC (binary): 0.9493
 
 
 --------------------------------------------------------------------------------
@@ -1137,7 +1137,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training RandomForest...
 --- RandomForest Results ---
@@ -1186,7 +1186,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training GradientBoosting...
 --- GradientBoosting Results ---
@@ -1240,7 +1240,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training LogisticRegression...
 --- LogisticRegression Results ---
@@ -1289,20 +1289,20 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training RandomForest...
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle C/Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.9235
-Precision (binary): 0.7303
-Recall (binary): 0.7652
-F1-score (binary): 0.7474
+Accuracy: 0.9234
+Precision (binary): 0.7294
+Recall (binary): 0.7655
+F1-score (binary): 0.7470
 
 Confusion Matrix:
-[[15174   782]
- [  650  2118]]
+[[15170   786]
+ [  649  2119]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
@@ -1338,7 +1338,7 @@ Class balance: 13
 Name: proportion, dtype: float64
 
 Number of classes: 2
-Data loaded and preprocessed.
+Data loaded and preprocessed (unscaled).
 
 Training GradientBoosting...
 --- GradientBoosting Results ---
@@ -1378,4 +1378,4 @@ Total experiments: 27
 Completed: 27
 Failed: 0
 Success rate: 100.0%
-Finished: 2026-02-10 21:40:57
+Finished: 2026-02-10 22:02:38

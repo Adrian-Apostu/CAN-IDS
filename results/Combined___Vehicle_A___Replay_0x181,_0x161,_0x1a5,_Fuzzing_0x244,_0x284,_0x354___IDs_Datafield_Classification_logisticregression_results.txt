@@ -2,12 +2,12 @@
 Dataset: ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
 Classification Type: Binary
 Accuracy: 0.8742
-Precision (binary): 0.8717
+Precision (binary): 0.8729
 Recall (binary): 0.1628
-F1-score (binary): 0.2744
+F1-score (binary): 0.2745
 
 Confusion Matrix:
-[[22585    93]
+[[22586    92]
  [ 3249   632]]
 
 Detailed Classification Report:
