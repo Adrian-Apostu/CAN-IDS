@@ -1,5 +1,5 @@
 CAN Bus Intrusion Detection Experiments
-Started: 2026-02-10 21:06:07
+Started: 2026-02-10 21:15:56
 ================================================================================
 
 
@@ -937,4 +937,4 @@ Total experiments: 18
 Completed: 18
 Failed: 0
 Success rate: 100.0%
-Finished: 2026-02-10 21:07:00
+Finished: 2026-02-10 21:16:49
