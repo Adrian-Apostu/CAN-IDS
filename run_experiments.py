@@ -71,7 +71,7 @@ def run_analysis_pipeline(output_log="experiment_log.txt"):
                     analyzer_script,
                     "--dataset", file_path,
                     "--model", model,
-                    "--sample_frac", "0.01"  # Adjust this as needed
+                    "--sample_frac", "0.10"  # Adjust this as needed
                 ]
 
                 try:

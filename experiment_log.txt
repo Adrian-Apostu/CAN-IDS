@@ -1,5 +1,5 @@
 CAN Bus Intrusion Detection Experiments
-Started: 2026-02-10 20:47:10
+Started: 2026-02-10 20:53:25
 ================================================================================
 
 
@@ -11,16 +11,16 @@ Dataset: Vehicle A - 0x181 - IDs_Datafield_Classification.csv
 ✓ Success
 Loading data from ./Datasets with attacks/Fuzzing/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv...
 Original dataset shape: (1178862, 14)
-Sampled 1.0% of the dataset. New shape: (11789, 14)
+Sampled 10.0% of the dataset. New shape: (117886, 14)
 
 Class distribution:
 13
-0    11315
-1      474
+0    113288
+1      4598
 Name: count, dtype: int64
 Class balance: 13
-0    0.959793
-1    0.040207
+0    0.960996
+1    0.039004
 Name: proportion, dtype: float64
 
 Number of classes: 2
@@ -30,29 +30,29 @@ Training LogisticRegression...
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.9941
-Precision (binary): 0.9880
-Recall (binary): 0.8632
-F1-score (binary): 0.9213
+Accuracy: 0.9972
+Precision (binary): 0.9863
+Recall (binary): 0.9424
+F1-score (binary): 0.9639
 
 Confusion Matrix:
-[[2262    1]
- [  13   82]]
+[[22646    12]
+ [   53   867]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       0.99      1.00      1.00      2263
-           1       0.99      0.86      0.92        95
+           0       1.00      1.00      1.00     22658
+           1       0.99      0.94      0.96       920
 
-    accuracy                           0.99      2358
-   macro avg       0.99      0.93      0.96      2358
-weighted avg       0.99      0.99      0.99      2358
+    accuracy                           1.00     23578
+   macro avg       0.99      0.97      0.98     23578
+weighted avg       1.00      1.00      1.00     23578
 
 
 Results saved to results/Vehicle_A___0x181___IDs_Datafield_Classification_logisticregression_results.txt
 
-ROC AUC (binary): 0.9980
+ROC AUC (binary): 0.9969
 
 
 --------------------------------------------------------------------------------
@@ -60,16 +60,16 @@ ROC AUC (binary): 0.9980
 ✓ Success
 Loading data from ./Datasets with attacks/Fuzzing/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv...
 Original dataset shape: (1178862, 14)
-Sampled 1.0% of the dataset. New shape: (11789, 14)
+Sampled 10.0% of the dataset. New shape: (117886, 14)
 
 Class distribution:
 13
-0    11315
-1      474
+0    113288
+1      4598
 Name: count, dtype: int64
 Class balance: 13
-0    0.959793
-1    0.040207
+0    0.960996
+1    0.039004
 Name: proportion, dtype: float64
 
 Number of classes: 2
@@ -85,18 +85,18 @@ Recall (binary): 1.0000
 F1-score (binary): 1.0000
 
 Confusion Matrix:
-[[2263    0]
- [   0   95]]
+[[22658     0]
+ [    0   920]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       1.00      1.00      1.00      2263
-           1       1.00      1.00      1.00        95
+           0       1.00      1.00      1.00     22658
+           1       1.00      1.00      1.00       920
 
-    accuracy                           1.00      2358
-   macro avg       1.00      1.00      1.00      2358
-weighted avg       1.00      1.00      1.00      2358
+    accuracy                           1.00     23578
+   macro avg       1.00      1.00      1.00     23578
+weighted avg       1.00      1.00      1.00     23578
 
 
 Results saved to results/Vehicle_A___0x181___IDs_Datafield_Classification_randomforest_results.txt
@@ -114,16 +114,16 @@ Dataset: Vehicle B - all IDs - IDs_Datafield_Classification.csv
 ✓ Success
 Loading data from ./Datasets with attacks/Fuzzing/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv...
 Original dataset shape: (697197, 14)
-Sampled 1.0% of the dataset. New shape: (6972, 14)
+Sampled 10.0% of the dataset. New shape: (69720, 14)
 
 Class distribution:
 13
-0    5577
-1    1395
+0    55719
+1    14001
 Name: count, dtype: int64
 Class balance: 13
-0    0.799914
-1    0.200086
+0    0.799182
+1    0.200818
 Name: proportion, dtype: float64
 
 Number of classes: 2
@@ -133,29 +133,29 @@ Training LogisticRegression...
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.9118
-Precision (binary): 0.8714
-Recall (binary): 0.6559
-F1-score (binary): 0.7485
+Accuracy: 0.9182
+Precision (binary): 0.9041
+Recall (binary): 0.6632
+F1-score (binary): 0.7651
 
 Confusion Matrix:
-[[1089   27]
- [  96  183]]
+[[10947   197]
+ [  943  1857]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       0.92      0.98      0.95      1116
-           1       0.87      0.66      0.75       279
+           0       0.92      0.98      0.95     11144
+           1       0.90      0.66      0.77      2800
 
-    accuracy                           0.91      1395
-   macro avg       0.90      0.82      0.85      1395
-weighted avg       0.91      0.91      0.91      1395
+    accuracy                           0.92     13944
+   macro avg       0.91      0.82      0.86     13944
+weighted avg       0.92      0.92      0.91     13944
 
 
 Results saved to results/Vehicle_B___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
 
-ROC AUC (binary): 0.8933
+ROC AUC (binary): 0.9077
 
 
 --------------------------------------------------------------------------------
@@ -163,16 +163,16 @@ ROC AUC (binary): 0.8933
 ✓ Success
 Loading data from ./Datasets with attacks/Fuzzing/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv...
 Original dataset shape: (697197, 14)
-Sampled 1.0% of the dataset. New shape: (6972, 14)
+Sampled 10.0% of the dataset. New shape: (69720, 14)
 
 Class distribution:
 13
-0    5577
-1    1395
+0    55719
+1    14001
 Name: count, dtype: int64
 Class balance: 13
-0    0.799914
-1    0.200086
+0    0.799182
+1    0.200818
 Name: proportion, dtype: float64
 
 Number of classes: 2
@@ -182,24 +182,24 @@ Training RandomForest...
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.9993
+Accuracy: 0.9999
 Precision (binary): 1.0000
-Recall (binary): 0.9964
-F1-score (binary): 0.9982
+Recall (binary): 0.9996
+F1-score (binary): 0.9998
 
 Confusion Matrix:
-[[1116    0]
- [   1  278]]
+[[11144     0]
+ [    1  2799]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       1.00      1.00      1.00      1116
-           1       1.00      1.00      1.00       279
+           0       1.00      1.00      1.00     11144
+           1       1.00      1.00      1.00      2800
 
-    accuracy                           1.00      1395
-   macro avg       1.00      1.00      1.00      1395
-weighted avg       1.00      1.00      1.00      1395
+    accuracy                           1.00     13944
+   macro avg       1.00      1.00      1.00     13944
+weighted avg       1.00      1.00      1.00     13944
 
 
 Results saved to results/Vehicle_B___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
@@ -217,16 +217,16 @@ Dataset: Vehicle C - all IDs - IDs_Datafield_Classification.csv
 ✓ Success
 Loading data from ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv...
 Original dataset shape: (997245, 14)
-Sampled 1.0% of the dataset. New shape: (9972, 14)
+Sampled 10.0% of the dataset. New shape: (99724, 14)
 
 Class distribution:
 13
-0    7962
-1    2010
+0    79621
+1    20103
 Name: count, dtype: int64
 Class balance: 13
-0    0.798436
-1    0.201564
+0    0.798414
+1    0.201586
 Name: proportion, dtype: float64
 
 Number of classes: 2
@@ -236,29 +236,29 @@ Training LogisticRegression...
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.9138
-Precision (binary): 0.8859
-Recall (binary): 0.6567
-F1-score (binary): 0.7543
+Accuracy: 0.9190
+Precision (binary): 0.9045
+Recall (binary): 0.6687
+F1-score (binary): 0.7689
 
 Confusion Matrix:
-[[1559   34]
- [ 138  264]]
+[[15640   284]
+ [ 1332  2689]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       0.92      0.98      0.95      1593
-           1       0.89      0.66      0.75       402
+           0       0.92      0.98      0.95     15924
+           1       0.90      0.67      0.77      4021
 
-    accuracy                           0.91      1995
-   macro avg       0.90      0.82      0.85      1995
-weighted avg       0.91      0.91      0.91      1995
+    accuracy                           0.92     19945
+   macro avg       0.91      0.83      0.86     19945
+weighted avg       0.92      0.92      0.91     19945
 
 
 Results saved to results/Vehicle_C___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
 
-ROC AUC (binary): 0.8983
+ROC AUC (binary): 0.9033
 
 
 --------------------------------------------------------------------------------
@@ -266,16 +266,16 @@ ROC AUC (binary): 0.8983
 ✓ Success
 Loading data from ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv...
 Original dataset shape: (997245, 14)
-Sampled 1.0% of the dataset. New shape: (9972, 14)
+Sampled 10.0% of the dataset. New shape: (99724, 14)
 
 Class distribution:
 13
-0    7962
-1    2010
+0    79621
+1    20103
 Name: count, dtype: int64
 Class balance: 13
-0    0.798436
-1    0.201564
+0    0.798414
+1    0.201586
 Name: proportion, dtype: float64
 
 Number of classes: 2
@@ -285,24 +285,24 @@ Training RandomForest...
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 1.0000
+Accuracy: 0.9999
 Precision (binary): 1.0000
-Recall (binary): 1.0000
-F1-score (binary): 1.0000
+Recall (binary): 0.9995
+F1-score (binary): 0.9998
 
 Confusion Matrix:
-[[1593    0]
- [   0  402]]
+[[15924     0]
+ [    2  4019]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       1.00      1.00      1.00      1593
-           1       1.00      1.00      1.00       402
+           0       1.00      1.00      1.00     15924
+           1       1.00      1.00      1.00      4021
 
-    accuracy                           1.00      1995
-   macro avg       1.00      1.00      1.00      1995
-weighted avg       1.00      1.00      1.00      1995
+    accuracy                           1.00     19945
+   macro avg       1.00      1.00      1.00     19945
+weighted avg       1.00      1.00      1.00     19945
 
 
 Results saved to results/Vehicle_C___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
@@ -320,16 +320,16 @@ Dataset: Vehicle A - 0x181 - IDs_Datafield_Classification.csv
 ✓ Success
 Loading data from ./Datasets with attacks/Replay/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv...
 Original dataset shape: (1179069, 14)
-Sampled 1.0% of the dataset. New shape: (11791, 14)
+Sampled 10.0% of the dataset. New shape: (117907, 14)
 
 Class distribution:
 13
-0    11314
-1      477
+0    113221
+1      4686
 Name: count, dtype: int64
 Class balance: 13
-0    0.959545
-1    0.040455
+0    0.960257
+1    0.039743
 Name: proportion, dtype: float64
 
 Number of classes: 2
@@ -339,29 +339,29 @@ Training LogisticRegression...
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.9580
-Precision (binary): 0.3333
-Recall (binary): 0.0421
-F1-score (binary): 0.0748
+Accuracy: 0.9576
+Precision (binary): 0.0800
+Recall (binary): 0.0064
+F1-score (binary): 0.0119
 
 Confusion Matrix:
-[[2256    8]
- [  91    4]]
+[[22576    69]
+ [  931     6]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       0.96      1.00      0.98      2264
-           1       0.33      0.04      0.07        95
+           0       0.96      1.00      0.98     22645
+           1       0.08      0.01      0.01       937
 
-    accuracy                           0.96      2359
-   macro avg       0.65      0.52      0.53      2359
-weighted avg       0.94      0.96      0.94      2359
+    accuracy                           0.96     23582
+   macro avg       0.52      0.50      0.50     23582
+weighted avg       0.93      0.96      0.94     23582
 
 
 Results saved to results/Vehicle_A___0x181___IDs_Datafield_Classification_logisticregression_results.txt
 
-ROC AUC (binary): 0.9624
+ROC AUC (binary): 0.9665
 
 
 --------------------------------------------------------------------------------
@@ -369,16 +369,16 @@ ROC AUC (binary): 0.9624
 ✓ Success
 Loading data from ./Datasets with attacks/Replay/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv...
 Original dataset shape: (1179069, 14)
-Sampled 1.0% of the dataset. New shape: (11791, 14)
+Sampled 10.0% of the dataset. New shape: (117907, 14)
 
 Class distribution:
 13
-0    11314
-1      477
+0    113221
+1      4686
 Name: count, dtype: int64
 Class balance: 13
-0    0.959545
-1    0.040455
+0    0.960257
+1    0.039743
 Name: proportion, dtype: float64
 
 Number of classes: 2
@@ -388,29 +388,29 @@ Training RandomForest...
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.9987
-Precision (binary): 0.9894
-Recall (binary): 0.9789
-F1-score (binary): 0.9841
+Accuracy: 0.9986
+Precision (binary): 0.9788
+Recall (binary): 0.9872
+F1-score (binary): 0.9830
 
 Confusion Matrix:
-[[2263    1]
- [   2   93]]
+[[22625    20]
+ [   12   925]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       1.00      1.00      1.00      2264
-           1       0.99      0.98      0.98        95
+           0       1.00      1.00      1.00     22645
+           1       0.98      0.99      0.98       937
 
-    accuracy                           1.00      2359
-   macro avg       0.99      0.99      0.99      2359
-weighted avg       1.00      1.00      1.00      2359
+    accuracy                           1.00     23582
+   macro avg       0.99      0.99      0.99     23582
+weighted avg       1.00      1.00      1.00     23582
 
 
 Results saved to results/Vehicle_A___0x181___IDs_Datafield_Classification_randomforest_results.txt
 
-ROC AUC (binary): 0.9940
+ROC AUC (binary): 0.9954
 
 
 --------------------------------------------------------------------------------
@@ -423,16 +423,16 @@ Dataset: Vehicle B - all IDs - IDs_Datafield_Classification.csv
 ✓ Success
 Loading data from ./Datasets with attacks/Replay/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv...
 Original dataset shape: (696755, 14)
-Sampled 1.0% of the dataset. New shape: (6968, 14)
+Sampled 10.0% of the dataset. New shape: (69676, 14)
 
 Class distribution:
 13
-0    5580
-1    1388
+0    55808
+1    13868
 Name: count, dtype: int64
 Class balance: 13
-0    0.800804
-1    0.199196
+0    0.800964
+1    0.199036
 Name: proportion, dtype: float64
 
 Number of classes: 2
@@ -442,29 +442,29 @@ Training LogisticRegression...
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.8006
+Accuracy: 0.8009
 Precision (binary): 0.0000
 Recall (binary): 0.0000
 F1-score (binary): 0.0000
 
 Confusion Matrix:
-[[1116    0]
- [ 278    0]]
+[[11162     0]
+ [ 2774     0]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       0.80      1.00      0.89      1116
-           1       0.00      0.00      0.00       278
+           0       0.80      1.00      0.89     11162
+           1       0.00      0.00      0.00      2774
 
-    accuracy                           0.80      1394
-   macro avg       0.40      0.50      0.44      1394
-weighted avg       0.64      0.80      0.71      1394
+    accuracy                           0.80     13936
+   macro avg       0.40      0.50      0.44     13936
+weighted avg       0.64      0.80      0.71     13936
 
 
 Results saved to results/Vehicle_B___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
 
-ROC AUC (binary): 0.5803
+ROC AUC (binary): 0.6033
 
 
 --------------------------------------------------------------------------------
@@ -472,16 +472,16 @@ ROC AUC (binary): 0.5803
 ✓ Success
 Loading data from ./Datasets with attacks/Replay/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv...
 Original dataset shape: (696755, 14)
-Sampled 1.0% of the dataset. New shape: (6968, 14)
+Sampled 10.0% of the dataset. New shape: (69676, 14)
 
 Class distribution:
 13
-0    5580
-1    1388
+0    55808
+1    13868
 Name: count, dtype: int64
 Class balance: 13
-0    0.800804
-1    0.199196
+0    0.800964
+1    0.199036
 Name: proportion, dtype: float64
 
 Number of classes: 2
@@ -491,29 +491,29 @@ Training RandomForest...
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.8795
-Precision (binary): 0.7835
-Recall (binary): 0.5468
-F1-score (binary): 0.6441
+Accuracy: 0.8971
+Precision (binary): 0.7787
+Recall (binary): 0.6748
+F1-score (binary): 0.7231
 
 Confusion Matrix:
-[[1074   42]
- [ 126  152]]
+[[10630   532]
+ [  902  1872]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       0.90      0.96      0.93      1116
-           1       0.78      0.55      0.64       278
+           0       0.92      0.95      0.94     11162
+           1       0.78      0.67      0.72      2774
 
-    accuracy                           0.88      1394
-   macro avg       0.84      0.75      0.79      1394
-weighted avg       0.87      0.88      0.87      1394
+    accuracy                           0.90     13936
+   macro avg       0.85      0.81      0.83     13936
+weighted avg       0.89      0.90      0.89     13936
 
 
 Results saved to results/Vehicle_B___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
 
-ROC AUC (binary): 0.8782
+ROC AUC (binary): 0.9017
 
 
 --------------------------------------------------------------------------------
@@ -526,16 +526,16 @@ Dataset: Vehicle C - all IDs - IDs_Datafield_Classification.csv
 ✓ Success
 Loading data from ./Datasets with attacks/Replay/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv...
 Original dataset shape: (997245, 14)
-Sampled 1.0% of the dataset. New shape: (9972, 14)
+Sampled 10.0% of the dataset. New shape: (99724, 14)
 
 Class distribution:
 13
-0    7928
-1    2044
+0    79708
+1    20016
 Name: count, dtype: int64
 Class balance: 13
-0    0.795026
-1    0.204974
+0    0.799286
+1    0.200714
 Name: proportion, dtype: float64
 
 Number of classes: 2
@@ -545,29 +545,29 @@ Training LogisticRegression...
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.7950
+Accuracy: 0.7993
 Precision (binary): 0.0000
 Recall (binary): 0.0000
 F1-score (binary): 0.0000
 
 Confusion Matrix:
-[[1586    0]
- [ 409    0]]
+[[15942     0]
+ [ 4003     0]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       0.79      1.00      0.89      1586
-           1       0.00      0.00      0.00       409
+           0       0.80      1.00      0.89     15942
+           1       0.00      0.00      0.00      4003
 
-    accuracy                           0.79      1995
-   macro avg       0.40      0.50      0.44      1995
-weighted avg       0.63      0.79      0.70      1995
+    accuracy                           0.80     19945
+   macro avg       0.40      0.50      0.44     19945
+weighted avg       0.64      0.80      0.71     19945
 
 
 Results saved to results/Vehicle_C___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
 
-ROC AUC (binary): 0.5964
+ROC AUC (binary): 0.6052
 
 
 --------------------------------------------------------------------------------
@@ -575,16 +575,16 @@ ROC AUC (binary): 0.5964
 ✓ Success
 Loading data from ./Datasets with attacks/Replay/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv...
 Original dataset shape: (997245, 14)
-Sampled 1.0% of the dataset. New shape: (9972, 14)
+Sampled 10.0% of the dataset. New shape: (99724, 14)
 
 Class distribution:
 13
-0    7928
-1    2044
+0    79708
+1    20016
 Name: count, dtype: int64
 Class balance: 13
-0    0.795026
-1    0.204974
+0    0.799286
+1    0.200714
 Name: proportion, dtype: float64
 
 Number of classes: 2
@@ -594,29 +594,29 @@ Training RandomForest...
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.8832
-Precision (binary): 0.7716
-Recall (binary): 0.6112
-F1-score (binary): 0.6821
+Accuracy: 0.8966
+Precision (binary): 0.7689
+Recall (binary): 0.6932
+F1-score (binary): 0.7291
 
 Confusion Matrix:
-[[1512   74]
- [ 159  250]]
+[[15108   834]
+ [ 1228  2775]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       0.90      0.95      0.93      1586
-           1       0.77      0.61      0.68       409
+           0       0.92      0.95      0.94     15942
+           1       0.77      0.69      0.73      4003
 
-    accuracy                           0.88      1995
-   macro avg       0.84      0.78      0.81      1995
-weighted avg       0.88      0.88      0.88      1995
+    accuracy                           0.90     19945
+   macro avg       0.85      0.82      0.83     19945
+weighted avg       0.89      0.90      0.89     19945
 
 
 Results saved to results/Vehicle_C___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
 
-ROC AUC (binary): 0.8816
+ROC AUC (binary): 0.9048
 
 
 --------------------------------------------------------------------------------
@@ -629,16 +629,16 @@ Dataset: Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - I
 ✓ Success
 Loading data from ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv...
 Original dataset shape: (1327919, 14)
-Sampled 1.0% of the dataset. New shape: (13279, 14)
+Sampled 10.0% of the dataset. New shape: (132792, 14)
 
 Class distribution:
 13
-0    11299
-1     1980
+0    113387
+1     19405
 Name: count, dtype: int64
 Class balance: 13
-0    0.850892
-1    0.149108
+0    0.853869
+1    0.146131
 Name: proportion, dtype: float64
 
 Number of classes: 2
@@ -648,29 +648,29 @@ Training LogisticRegression...
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.8652
-Precision (binary): 0.7639
-Recall (binary): 0.1389
-F1-score (binary): 0.2350
+Accuracy: 0.8742
+Precision (binary): 0.8717
+Recall (binary): 0.1628
+F1-score (binary): 0.2744
 
 Confusion Matrix:
-[[2243   17]
- [ 341   55]]
+[[22585    93]
+ [ 3249   632]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       0.87      0.99      0.93      2260
-           1       0.76      0.14      0.24       396
+           0       0.87      1.00      0.93     22678
+           1       0.87      0.16      0.27      3881
 
-    accuracy                           0.87      2656
-   macro avg       0.82      0.57      0.58      2656
-weighted avg       0.85      0.87      0.82      2656
+    accuracy                           0.87     26559
+   macro avg       0.87      0.58      0.60     26559
+weighted avg       0.87      0.87      0.84     26559
 
 
 Results saved to results/Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_logisticregression_results.txt
 
-ROC AUC (binary): 0.7627
+ROC AUC (binary): 0.7650
 
 
 --------------------------------------------------------------------------------
@@ -678,16 +678,16 @@ ROC AUC (binary): 0.7627
 ✓ Success
 Loading data from ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv...
 Original dataset shape: (1327919, 14)
-Sampled 1.0% of the dataset. New shape: (13279, 14)
+Sampled 10.0% of the dataset. New shape: (132792, 14)
 
 Class distribution:
 13
-0    11299
-1     1980
+0    113387
+1     19405
 Name: count, dtype: int64
 Class balance: 13
-0    0.850892
-1    0.149108
+0    0.853869
+1    0.146131
 Name: proportion, dtype: float64
 
 Number of classes: 2
@@ -697,29 +697,29 @@ Training RandomForest...
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.9292
-Precision (binary): 0.7640
-Recall (binary): 0.7601
-F1-score (binary): 0.7620
+Accuracy: 0.9392
+Precision (binary): 0.7687
+Recall (binary): 0.8351
+F1-score (binary): 0.8005
 
 Confusion Matrix:
-[[2167   93]
- [  95  301]]
+[[21703   975]
+ [  640  3241]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       0.96      0.96      0.96      2260
-           1       0.76      0.76      0.76       396
+           0       0.97      0.96      0.96     22678
+           1       0.77      0.84      0.80      3881
 
-    accuracy                           0.93      2656
-   macro avg       0.86      0.86      0.86      2656
-weighted avg       0.93      0.93      0.93      2656
+    accuracy                           0.94     26559
+   macro avg       0.87      0.90      0.88     26559
+weighted avg       0.94      0.94      0.94     26559
 
 
 Results saved to results/Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_randomforest_results.txt
 
-ROC AUC (binary): 0.9503
+ROC AUC (binary): 0.9645
 
 
 --------------------------------------------------------------------------------
@@ -732,16 +732,16 @@ Dataset: Vehicle B - Replay 0x181 - IDs_Datafield_Classification.csv
 ✓ Success
 Loading data from ./Datasets with attacks/Combined/Vehicle B/Vehicle B - Replay 0x181 - IDs_Datafield_Classification.csv...
 Original dataset shape: (579957, 14)
-Sampled 1.0% of the dataset. New shape: (5800, 14)
+Sampled 10.0% of the dataset. New shape: (57996, 14)
 
 Class distribution:
 13
-0    5571
-1     229
+0    55658
+1     2338
 Name: count, dtype: int64
 Class balance: 13
-0    0.960517
-1    0.039483
+0    0.959687
+1    0.040313
 Name: proportion, dtype: float64
 
 Number of classes: 2
@@ -751,29 +751,29 @@ Training LogisticRegression...
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle B/Vehicle B - Replay 0x181 - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.9629
-Precision (binary): 0.8000
-Recall (binary): 0.0870
-F1-score (binary): 0.1569
+Accuracy: 0.9603
+Precision (binary): 0.6818
+Recall (binary): 0.0321
+F1-score (binary): 0.0612
 
 Confusion Matrix:
-[[1113    1]
- [  42    4]]
+[[11125     7]
+ [  453    15]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       0.96      1.00      0.98      1114
-           1       0.80      0.09      0.16        46
+           0       0.96      1.00      0.98     11132
+           1       0.68      0.03      0.06       468
 
-    accuracy                           0.96      1160
-   macro avg       0.88      0.54      0.57      1160
-weighted avg       0.96      0.96      0.95      1160
+    accuracy                           0.96     11600
+   macro avg       0.82      0.52      0.52     11600
+weighted avg       0.95      0.96      0.94     11600
 
 
 Results saved to results/Vehicle_B___Replay_0x181___IDs_Datafield_Classification_logisticregression_results.txt
 
-ROC AUC (binary): 0.9316
+ROC AUC (binary): 0.9494
 
 
 --------------------------------------------------------------------------------
@@ -781,16 +781,16 @@ ROC AUC (binary): 0.9316
 ✓ Success
 Loading data from ./Datasets with attacks/Combined/Vehicle B/Vehicle B - Replay 0x181 - IDs_Datafield_Classification.csv...
 Original dataset shape: (579957, 14)
-Sampled 1.0% of the dataset. New shape: (5800, 14)
+Sampled 10.0% of the dataset. New shape: (57996, 14)
 
 Class distribution:
 13
-0    5571
-1     229
+0    55658
+1     2338
 Name: count, dtype: int64
 Class balance: 13
-0    0.960517
-1    0.039483
+0    0.959687
+1    0.040313
 Name: proportion, dtype: float64
 
 Number of classes: 2
@@ -800,29 +800,29 @@ Training RandomForest...
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle B/Vehicle B - Replay 0x181 - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.9974
-Precision (binary): 0.9574
-Recall (binary): 0.9783
-F1-score (binary): 0.9677
+Accuracy: 0.9984
+Precision (binary): 0.9746
+Recall (binary): 0.9850
+F1-score (binary): 0.9798
 
 Confusion Matrix:
-[[1112    2]
- [   1   45]]
+[[11120    12]
+ [    7   461]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       1.00      1.00      1.00      1114
-           1       0.96      0.98      0.97        46
+           0       1.00      1.00      1.00     11132
+           1       0.97      0.99      0.98       468
 
-    accuracy                           1.00      1160
-   macro avg       0.98      0.99      0.98      1160
-weighted avg       1.00      1.00      1.00      1160
+    accuracy                           1.00     11600
+   macro avg       0.99      0.99      0.99     11600
+weighted avg       1.00      1.00      1.00     11600
 
 
 Results saved to results/Vehicle_B___Replay_0x181___IDs_Datafield_Classification_randomforest_results.txt
 
-ROC AUC (binary): 0.9989
+ROC AUC (binary): 0.9942
 
 
 --------------------------------------------------------------------------------
@@ -835,16 +835,16 @@ Dataset: Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - I
 ✓ Success
 Loading data from ./Datasets with attacks/Combined/Vehicle C/Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv...
 Original dataset shape: (936187, 14)
-Sampled 1.0% of the dataset. New shape: (9362, 14)
+Sampled 10.0% of the dataset. New shape: (93619, 14)
 
 Class distribution:
 13
-0    7977
-1    1385
+0    79778
+1    13841
 Name: count, dtype: int64
 Class balance: 13
-0    0.852062
-1    0.147938
+0    0.852156
+1    0.147844
 Name: proportion, dtype: float64
 
 Number of classes: 2
@@ -854,29 +854,29 @@ Training LogisticRegression...
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle C/Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.8735
-Precision (binary): 0.7778
-Recall (binary): 0.2022
-F1-score (binary): 0.3209
+Accuracy: 0.8752
+Precision (binary): 0.8855
+Recall (binary): 0.1788
+F1-score (binary): 0.2976
 
 Confusion Matrix:
-[[1580   16]
- [ 221   56]]
+[[15892    64]
+ [ 2273   495]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       0.88      0.99      0.93      1596
-           1       0.78      0.20      0.32       277
+           0       0.87      1.00      0.93     15956
+           1       0.89      0.18      0.30      2768
 
-    accuracy                           0.87      1873
-   macro avg       0.83      0.60      0.63      1873
-weighted avg       0.86      0.87      0.84      1873
+    accuracy                           0.88     18724
+   macro avg       0.88      0.59      0.61     18724
+weighted avg       0.88      0.88      0.84     18724
 
 
 Results saved to results/Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_logisticregression_results.txt
 
-ROC AUC (binary): 0.7993
+ROC AUC (binary): 0.7902
 
 
 --------------------------------------------------------------------------------
@@ -884,16 +884,16 @@ ROC AUC (binary): 0.7993
 ✓ Success
 Loading data from ./Datasets with attacks/Combined/Vehicle C/Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv...
 Original dataset shape: (936187, 14)
-Sampled 1.0% of the dataset. New shape: (9362, 14)
+Sampled 10.0% of the dataset. New shape: (93619, 14)
 
 Class distribution:
 13
-0    7977
-1    1385
+0    79778
+1    13841
 Name: count, dtype: int64
 Class balance: 13
-0    0.852062
-1    0.147938
+0    0.852156
+1    0.147844
 Name: proportion, dtype: float64
 
 Number of classes: 2
@@ -903,29 +903,29 @@ Training RandomForest...
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle C/Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.9162
-Precision (binary): 0.7479
-Recall (binary): 0.6534
-F1-score (binary): 0.6975
+Accuracy: 0.9235
+Precision (binary): 0.7303
+Recall (binary): 0.7652
+F1-score (binary): 0.7474
 
 Confusion Matrix:
-[[1535   61]
- [  96  181]]
+[[15174   782]
+ [  650  2118]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       0.94      0.96      0.95      1596
-           1       0.75      0.65      0.70       277
+           0       0.96      0.95      0.95     15956
+           1       0.73      0.77      0.75      2768
 
-    accuracy                           0.92      1873
-   macro avg       0.84      0.81      0.82      1873
-weighted avg       0.91      0.92      0.91      1873
+    accuracy                           0.92     18724
+   macro avg       0.84      0.86      0.85     18724
+weighted avg       0.93      0.92      0.92     18724
 
 
 Results saved to results/Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_randomforest_results.txt
 
-ROC AUC (binary): 0.9203
+ROC AUC (binary): 0.9476
 
 
 --------------------------------------------------------------------------------
@@ -937,4 +937,4 @@ Total experiments: 18
 Completed: 18
 Failed: 0
 Success rate: 100.0%
-Finished: 2026-02-10 20:47:34
+Finished: 2026-02-10 20:54:19
