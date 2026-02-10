@@ -1,4 +1,3 @@
-
 import os
 
 def list_datasets(base_dir="."):
@@ -8,16 +7,19 @@ def list_datasets(base_dir="."):
         "Vehicle C": {"no_attack": [], "fuzzing": [], "replay": [], "combined": []},
     }
 
-    # Helper to check for keywords in file path
     def check_keywords(path):
-        if "Combined" in path:
+        # Normalise to forward slashes for consistent matching
+        normalised = path.replace("\\", "/")
+        # Check folder names in the path (not just the filename)
+        # Combined must be checked first because combined folders only contain "Combined"
+        if "/Combined/" in normalised:
             return "combined"
-        elif "Fuzzing" in path:
+        elif "/Fuzzing/" in normalised:
             return "fuzzing"
-        elif "Replay" in path:
+        elif "/Replay/" in normalised:
             return "replay"
         return "no_attack"
-    
+
     # Process "Original datasets (no attacks)"
     original_dir = os.path.join(base_dir, "Original datasets (no attacks)")
     if os.path.exists(original_dir):
@@ -46,7 +48,9 @@ def list_datasets(base_dir="."):
                         datasets["Vehicle B"][attack_type].append(file_path)
                     elif "Vehicle C" in file_path:
                         datasets["Vehicle C"][attack_type].append(file_path)
+
     return datasets
+
 
 def print_dataset_summary(datasets):
     print("Available CAN Bus Datasets:")
@@ -60,10 +64,7 @@ def print_dataset_summary(datasets):
             else:
                 print(f"    {scenario.replace('_', ' ').title()}: No files found.")
 
+
 if __name__ == "__main__":
     available_datasets = list_datasets()
     print_dataset_summary(available_datasets)
-
-    # Example of how to select a file (can be extended with user input)
-    # selected_file = available_datasets["Vehicle A"]["fuzzing"][0]
-    # print(f"Selected for analysis: {selected_file}")
