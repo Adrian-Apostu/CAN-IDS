@@ -10,6 +10,7 @@ from sklearn.metrics import (accuracy_score, precision_recall_fscore_support,
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.svm import SVC
+from sklearn.utils.class_weight import compute_sample_weight
 
 
 def load_and_preprocess_data(file_path, sample_frac=None, random_state=42):
@@ -74,10 +75,14 @@ def scale_features(X_train, X_test):
 
 
 def train_and_evaluate_model(X_train, y_train, X_test, y_test, model, model_name,
-                             dataset_name, is_binary, results_dir="results"):
+                             dataset_name, is_binary, results_dir="results",
+                             sample_weight=None):
     '''Trains a given model, evaluates it, and prints/saves metrics.'''
     print(f"\nTraining {model_name}...")
-    model.fit(X_train, y_train)
+    if sample_weight is not None:
+        model.fit(X_train, y_train, sample_weight=sample_weight)
+    else:
+        model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
 
     accuracy = accuracy_score(y_test, y_pred)
@@ -188,13 +193,24 @@ def main():
             class_weight='balanced'  # Important for imbalanced data!
         )
     elif args.model == "GradientBoosting":
+        # NOTE: GradientBoosting does not support class_weight parameter.
+        # Balanced sample_weight was tested (Step 1.3) but caused regression
+        # on datasets where GB already performed well (e.g. Vehicle B Combined
+        # dropped from 0.9984 to 0.8416 accuracy). GB is kept unweighted to
+        # serve as a high-precision, conservative-recall comparison point
+        # against balanced RF and balanced LR.
         model = GradientBoostingClassifier(random_state=42, n_estimators=100)
     else:
         raise ValueError(f"Unknown model: {args.model}")
 
+    # Compute sample weights for models that need them
+    # (Currently none — GB sample_weight tested and rejected in Step 1.3)
+    sample_weight = None
+
     train_and_evaluate_model(
         X_train, y_train, X_test, y_test, model, args.model,
-        args.dataset, is_binary, results_dir=args.results_dir
+        args.dataset, is_binary, results_dir=args.results_dir,
+        sample_weight=sample_weight
     )
 
 
