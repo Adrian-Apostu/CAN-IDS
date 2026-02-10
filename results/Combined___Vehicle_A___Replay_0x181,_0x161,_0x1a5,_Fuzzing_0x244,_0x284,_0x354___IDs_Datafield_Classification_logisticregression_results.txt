@@ -1,24 +1,24 @@
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.8742
-Precision (binary): 0.8729
-Recall (binary): 0.1628
-F1-score (binary): 0.2745
+Accuracy: 0.6626
+Precision (binary): 0.2651
+Recall (binary): 0.7385
+F1-score (binary): 0.3901
 
 Confusion Matrix:
-[[22586    92]
- [ 3249   632]]
+[[14733  7945]
+ [ 1015  2866]]
 
 Detailed Classification Report:
               precision    recall  f1-score   support
 
-           0       0.87      1.00      0.93     22678
-           1       0.87      0.16      0.27      3881
+           0       0.94      0.65      0.77     22678
+           1       0.27      0.74      0.39      3881
 
-    accuracy                           0.87     26559
-   macro avg       0.87      0.58      0.60     26559
-weighted avg       0.87      0.87      0.84     26559
+    accuracy                           0.66     26559
+   macro avg       0.60      0.69      0.58     26559
+weighted avg       0.84      0.66      0.71     26559
 
 
-ROC AUC (binary): 0.7650
+ROC AUC (binary): 0.7658

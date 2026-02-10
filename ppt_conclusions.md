@@ -3,7 +3,7 @@
 ## Model Performance Summary
 
 - **Gradient Boosting**: Accuracy 95.7%, Recall 78.2%, F1 84.3%
-- **Logistic Regression**: Accuracy 90.0%, Recall 29.5%, F1 34.9%
+- **Logistic Regression**: Accuracy 77.2%, Recall 81.8%, F1 51.1%
 - **Random Forest**: Accuracy 96.1%, Recall 88.2%, F1 88.5%
 
 ## Attack Detection Performance
@@ -26,4 +26,4 @@
 
 ---
 
-**Conclusion**: Random Forest achieves 96% average accuracy and 88% average recall, significantly outperforming Logistic Regression (90% accuracy, 30% recall).
+**Conclusion**: Random Forest achieves 96% average accuracy and 88% average recall, significantly outperforming Gradient Boosting (96% accuracy, 78% recall).

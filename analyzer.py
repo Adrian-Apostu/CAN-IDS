@@ -174,7 +174,8 @@ def main():
         model = LogisticRegression(
             random_state=42,
             max_iter=1000,
-            solver='lbfgs'
+            solver='lbfgs',
+            class_weight='balanced'  # FIXED: Handle class imbalance (Step 1.2)
         )
     elif args.model == "SVM":
         # probability=True for ROC AUC, but slow for large datasets
