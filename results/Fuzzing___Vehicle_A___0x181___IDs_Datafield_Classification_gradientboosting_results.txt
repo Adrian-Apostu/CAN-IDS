@@ -1,24 +1,39 @@
 --- GradientBoosting Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
 Classification Type: Binary
+Cross-Validation: 5-Fold Stratified
 Accuracy: 1.0000
+Accuracy Std: 0.0000
 Precision (binary): 1.0000
-Recall (binary): 0.9989
-F1-score (binary): 0.9995
+Precision Std: 0.0000
+Recall (binary): 0.9993
+Recall Std: 0.0009
+F1-score (binary): 0.9997
+F1-score Std: 0.0004
 
 Confusion Matrix:
-[[22658     0]
- [    1   919]]
+[[113288      0]
+ [     3   4595]]
 
-Detailed Classification Report:
+Cross-Validation Note: Confusion matrix is summed across 5 folds.
+
+Detailed Classification Report (aggregated predictions):
               precision    recall  f1-score   support
 
-           0       1.00      1.00      1.00     22658
-           1       1.00      1.00      1.00       920
+           0       1.00      1.00      1.00    113288
+           1       1.00      1.00      1.00      4598
 
-    accuracy                           1.00     23578
-   macro avg       1.00      1.00      1.00     23578
-weighted avg       1.00      1.00      1.00     23578
+    accuracy                           1.00    117886
+   macro avg       1.00      1.00      1.00    117886
+weighted avg       1.00      1.00      1.00    117886
 
+
+Per-Fold Results:
+  Fold 1: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
+  Fold 2: Acc=0.9999  Prec=1.0000  Rec=0.9978  F1=0.9989  AUC=1.0000
+  Fold 3: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
+  Fold 4: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
+  Fold 5: Acc=1.0000  Prec=1.0000  Rec=0.9989  F1=0.9995  AUC=1.0000
 
 ROC AUC (binary): 1.0000
+ROC AUC Std: 0.0000

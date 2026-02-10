@@ -1,24 +1,39 @@
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
+Cross-Validation: 5-Fold Stratified
 Accuracy: 0.9999
-Precision (binary): 1.0000
-Recall (binary): 0.9995
+Accuracy Std: 0.0001
+Precision (binary): 0.9999
+Precision Std: 0.0001
+Recall (binary): 0.9998
+Recall Std: 0.0003
 F1-score (binary): 0.9998
+F1-score Std: 0.0001
 
 Confusion Matrix:
-[[15924     0]
- [    2  4019]]
+[[79619     2]
+ [    5 20098]]
 
-Detailed Classification Report:
+Cross-Validation Note: Confusion matrix is summed across 5 folds.
+
+Detailed Classification Report (aggregated predictions):
               precision    recall  f1-score   support
 
-           0       1.00      1.00      1.00     15924
-           1       1.00      1.00      1.00      4021
+           0       1.00      1.00      1.00     79621
+           1       1.00      1.00      1.00     20103
 
-    accuracy                           1.00     19945
-   macro avg       1.00      1.00      1.00     19945
-weighted avg       1.00      1.00      1.00     19945
+    accuracy                           1.00     99724
+   macro avg       1.00      1.00      1.00     99724
+weighted avg       1.00      1.00      1.00     99724
 
+
+Per-Fold Results:
+  Fold 1: Acc=0.9999  Prec=0.9998  Rec=0.9998  F1=0.9998  AUC=1.0000
+  Fold 2: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
+  Fold 3: Acc=0.9999  Prec=0.9998  Rec=1.0000  F1=0.9999  AUC=1.0000
+  Fold 4: Acc=0.9999  Prec=1.0000  Rec=0.9998  F1=0.9999  AUC=1.0000
+  Fold 5: Acc=0.9998  Prec=1.0000  Rec=0.9993  F1=0.9996  AUC=1.0000
 
 ROC AUC (binary): 1.0000
+ROC AUC Std: 0.0000

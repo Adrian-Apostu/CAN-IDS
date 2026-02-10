@@ -1,24 +1,39 @@
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.9388
-Precision (binary): 0.7667
-Recall (binary): 0.8356
-F1-score (binary): 0.7997
+Cross-Validation: 5-Fold Stratified
+Accuracy: 0.9410
+Accuracy Std: 0.0017
+Precision (binary): 0.7768
+Precision Std: 0.0084
+Recall (binary): 0.8371
+Recall Std: 0.0027
+F1-score (binary): 0.8058
+F1-score Std: 0.0046
 
 Confusion Matrix:
-[[21691   987]
- [  638  3243]]
+[[108718   4669]
+ [  3162  16243]]
 
-Detailed Classification Report:
+Cross-Validation Note: Confusion matrix is summed across 5 folds.
+
+Detailed Classification Report (aggregated predictions):
               precision    recall  f1-score   support
 
-           0       0.97      0.96      0.96     22678
-           1       0.77      0.84      0.80      3881
+           0       0.97      0.96      0.97    113387
+           1       0.78      0.84      0.81     19405
 
-    accuracy                           0.94     26559
-   macro avg       0.87      0.90      0.88     26559
-weighted avg       0.94      0.94      0.94     26559
+    accuracy                           0.94    132792
+   macro avg       0.87      0.90      0.89    132792
+weighted avg       0.94      0.94      0.94    132792
 
 
-ROC AUC (binary): 0.9646
+Per-Fold Results:
+  Fold 1: Acc=0.9417  Prec=0.7779  Rec=0.8413  F1=0.8084  AUC=0.9668
+  Fold 2: Acc=0.9389  Prec=0.7680  Rec=0.8335  F1=0.7995  AUC=0.9643
+  Fold 3: Acc=0.9402  Prec=0.7723  Rec=0.8382  F1=0.8039  AUC=0.9663
+  Fold 4: Acc=0.9439  Prec=0.7924  Rec=0.8348  F1=0.8130  AUC=0.9659
+  Fold 5: Acc=0.9404  Prec=0.7734  Rec=0.8374  F1=0.8042  AUC=0.9640
+
+ROC AUC (binary): 0.9655
+ROC AUC Std: 0.0011

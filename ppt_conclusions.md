@@ -2,9 +2,9 @@
 
 ## Model Performance Summary
 
-- **Gradient Boosting**: Accuracy 95.7%, Recall 78.2%, F1 84.3%
-- **Logistic Regression**: Accuracy 77.2%, Recall 81.8%, F1 51.1%
-- **Random Forest**: Accuracy 96.1%, Recall 88.2%, F1 88.5%
+- **Gradient Boosting**: Accuracy 95.8%, Recall 78.4%, F1 84.5%
+- **Logistic Regression**: Accuracy 77.2%, Recall 81.4%, F1 50.9%
+- **Random Forest**: Accuracy 96.2%, Recall 88.4%, F1 88.6%
 
 ## Attack Detection Performance
 

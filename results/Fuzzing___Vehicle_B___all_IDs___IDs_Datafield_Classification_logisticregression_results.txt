@@ -1,24 +1,39 @@
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
-Accuracy: 0.8898
-Precision (binary): 0.6874
-Recall (binary): 0.8271
-F1-score (binary): 0.7509
+Cross-Validation: 5-Fold Stratified
+Accuracy: 0.8888
+Accuracy Std: 0.0012
+Precision (binary): 0.6878
+Precision Std: 0.0023
+Recall (binary): 0.8176
+Recall Std: 0.0087
+F1-score (binary): 0.7471
+F1-score Std: 0.0037
 
 Confusion Matrix:
-[[10091  1053]
- [  484  2316]]
+[[50522  5197]
+ [ 2554 11447]]
 
-Detailed Classification Report:
+Cross-Validation Note: Confusion matrix is summed across 5 folds.
+
+Detailed Classification Report (aggregated predictions):
               precision    recall  f1-score   support
 
-           0       0.95      0.91      0.93     11144
-           1       0.69      0.83      0.75      2800
+           0       0.95      0.91      0.93     55719
+           1       0.69      0.82      0.75     14001
 
-    accuracy                           0.89     13944
-   macro avg       0.82      0.87      0.84     13944
-weighted avg       0.90      0.89      0.89     13944
+    accuracy                           0.89     69720
+   macro avg       0.82      0.86      0.84     69720
+weighted avg       0.90      0.89      0.89     69720
 
 
-ROC AUC (binary): 0.9199
+Per-Fold Results:
+  Fold 1: Acc=0.8870  Prec=0.6860  Rec=0.8061  F1=0.7412  AUC=0.9116
+  Fold 2: Acc=0.8888  Prec=0.6851  Rec=0.8261  F1=0.7490  AUC=0.9149
+  Fold 3: Acc=0.8888  Prec=0.6906  Rec=0.8082  F1=0.7448  AUC=0.9149
+  Fold 4: Acc=0.8889  Prec=0.6868  Rec=0.8214  F1=0.7481  AUC=0.9157
+  Fold 5: Acc=0.8906  Prec=0.6903  Rec=0.8261  F1=0.7522  AUC=0.9178
+
+ROC AUC (binary): 0.9150
+ROC AUC Std: 0.0020
