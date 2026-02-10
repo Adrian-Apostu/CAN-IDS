@@ -1,0 +1,24 @@
+--- GradientBoosting Results ---
+Dataset: ./Datasets with attacks/Replay/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9986
+Precision (binary): 0.9778
+Recall (binary): 0.9872
+F1-score (binary): 0.9825
+
+Confusion Matrix:
+[[22624    21]
+ [   12   925]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00     22645
+           1       0.98      0.99      0.98       937
+
+    accuracy                           1.00     23582
+   macro avg       0.99      0.99      0.99     23582
+weighted avg       1.00      1.00      1.00     23582
+
+
+ROC AUC (binary): 0.9988

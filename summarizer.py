@@ -35,6 +35,8 @@ def parse_results_file(file_path):
         results['model'] = "logisticregression"
     elif "randomforest" in filename:
         results['model'] = "randomforest"
+    elif "gradientboosting" in filename:
+        results['model'] = "gradientboosting"
     else:
         results['model'] = "unknown"
 
@@ -115,7 +117,12 @@ def generate_comparison_table(all_results):
     for res in sorted_results:
         vehicle = res['vehicle']
         scenario = res['scenario'].capitalize()
-        model = "LogReg" if res['model'] == 'logisticregression' else "RF"
+        model_labels = {
+            'logisticregression': 'LogReg',
+            'randomforest': 'RF',
+            'gradientboosting': 'GB'
+        }
+        model = model_labels.get(res['model'], res['model'].upper())
         acc   = f"{res['accuracy']:.4f}"   if res['accuracy']   is not None else "N/A"
         prec  = f"{res['precision']:.4f}"  if res['precision']  is not None else "N/A"
         rec   = f"{res['recall']:.4f}"     if res['recall']     is not None else "N/A"
@@ -149,7 +156,16 @@ def generate_summary_statistics(all_results):
 
     metrics = ['accuracy', 'precision', 'recall', 'f1_score', 'roc_auc']
 
-    for label, group in [("Logistic Regression", lr_results), ("Random Forest", rf_results)]:
+    all_models = sorted(set(r['model'] for r in all_results if r['model'] != 'unknown'))
+    model_display = {
+        'logisticregression': 'Logistic Regression',
+        'randomforest': 'Random Forest',
+        'gradientboosting': 'Gradient Boosting'
+    }
+
+    for model_key in all_models:
+        group = [r for r in all_results if r['model'] == model_key]
+        label = model_display.get(model_key, model_key.title())
         stats.append(f"#### {label}\n\n")
         stats.append("| Metric | Mean | Std Dev | Min | Max |\n")
         stats.append("|--------|------|---------|-----|-----|\n")
@@ -162,20 +178,16 @@ def generate_summary_statistics(all_results):
                 )
         stats.append("\n")
 
-    stats.append("#### Model Comparison (Improvement: RF vs LR)\n\n")
-    stats.append("| Metric | LR Mean | RF Mean | Absolute Gain | Relative Gain |\n")
-    stats.append("|--------|---------|---------|---------------|---------------|\n")
+    stats.append("#### Model Comparison\n\n")
+    stats.append("| Metric | " + " | ".join(model_display.get(m, m) for m in all_models) + " |\n")
+    stats.append("|--------|" + "|".join(["------"] * len(all_models)) + "|\n")
     for metric in metrics:
-        lr_s = calc_stats(lr_results, metric)
-        rf_s = calc_stats(rf_results, metric)
-        if lr_s and rf_s:
-            abs_gain = rf_s['mean'] - lr_s['mean']
-            rel_gain = (abs_gain / lr_s['mean']) * 100 if lr_s['mean'] > 0 else 0
-            stats.append(
-                f"| {metric.replace('_', ' ').title()} "
-                f"| {lr_s['mean']:.4f} | {rf_s['mean']:.4f} "
-                f"| +{abs_gain:.4f} | +{rel_gain:.1f}% |\n"
-            )
+        row = f"| {metric.replace('_', ' ').title()} |"
+        for model_key in all_models:
+            group = [r for r in all_results if r['model'] == model_key]
+            s = calc_stats(group, metric)
+            row += f" {s['mean']:.4f} |" if s else " N/A |"
+        stats.append(row + "\n")
 
     return "".join(stats)
 
@@ -202,38 +214,34 @@ def generate_ieee_summary(all_results):
             type_results = [r for r in all_results
                             if r['vehicle'] == vehicle and r['scenario'] == attack_type]
 
-            lr_r = [r for r in type_results if r['model'] == 'logisticregression']
-            rf_r = [r for r in type_results if r['model'] == 'randomforest']
+            all_models_here = sorted(set(r['model'] for r in type_results if r['model'] != 'unknown'))
+            model_display_local = {
+                'logisticregression': 'Logistic Regression',
+                'randomforest': 'Random Forest',
+                'gradientboosting': 'Gradient Boosting'
+            }
 
-            if lr_r:
-                lr_acc = np.mean([r['accuracy']  for r in lr_r if r['accuracy']  is not None])
-                lr_rec = np.mean([r['recall']     for r in lr_r if r['recall']    is not None])
-                lr_f1  = np.mean([r['f1_score']   for r in lr_r if r['f1_score']  is not None])
-                summary.append(
-                    f"- **Logistic Regression**: Accuracy: {lr_acc:.4f}, "
-                    f"Recall: {lr_rec:.4f}, F1: {lr_f1:.4f}\n"
-                )
-                if lr_rec < 0.25:
+            for model_key in all_models_here:
+                m_r = [r for r in type_results if r['model'] == model_key]
+                m_label = model_display_local.get(model_key, model_key.title())
+                if m_r:
+                    m_acc = np.mean([r['accuracy']  for r in m_r if r['accuracy']  is not None])
+                    m_rec = np.mean([r['recall']     for r in m_r if r['recall']    is not None])
+                    m_f1  = np.mean([r['f1_score']   for r in m_r if r['f1_score']  is not None])
                     summary.append(
-                        f"  - ⚠️ **CRITICAL**: Recall below 25% — misses majority of attacks!\n"
+                        f"- **{m_label}**: Accuracy: {m_acc:.4f}, "
+                        f"Recall: {m_rec:.4f}, F1: {m_f1:.4f}\n"
                     )
-            else:
-                summary.append("- **Logistic Regression**: No results found\n")
-
-            if rf_r:
-                rf_acc = np.mean([r['accuracy']  for r in rf_r if r['accuracy']  is not None])
-                rf_rec = np.mean([r['recall']     for r in rf_r if r['recall']    is not None])
-                rf_f1  = np.mean([r['f1_score']   for r in rf_r if r['f1_score']  is not None])
-                summary.append(
-                    f"- **Random Forest**: Accuracy: {rf_acc:.4f}, "
-                    f"Recall: {rf_rec:.4f}, F1: {rf_f1:.4f}\n"
-                )
-                if rf_rec < 0.75:
-                    summary.append(
-                        f"  - ⚠️ **Note**: Recall below 75% — room for improvement\n"
-                    )
-            else:
-                summary.append("- **Random Forest**: No results found\n")
+                    if m_rec < 0.25:
+                        summary.append(
+                            f"  - ⚠️ **CRITICAL**: Recall below 25% — misses majority of attacks!\n"
+                        )
+                    elif m_rec < 0.75:
+                        summary.append(
+                            f"  - ⚠️ **Note**: Recall below 75% — room for improvement\n"
+                        )
+                else:
+                    summary.append(f"- **{m_label}**: No results found\n")
 
             summary.append("\n")
 
@@ -289,31 +297,37 @@ def generate_ppt_conclusions(all_results):
     """Generate concise bullet points for presentation slides."""
     conclusions = []
     conclusions.append("# Key Conclusions for CAN Bus Intrusion Detection\n\n")
-    conclusions.append("## Model Performance Summary\n\n")
-
-    lr_results = [r for r in all_results if r['model'] == 'logisticregression']
-    rf_results = [r for r in all_results if r['model'] == 'randomforest']
 
     def mean_metric(results, metric):
         vals = [r[metric] for r in results if r.get(metric) is not None]
         return np.mean(vals) * 100 if vals else 0
 
-    lr_acc = mean_metric(lr_results, 'accuracy')
-    rf_acc = mean_metric(rf_results, 'accuracy')
-    lr_rec = mean_metric(lr_results, 'recall')
-    rf_rec = mean_metric(rf_results, 'recall')
-    lr_f1  = mean_metric(lr_results, 'f1_score')
-    rf_f1  = mean_metric(rf_results, 'f1_score')
+    all_models = sorted(set(r['model'] for r in all_results if r['model'] != 'unknown'))
+    model_display = {
+        'logisticregression': 'Logistic Regression',
+        'randomforest': 'Random Forest',
+        'gradientboosting': 'Gradient Boosting'
+    }
 
-    conclusions.append(
-        f"- **Random Forest (RF) Significantly Outperforms Logistic Regression (LR)**\n"
-        f"  - Average Accuracy: RF {rf_acc:.1f}% vs LR {lr_acc:.1f}% "
-        f"(+{rf_acc - lr_acc:.1f}%)\n"
-        f"  - Average Recall: RF {rf_rec:.1f}% vs LR {lr_rec:.1f}% "
-        f"(+{rf_rec - lr_rec:.1f}%)\n"
-        f"  - Average F1-Score: RF {rf_f1:.1f}% vs LR {lr_f1:.1f}% "
-        f"(+{rf_f1 - lr_f1:.1f}%)\n\n"
-    )
+    # Build per-model stats
+    model_stats = {}
+    for model_key in all_models:
+        group = [r for r in all_results if r['model'] == model_key]
+        model_stats[model_key] = {
+            'acc': mean_metric(group, 'accuracy'),
+            'rec': mean_metric(group, 'recall'),
+            'f1':  mean_metric(group, 'f1_score'),
+            'label': model_display.get(model_key, model_key.title())
+        }
+
+    conclusions.append("## Model Performance Summary\n\n")
+    for model_key in all_models:
+        s = model_stats[model_key]
+        conclusions.append(
+            f"- **{s['label']}**: "
+            f"Accuracy {s['acc']:.1f}%, Recall {s['rec']:.1f}%, F1 {s['f1']:.1f}%\n"
+        )
+    conclusions.append("\n")
 
     conclusions.append("## Attack Detection Performance\n\n")
     conclusions.append("### ✅ Fuzzing Attacks (Easiest)\n")
@@ -324,16 +338,22 @@ def generate_ppt_conclusions(all_results):
     conclusions.append("- Most realistic attack scenario — mix of replay and fuzzing\n\n")
 
     conclusions.append("## Key Takeaways\n\n")
-    conclusions.append("1. **Use Random Forest** with `class_weight='balanced'`\n")
+    conclusions.append("1. **Use ensemble methods** (Random Forest / Gradient Boosting) "
+                       "with `class_weight='balanced'`\n")
     conclusions.append("2. **Avoid Logistic Regression** — fails on replay and combined attacks\n")
     conclusions.append("3. **Recall is critical** — missed attacks are more dangerous than false alarms\n")
     conclusions.append("4. **Attack complexity matters** — combined attacks need special attention\n\n")
 
     conclusions.append("---\n\n")
+    # Best model = highest recall
+    best_key = max(all_models, key=lambda m: model_stats[m]['rec'])
+    worst_key = min(all_models, key=lambda m: model_stats[m]['rec'])
+    best = model_stats[best_key]
+    worst = model_stats[worst_key]
     conclusions.append(
-        f"**Conclusion**: Random Forest achieves {rf_acc:.0f}% average accuracy and "
-        f"{rf_rec:.0f}% average recall, significantly outperforming Logistic Regression "
-        f"({lr_acc:.0f}% accuracy, {lr_rec:.0f}% recall).\n"
+        f"**Conclusion**: {best['label']} achieves {best['acc']:.0f}% average accuracy and "
+        f"{best['rec']:.0f}% average recall, significantly outperforming "
+        f"{worst['label']} ({worst['acc']:.0f}% accuracy, {worst['rec']:.0f}% recall).\n"
     )
 
     return "".join(conclusions)

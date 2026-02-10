@@ -1,0 +1,24 @@
+--- GradientBoosting Results ---
+Dataset: ./Datasets with attacks/Combined/Vehicle C/Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9304
+Precision (binary): 0.9587
+Recall (binary): 0.5531
+F1-score (binary): 0.7015
+
+Confusion Matrix:
+[[15890    66]
+ [ 1237  1531]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.93      1.00      0.96     15956
+           1       0.96      0.55      0.70      2768
+
+    accuracy                           0.93     18724
+   macro avg       0.94      0.77      0.83     18724
+weighted avg       0.93      0.93      0.92     18724
+
+
+ROC AUC (binary): 0.9517

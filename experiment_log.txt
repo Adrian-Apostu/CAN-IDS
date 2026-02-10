@@ -1,5 +1,5 @@
 CAN Bus Intrusion Detection Experiments
-Started: 2026-02-10 21:15:56
+Started: 2026-02-10 21:39:10
 ================================================================================
 
 
@@ -7,7 +7,7 @@ Started: 2026-02-10 21:15:56
 Experiment Set 1/9: Vehicle A - Fuzzing
 Dataset: Vehicle A - 0x181 - IDs_Datafield_Classification.csv
 ================================================================================
-[1/18] Running LogisticRegression...
+[1/27] Running LogisticRegression...
 ✓ Success
 Loading data from ./Datasets with attacks/Fuzzing/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv...
 Original dataset shape: (1178862, 14)
@@ -56,7 +56,7 @@ ROC AUC (binary): 0.9969
 
 
 --------------------------------------------------------------------------------
-[2/18] Running RandomForest...
+[2/27] Running RandomForest...
 ✓ Success
 Loading data from ./Datasets with attacks/Fuzzing/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv...
 Original dataset shape: (1178862, 14)
@@ -105,12 +105,61 @@ ROC AUC (binary): 1.0000
 
 
 --------------------------------------------------------------------------------
+[3/27] Running GradientBoosting...
+✓ Success
+Loading data from ./Datasets with attacks/Fuzzing/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv...
+Original dataset shape: (1178862, 14)
+Sampled 10.0% of the dataset. New shape: (117886, 14)
+
+Class distribution:
+13
+0    113288
+1      4598
+Name: count, dtype: int64
+Class balance: 13
+0    0.960996
+1    0.039004
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training GradientBoosting...
+--- GradientBoosting Results ---
+Dataset: ./Datasets with attacks/Fuzzing/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 1.0000
+Precision (binary): 1.0000
+Recall (binary): 0.9989
+F1-score (binary): 0.9995
+
+Confusion Matrix:
+[[22658     0]
+ [    1   919]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00     22658
+           1       1.00      1.00      1.00       920
+
+    accuracy                           1.00     23578
+   macro avg       1.00      1.00      1.00     23578
+weighted avg       1.00      1.00      1.00     23578
+
+
+Results saved to results/Fuzzing___Vehicle_A___0x181___IDs_Datafield_Classification_gradientboosting_results.txt
+
+ROC AUC (binary): 1.0000
+
+
+--------------------------------------------------------------------------------
 
 ================================================================================
 Experiment Set 2/9: Vehicle B - Fuzzing
 Dataset: Vehicle B - all IDs - IDs_Datafield_Classification.csv
 ================================================================================
-[3/18] Running LogisticRegression...
+[4/27] Running LogisticRegression...
 ✓ Success
 Loading data from ./Datasets with attacks/Fuzzing/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv...
 Original dataset shape: (697197, 14)
@@ -159,7 +208,7 @@ ROC AUC (binary): 0.9077
 
 
 --------------------------------------------------------------------------------
-[4/18] Running RandomForest...
+[5/27] Running RandomForest...
 ✓ Success
 Loading data from ./Datasets with attacks/Fuzzing/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv...
 Original dataset shape: (697197, 14)
@@ -208,12 +257,61 @@ ROC AUC (binary): 1.0000
 
 
 --------------------------------------------------------------------------------
+[6/27] Running GradientBoosting...
+✓ Success
+Loading data from ./Datasets with attacks/Fuzzing/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv...
+Original dataset shape: (697197, 14)
+Sampled 10.0% of the dataset. New shape: (69720, 14)
+
+Class distribution:
+13
+0    55719
+1    14001
+Name: count, dtype: int64
+Class balance: 13
+0    0.799182
+1    0.200818
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training GradientBoosting...
+--- GradientBoosting Results ---
+Dataset: ./Datasets with attacks/Fuzzing/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9991
+Precision (binary): 0.9989
+Recall (binary): 0.9968
+F1-score (binary): 0.9979
+
+Confusion Matrix:
+[[11141     3]
+ [    9  2791]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00     11144
+           1       1.00      1.00      1.00      2800
+
+    accuracy                           1.00     13944
+   macro avg       1.00      1.00      1.00     13944
+weighted avg       1.00      1.00      1.00     13944
+
+
+Results saved to results/Fuzzing___Vehicle_B___all_IDs___IDs_Datafield_Classification_gradientboosting_results.txt
+
+ROC AUC (binary): 1.0000
+
+
+--------------------------------------------------------------------------------
 
 ================================================================================
 Experiment Set 3/9: Vehicle C - Fuzzing
 Dataset: Vehicle C - all IDs - IDs_Datafield_Classification.csv
 ================================================================================
-[5/18] Running LogisticRegression...
+[7/27] Running LogisticRegression...
 ✓ Success
 Loading data from ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv...
 Original dataset shape: (997245, 14)
@@ -262,7 +360,7 @@ ROC AUC (binary): 0.9033
 
 
 --------------------------------------------------------------------------------
-[6/18] Running RandomForest...
+[8/27] Running RandomForest...
 ✓ Success
 Loading data from ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv...
 Original dataset shape: (997245, 14)
@@ -311,12 +409,61 @@ ROC AUC (binary): 1.0000
 
 
 --------------------------------------------------------------------------------
+[9/27] Running GradientBoosting...
+✓ Success
+Loading data from ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv...
+Original dataset shape: (997245, 14)
+Sampled 10.0% of the dataset. New shape: (99724, 14)
+
+Class distribution:
+13
+0    79621
+1    20103
+Name: count, dtype: int64
+Class balance: 13
+0    0.798414
+1    0.201586
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training GradientBoosting...
+--- GradientBoosting Results ---
+Dataset: ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9990
+Precision (binary): 1.0000
+Recall (binary): 0.9950
+F1-score (binary): 0.9975
+
+Confusion Matrix:
+[[15924     0]
+ [   20  4001]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00     15924
+           1       1.00      1.00      1.00      4021
+
+    accuracy                           1.00     19945
+   macro avg       1.00      1.00      1.00     19945
+weighted avg       1.00      1.00      1.00     19945
+
+
+Results saved to results/Fuzzing___Vehicle_C___all_IDs___IDs_Datafield_Classification_gradientboosting_results.txt
+
+ROC AUC (binary): 1.0000
+
+
+--------------------------------------------------------------------------------
 
 ================================================================================
 Experiment Set 4/9: Vehicle A - Replay
 Dataset: Vehicle A - 0x181 - IDs_Datafield_Classification.csv
 ================================================================================
-[7/18] Running LogisticRegression...
+[10/27] Running LogisticRegression...
 ✓ Success
 Loading data from ./Datasets with attacks/Replay/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv...
 Original dataset shape: (1179069, 14)
@@ -365,7 +512,7 @@ ROC AUC (binary): 0.9665
 
 
 --------------------------------------------------------------------------------
-[8/18] Running RandomForest...
+[11/27] Running RandomForest...
 ✓ Success
 Loading data from ./Datasets with attacks/Replay/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv...
 Original dataset shape: (1179069, 14)
@@ -414,12 +561,61 @@ ROC AUC (binary): 0.9954
 
 
 --------------------------------------------------------------------------------
+[12/27] Running GradientBoosting...
+✓ Success
+Loading data from ./Datasets with attacks/Replay/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv...
+Original dataset shape: (1179069, 14)
+Sampled 10.0% of the dataset. New shape: (117907, 14)
+
+Class distribution:
+13
+0    113221
+1      4686
+Name: count, dtype: int64
+Class balance: 13
+0    0.960257
+1    0.039743
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training GradientBoosting...
+--- GradientBoosting Results ---
+Dataset: ./Datasets with attacks/Replay/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9986
+Precision (binary): 0.9778
+Recall (binary): 0.9872
+F1-score (binary): 0.9825
+
+Confusion Matrix:
+[[22624    21]
+ [   12   925]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00     22645
+           1       0.98      0.99      0.98       937
+
+    accuracy                           1.00     23582
+   macro avg       0.99      0.99      0.99     23582
+weighted avg       1.00      1.00      1.00     23582
+
+
+Results saved to results/Replay___Vehicle_A___0x181___IDs_Datafield_Classification_gradientboosting_results.txt
+
+ROC AUC (binary): 0.9988
+
+
+--------------------------------------------------------------------------------
 
 ================================================================================
 Experiment Set 5/9: Vehicle B - Replay
 Dataset: Vehicle B - all IDs - IDs_Datafield_Classification.csv
 ================================================================================
-[9/18] Running LogisticRegression...
+[13/27] Running LogisticRegression...
 ✓ Success
 Loading data from ./Datasets with attacks/Replay/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv...
 Original dataset shape: (696755, 14)
@@ -468,7 +664,7 @@ ROC AUC (binary): 0.6033
 
 
 --------------------------------------------------------------------------------
-[10/18] Running RandomForest...
+[14/27] Running RandomForest...
 ✓ Success
 Loading data from ./Datasets with attacks/Replay/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv...
 Original dataset shape: (696755, 14)
@@ -517,12 +713,61 @@ ROC AUC (binary): 0.9017
 
 
 --------------------------------------------------------------------------------
+[15/27] Running GradientBoosting...
+✓ Success
+Loading data from ./Datasets with attacks/Replay/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv...
+Original dataset shape: (696755, 14)
+Sampled 10.0% of the dataset. New shape: (69676, 14)
+
+Class distribution:
+13
+0    55808
+1    13868
+Name: count, dtype: int64
+Class balance: 13
+0    0.800964
+1    0.199036
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training GradientBoosting...
+--- GradientBoosting Results ---
+Dataset: ./Datasets with attacks/Replay/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.8673
+Precision (binary): 0.8506
+Recall (binary): 0.4045
+F1-score (binary): 0.5483
+
+Confusion Matrix:
+[[10965   197]
+ [ 1652  1122]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.87      0.98      0.92     11162
+           1       0.85      0.40      0.55      2774
+
+    accuracy                           0.87     13936
+   macro avg       0.86      0.69      0.74     13936
+weighted avg       0.87      0.87      0.85     13936
+
+
+Results saved to results/Replay___Vehicle_B___all_IDs___IDs_Datafield_Classification_gradientboosting_results.txt
+
+ROC AUC (binary): 0.8782
+
+
+--------------------------------------------------------------------------------
 
 ================================================================================
 Experiment Set 6/9: Vehicle C - Replay
 Dataset: Vehicle C - all IDs - IDs_Datafield_Classification.csv
 ================================================================================
-[11/18] Running LogisticRegression...
+[16/27] Running LogisticRegression...
 ✓ Success
 Loading data from ./Datasets with attacks/Replay/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv...
 Original dataset shape: (997245, 14)
@@ -571,7 +816,7 @@ ROC AUC (binary): 0.6052
 
 
 --------------------------------------------------------------------------------
-[12/18] Running RandomForest...
+[17/27] Running RandomForest...
 ✓ Success
 Loading data from ./Datasets with attacks/Replay/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv...
 Original dataset shape: (997245, 14)
@@ -620,12 +865,61 @@ ROC AUC (binary): 0.9048
 
 
 --------------------------------------------------------------------------------
+[18/27] Running GradientBoosting...
+✓ Success
+Loading data from ./Datasets with attacks/Replay/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv...
+Original dataset shape: (997245, 14)
+Sampled 10.0% of the dataset. New shape: (99724, 14)
+
+Class distribution:
+13
+0    79708
+1    20016
+Name: count, dtype: int64
+Class balance: 13
+0    0.799286
+1    0.200714
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training GradientBoosting...
+--- GradientBoosting Results ---
+Dataset: ./Datasets with attacks/Replay/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.8720
+Precision (binary): 0.8655
+Recall (binary): 0.4292
+F1-score (binary): 0.5738
+
+Confusion Matrix:
+[[15675   267]
+ [ 2285  1718]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.87      0.98      0.92     15942
+           1       0.87      0.43      0.57      4003
+
+    accuracy                           0.87     19945
+   macro avg       0.87      0.71      0.75     19945
+weighted avg       0.87      0.87      0.85     19945
+
+
+Results saved to results/Replay___Vehicle_C___all_IDs___IDs_Datafield_Classification_gradientboosting_results.txt
+
+ROC AUC (binary): 0.8837
+
+
+--------------------------------------------------------------------------------
 
 ================================================================================
 Experiment Set 7/9: Vehicle A - Combined
 Dataset: Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
 ================================================================================
-[13/18] Running LogisticRegression...
+[19/27] Running LogisticRegression...
 ✓ Success
 Loading data from ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv...
 Original dataset shape: (1327919, 14)
@@ -674,7 +968,7 @@ ROC AUC (binary): 0.7650
 
 
 --------------------------------------------------------------------------------
-[14/18] Running RandomForest...
+[20/27] Running RandomForest...
 ✓ Success
 Loading data from ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv...
 Original dataset shape: (1327919, 14)
@@ -723,12 +1017,61 @@ ROC AUC (binary): 0.9645
 
 
 --------------------------------------------------------------------------------
+[21/27] Running GradientBoosting...
+✓ Success
+Loading data from ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv...
+Original dataset shape: (1327919, 14)
+Sampled 10.0% of the dataset. New shape: (132792, 14)
+
+Class distribution:
+13
+0    113387
+1     19405
+Name: count, dtype: int64
+Class balance: 13
+0    0.853869
+1    0.146131
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training GradientBoosting...
+--- GradientBoosting Results ---
+Dataset: ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9507
+Precision (binary): 0.9693
+Recall (binary): 0.6841
+F1-score (binary): 0.8021
+
+Confusion Matrix:
+[[22594    84]
+ [ 1226  2655]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.95      1.00      0.97     22678
+           1       0.97      0.68      0.80      3881
+
+    accuracy                           0.95     26559
+   macro avg       0.96      0.84      0.89     26559
+weighted avg       0.95      0.95      0.95     26559
+
+
+Results saved to results/Combined___Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_gradientboosting_results.txt
+
+ROC AUC (binary): 0.9684
+
+
+--------------------------------------------------------------------------------
 
 ================================================================================
 Experiment Set 8/9: Vehicle B - Combined
 Dataset: Vehicle B - Replay 0x181 - IDs_Datafield_Classification.csv
 ================================================================================
-[15/18] Running LogisticRegression...
+[22/27] Running LogisticRegression...
 ✓ Success
 Loading data from ./Datasets with attacks/Combined/Vehicle B/Vehicle B - Replay 0x181 - IDs_Datafield_Classification.csv...
 Original dataset shape: (579957, 14)
@@ -777,7 +1120,7 @@ ROC AUC (binary): 0.9494
 
 
 --------------------------------------------------------------------------------
-[16/18] Running RandomForest...
+[23/27] Running RandomForest...
 ✓ Success
 Loading data from ./Datasets with attacks/Combined/Vehicle B/Vehicle B - Replay 0x181 - IDs_Datafield_Classification.csv...
 Original dataset shape: (579957, 14)
@@ -826,12 +1169,61 @@ ROC AUC (binary): 0.9942
 
 
 --------------------------------------------------------------------------------
+[24/27] Running GradientBoosting...
+✓ Success
+Loading data from ./Datasets with attacks/Combined/Vehicle B/Vehicle B - Replay 0x181 - IDs_Datafield_Classification.csv...
+Original dataset shape: (579957, 14)
+Sampled 10.0% of the dataset. New shape: (57996, 14)
+
+Class distribution:
+13
+0    55658
+1     2338
+Name: count, dtype: int64
+Class balance: 13
+0    0.959687
+1    0.040313
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training GradientBoosting...
+--- GradientBoosting Results ---
+Dataset: ./Datasets with attacks/Combined/Vehicle B/Vehicle B - Replay 0x181 - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9984
+Precision (binary): 0.9726
+Recall (binary): 0.9872
+F1-score (binary): 0.9799
+
+Confusion Matrix:
+[[11119    13]
+ [    6   462]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00     11132
+           1       0.97      0.99      0.98       468
+
+    accuracy                           1.00     11600
+   macro avg       0.99      0.99      0.99     11600
+weighted avg       1.00      1.00      1.00     11600
+
+
+Results saved to results/Combined___Vehicle_B___Replay_0x181___IDs_Datafield_Classification_gradientboosting_results.txt
+
+ROC AUC (binary): 0.9982
+
+
+--------------------------------------------------------------------------------
 
 ================================================================================
 Experiment Set 9/9: Vehicle C - Combined
 Dataset: Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
 ================================================================================
-[17/18] Running LogisticRegression...
+[25/27] Running LogisticRegression...
 ✓ Success
 Loading data from ./Datasets with attacks/Combined/Vehicle C/Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv...
 Original dataset shape: (936187, 14)
@@ -880,7 +1272,7 @@ ROC AUC (binary): 0.7902
 
 
 --------------------------------------------------------------------------------
-[18/18] Running RandomForest...
+[26/27] Running RandomForest...
 ✓ Success
 Loading data from ./Datasets with attacks/Combined/Vehicle C/Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv...
 Original dataset shape: (936187, 14)
@@ -929,12 +1321,61 @@ ROC AUC (binary): 0.9476
 
 
 --------------------------------------------------------------------------------
+[27/27] Running GradientBoosting...
+✓ Success
+Loading data from ./Datasets with attacks/Combined/Vehicle C/Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv...
+Original dataset shape: (936187, 14)
+Sampled 10.0% of the dataset. New shape: (93619, 14)
+
+Class distribution:
+13
+0    79778
+1    13841
+Name: count, dtype: int64
+Class balance: 13
+0    0.852156
+1    0.147844
+Name: proportion, dtype: float64
+
+Number of classes: 2
+Data loaded and preprocessed.
+
+Training GradientBoosting...
+--- GradientBoosting Results ---
+Dataset: ./Datasets with attacks/Combined/Vehicle C/Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
+Classification Type: Binary
+Accuracy: 0.9304
+Precision (binary): 0.9587
+Recall (binary): 0.5531
+F1-score (binary): 0.7015
+
+Confusion Matrix:
+[[15890    66]
+ [ 1237  1531]]
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.93      1.00      0.96     15956
+           1       0.96      0.55      0.70      2768
+
+    accuracy                           0.93     18724
+   macro avg       0.94      0.77      0.83     18724
+weighted avg       0.93      0.93      0.92     18724
+
+
+Results saved to results/Combined___Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_gradientboosting_results.txt
+
+ROC AUC (binary): 0.9517
+
+
+--------------------------------------------------------------------------------
 
 ================================================================================
 EXPERIMENT SUMMARY
 ================================================================================
-Total experiments: 18
-Completed: 18
+Total experiments: 27
+Completed: 27
 Failed: 0
 Success rate: 100.0%
-Finished: 2026-02-10 21:16:49
+Finished: 2026-02-10 21:40:57

@@ -20,19 +20,19 @@ def run_analysis_pipeline(output_log="experiment_log.txt"):
 
     selected_experiments = [
         # --- Experiment 1: Fuzzing Detection on all vehicles ---
-        {"vehicle": "Vehicle A", "scenario": "fuzzing", "index": 0, "models": ["LogisticRegression", "RandomForest"]},
-        {"vehicle": "Vehicle B", "scenario": "fuzzing", "index": 0, "models": ["LogisticRegression", "RandomForest"]},
-        {"vehicle": "Vehicle C", "scenario": "fuzzing", "index": 0, "models": ["LogisticRegression", "RandomForest"]},
+        {"vehicle": "Vehicle A", "scenario": "fuzzing", "index": 0, "models": ["LogisticRegression", "RandomForest", "GradientBoosting"]},
+        {"vehicle": "Vehicle B", "scenario": "fuzzing", "index": 0, "models": ["LogisticRegression", "RandomForest", "GradientBoosting"]},
+        {"vehicle": "Vehicle C", "scenario": "fuzzing", "index": 0, "models": ["LogisticRegression", "RandomForest", "GradientBoosting"]},
 
         # --- Experiment 2: Replay Detection on all vehicles ---
-        {"vehicle": "Vehicle A", "scenario": "replay", "index": 0, "models": ["LogisticRegression", "RandomForest"]},
-        {"vehicle": "Vehicle B", "scenario": "replay", "index": 0, "models": ["LogisticRegression", "RandomForest"]},
-        {"vehicle": "Vehicle C", "scenario": "replay", "index": 0, "models": ["LogisticRegression", "RandomForest"]},
+        {"vehicle": "Vehicle A", "scenario": "replay", "index": 0, "models": ["LogisticRegression", "RandomForest", "GradientBoosting"]},
+        {"vehicle": "Vehicle B", "scenario": "replay", "index": 0, "models": ["LogisticRegression", "RandomForest", "GradientBoosting"]},
+        {"vehicle": "Vehicle C", "scenario": "replay", "index": 0, "models": ["LogisticRegression", "RandomForest", "GradientBoosting"]},
 
         # --- Experiment 3: Combined Attack Detection on all vehicles ---
-        {"vehicle": "Vehicle A", "scenario": "combined", "index": 0, "models": ["LogisticRegression", "RandomForest"]},
-        {"vehicle": "Vehicle B", "scenario": "combined", "index": 0, "models": ["LogisticRegression", "RandomForest"]},
-        {"vehicle": "Vehicle C", "scenario": "combined", "index": 0, "models": ["LogisticRegression", "RandomForest"]}
+        {"vehicle": "Vehicle A", "scenario": "combined", "index": 0, "models": ["LogisticRegression", "RandomForest", "GradientBoosting"]},
+        {"vehicle": "Vehicle B", "scenario": "combined", "index": 0, "models": ["LogisticRegression", "RandomForest", "GradientBoosting"]},
+        {"vehicle": "Vehicle C", "scenario": "combined", "index": 0, "models": ["LogisticRegression", "RandomForest", "GradientBoosting"]}
     ]
 
     total_experiments = sum(len(exp["models"]) for exp in selected_experiments)
