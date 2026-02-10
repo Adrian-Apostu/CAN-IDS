@@ -11,48 +11,48 @@ This document summarizes the experimental results for CAN bus intrusion detectio
 
 | Metric | Mean | Std Dev | Min | Max |
 |--------|------|---------|-----|-----|
-| Accuracy | 0.8759 | 0.0666 | 0.7950 | 0.9629 |
-| Precision | 0.4458 | 0.3528 | 0.0000 | 0.8000 |
-| Recall | 0.0784 | 0.0738 | 0.0000 | 0.2022 |
-| F1 Score | 0.1313 | 0.1190 | 0.0000 | 0.3209 |
-| Roc Auc | 0.7721 | 0.1473 | 0.5803 | 0.9624 |
+| Accuracy | 0.8779 | 0.0649 | 0.7993 | 0.9603 |
+| Precision | 0.4198 | 0.3995 | 0.0000 | 0.8855 |
+| Recall | 0.0634 | 0.0769 | 0.0000 | 0.1788 |
+| F1 Score | 0.1075 | 0.1281 | 0.0000 | 0.2976 |
+| Roc Auc | 0.7799 | 0.1447 | 0.6033 | 0.9665 |
 
 #### Random Forest
 
 | Metric | Mean | Std Dev | Min | Max |
 |--------|------|---------|-----|-----|
-| Accuracy | 0.9340 | 0.0485 | 0.8795 | 0.9987 |
-| Precision | 0.8356 | 0.0984 | 0.7479 | 0.9894 |
-| Recall | 0.7548 | 0.1705 | 0.5468 | 0.9789 |
-| F1 Score | 0.7896 | 0.1363 | 0.6441 | 0.9841 |
-| Roc Auc | 0.9372 | 0.0484 | 0.8782 | 0.9989 |
+| Accuracy | 0.9422 | 0.0424 | 0.8966 | 0.9986 |
+| Precision | 0.8333 | 0.1025 | 0.7303 | 0.9788 |
+| Recall | 0.8234 | 0.1262 | 0.6748 | 0.9872 |
+| F1 Score | 0.8271 | 0.1119 | 0.7231 | 0.9830 |
+| Roc Auc | 0.9514 | 0.0378 | 0.9017 | 0.9954 |
 
 #### Model Comparison (Improvement: RF vs LR)
 
 | Metric | LR Mean | RF Mean | Absolute Gain | Relative Gain |
 |--------|---------|---------|---------------|---------------|
-| Accuracy | 0.8759 | 0.9340 | +0.0582 | +6.6% |
-| Precision | 0.4458 | 0.8356 | +0.3898 | +87.4% |
-| Recall | 0.0784 | 0.7548 | +0.6764 | +863.1% |
-| F1 Score | 0.1313 | 0.7896 | +0.6583 | +501.5% |
-| Roc Auc | 0.7721 | 0.9372 | +0.1651 | +21.4% |
+| Accuracy | 0.8779 | 0.9422 | +0.0643 | +7.3% |
+| Precision | 0.4198 | 0.8333 | +0.4135 | +98.5% |
+| Recall | 0.0634 | 0.8234 | +0.7601 | +1199.8% |
+| F1 Score | 0.1075 | 0.8271 | +0.7196 | +669.3% |
+| Roc Auc | 0.7799 | 0.9514 | +0.1714 | +22.0% |
 
 ### Detailed Performance Comparison Table
 
 | Vehicle | Scenario | Model | Accuracy | Precision | Recall | F1-Score | ROC AUC |
 |---------|----------|-------|----------|-----------|--------|----------|----------|
-| Vehicle A | Combined | LogReg | 0.8652 | 0.7639 | 0.1389 | 0.2350 | 0.7627 |
-| Vehicle A | Combined | RF | 0.9292 | 0.7640 | 0.7601 | 0.7620 | 0.9503 |
-| Vehicle A | Replay | LogReg | 0.9580 | 0.3333 | 0.0421 | 0.0748 | 0.9624 |
-| Vehicle A | Replay | RF | 0.9987 | 0.9894 | 0.9789 | 0.9841 | 0.9940 |
-| Vehicle B | Combined | LogReg | 0.9629 | 0.8000 | 0.0870 | 0.1569 | 0.9316 |
-| Vehicle B | Combined | RF | 0.9974 | 0.9574 | 0.9783 | 0.9677 | 0.9989 |
-| Vehicle B | Replay | LogReg | 0.8006 | 0.0000 | 0.0000 | 0.0000 | 0.5803 |
-| Vehicle B | Replay | RF | 0.8795 | 0.7835 | 0.5468 | 0.6441 | 0.8782 |
-| Vehicle C | Combined | LogReg | 0.8735 | 0.7778 | 0.2022 | 0.3209 | 0.7993 |
-| Vehicle C | Combined | RF | 0.9162 | 0.7479 | 0.6534 | 0.6975 | 0.9203 |
-| Vehicle C | Replay | LogReg | 0.7950 | 0.0000 | 0.0000 | 0.0000 | 0.5964 |
-| Vehicle C | Replay | RF | 0.8832 | 0.7716 | 0.6112 | 0.6821 | 0.8816 |
+| Vehicle A | Combined | LogReg | 0.8742 | 0.8717 | 0.1628 | 0.2744 | 0.7650 |
+| Vehicle A | Combined | RF | 0.9392 | 0.7687 | 0.8351 | 0.8005 | 0.9645 |
+| Vehicle A | Replay | LogReg | 0.9576 | 0.0800 | 0.0064 | 0.0119 | 0.9665 |
+| Vehicle A | Replay | RF | 0.9986 | 0.9788 | 0.9872 | 0.9830 | 0.9954 |
+| Vehicle B | Combined | LogReg | 0.9603 | 0.6818 | 0.0321 | 0.0612 | 0.9494 |
+| Vehicle B | Combined | RF | 0.9984 | 0.9746 | 0.9850 | 0.9798 | 0.9942 |
+| Vehicle B | Replay | LogReg | 0.8009 | 0.0000 | 0.0000 | 0.0000 | 0.6033 |
+| Vehicle B | Replay | RF | 0.8971 | 0.7787 | 0.6748 | 0.7231 | 0.9017 |
+| Vehicle C | Combined | LogReg | 0.8752 | 0.8855 | 0.1788 | 0.2976 | 0.7902 |
+| Vehicle C | Combined | RF | 0.9235 | 0.7303 | 0.7652 | 0.7474 | 0.9476 |
+| Vehicle C | Replay | LogReg | 0.7993 | 0.0000 | 0.0000 | 0.0000 | 0.6052 |
+| Vehicle C | Replay | RF | 0.8966 | 0.7689 | 0.6932 | 0.7291 | 0.9048 |
 
 ## Analysis by Attack Type
 
@@ -77,52 +77,51 @@ This document summarizes the experimental results for CAN bus intrusion detectio
 
 #### Vehicle A
 
-- **Logistic Regression**: Accuracy: 0.9580, Recall: 0.0421, F1: 0.0748
+- **Logistic Regression**: Accuracy: 0.9576, Recall: 0.0064, F1: 0.0119
   - ⚠️ **CRITICAL**: Recall below 25% — misses majority of attacks!
-- **Random Forest**: Accuracy: 0.9987, Recall: 0.9789, F1: 0.9841
+- **Random Forest**: Accuracy: 0.9986, Recall: 0.9872, F1: 0.9830
 
 #### Vehicle B
 
-- **Logistic Regression**: Accuracy: 0.8006, Recall: 0.0000, F1: 0.0000
+- **Logistic Regression**: Accuracy: 0.8009, Recall: 0.0000, F1: 0.0000
   - ⚠️ **CRITICAL**: Recall below 25% — misses majority of attacks!
-- **Random Forest**: Accuracy: 0.8795, Recall: 0.5468, F1: 0.6441
+- **Random Forest**: Accuracy: 0.8971, Recall: 0.6748, F1: 0.7231
   - ⚠️ **Note**: Recall below 75% — room for improvement
 
 #### Vehicle C
 
-- **Logistic Regression**: Accuracy: 0.7950, Recall: 0.0000, F1: 0.0000
+- **Logistic Regression**: Accuracy: 0.7993, Recall: 0.0000, F1: 0.0000
   - ⚠️ **CRITICAL**: Recall below 25% — misses majority of attacks!
-- **Random Forest**: Accuracy: 0.8832, Recall: 0.6112, F1: 0.6821
+- **Random Forest**: Accuracy: 0.8966, Recall: 0.6932, F1: 0.7291
   - ⚠️ **Note**: Recall below 75% — room for improvement
 
 ### Effectiveness Against Combined Attacks
 
 #### Vehicle A
 
-- **Logistic Regression**: Accuracy: 0.8652, Recall: 0.1389, F1: 0.2350
+- **Logistic Regression**: Accuracy: 0.8742, Recall: 0.1628, F1: 0.2744
   - ⚠️ **CRITICAL**: Recall below 25% — misses majority of attacks!
-- **Random Forest**: Accuracy: 0.9292, Recall: 0.7601, F1: 0.7620
+- **Random Forest**: Accuracy: 0.9392, Recall: 0.8351, F1: 0.8005
 
 #### Vehicle B
 
-- **Logistic Regression**: Accuracy: 0.9629, Recall: 0.0870, F1: 0.1569
+- **Logistic Regression**: Accuracy: 0.9603, Recall: 0.0321, F1: 0.0612
   - ⚠️ **CRITICAL**: Recall below 25% — misses majority of attacks!
-- **Random Forest**: Accuracy: 0.9974, Recall: 0.9783, F1: 0.9677
+- **Random Forest**: Accuracy: 0.9984, Recall: 0.9850, F1: 0.9798
 
 #### Vehicle C
 
-- **Logistic Regression**: Accuracy: 0.8735, Recall: 0.2022, F1: 0.3209
+- **Logistic Regression**: Accuracy: 0.8752, Recall: 0.1788, F1: 0.2976
   - ⚠️ **CRITICAL**: Recall below 25% — misses majority of attacks!
-- **Random Forest**: Accuracy: 0.9162, Recall: 0.6534, F1: 0.6975
-  - ⚠️ **Note**: Recall below 75% — room for improvement
+- **Random Forest**: Accuracy: 0.9235, Recall: 0.7652, F1: 0.7474
 
 ## Cross-Vehicle Analysis
 
 ### Vehicle-Specific Patterns
 
-**Vehicle A** (Random Forest): Average Accuracy: 0.9640, Average Recall: 0.8695
-**Vehicle B** (Random Forest): Average Accuracy: 0.9385, Average Recall: 0.7625
-**Vehicle C** (Random Forest): Average Accuracy: 0.8997, Average Recall: 0.6323
+**Vehicle A** (Random Forest): Average Accuracy: 0.9689, Average Recall: 0.9111
+**Vehicle B** (Random Forest): Average Accuracy: 0.9477, Average Recall: 0.8299
+**Vehicle C** (Random Forest): Average Accuracy: 0.9101, Average Recall: 0.7292
 
 While performance varies across vehicles, the general trends remain consistent: Random Forest significantly outperforms Logistic Regression, and attack complexity (Fuzzing < Replay < Combined) correlates with detection difficulty.
 
