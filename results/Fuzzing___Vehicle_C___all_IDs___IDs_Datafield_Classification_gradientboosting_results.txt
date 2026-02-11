@@ -2,54 +2,54 @@
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
 Cross-Validation: 5-Fold Stratified
-Accuracy: 0.9992
-Accuracy Std: 0.0002
-Precision (binary): 1.0000
-Precision Std: 0.0000
-Recall (binary): 0.9963
-Recall Std: 0.0009
-F1-score (binary): 0.9981
-F1-score Std: 0.0004
-Training Time (per fold): 5.99s +/- 0.02s
-Training Time (total CV): 29.97s
+Accuracy: 0.9991
+Accuracy Std: 0.0001
+Precision (binary): 0.9999
+Precision Std: 0.0001
+Recall (binary): 0.9956
+Recall Std: 0.0005
+F1-score (binary): 0.9978
+F1-score Std: 0.0002
+Training Time (per fold): 12.46s +/- 0.18s
+Training Time (total CV): 62.28s
 
 Confusion Matrix:
-[[79621     0]
- [   75 20028]]
+[[159395      2]
+ [   177  39875]]
 
 Cross-Validation Note: Confusion matrix is summed across 5 folds.
 
 Detailed Classification Report (aggregated predictions):
               precision    recall  f1-score   support
 
-           0       1.00      1.00      1.00     79621
-           1       1.00      1.00      1.00     20103
+           0       1.00      1.00      1.00    159397
+           1       1.00      1.00      1.00     40052
 
-    accuracy                           1.00     99724
-   macro avg       1.00      1.00      1.00     99724
-weighted avg       1.00      1.00      1.00     99724
+    accuracy                           1.00    199449
+   macro avg       1.00      1.00      1.00    199449
+weighted avg       1.00      1.00      1.00    199449
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.9996  Prec=1.0000  Rec=0.9980  F1=0.9990  AUC=1.0000  Time=6.03s
-  Fold 2: Acc=0.9992  Prec=1.0000  Rec=0.9960  F1=0.9980  AUC=1.0000  Time=6.00s
-  Fold 3: Acc=0.9991  Prec=1.0000  Rec=0.9955  F1=0.9978  AUC=1.0000  Time=5.97s
-  Fold 4: Acc=0.9991  Prec=1.0000  Rec=0.9958  F1=0.9979  AUC=1.0000  Time=5.98s
-  Fold 5: Acc=0.9992  Prec=1.0000  Rec=0.9960  F1=0.9980  AUC=1.0000  Time=5.99s
+  Fold 1: Acc=0.9993  Prec=1.0000  Rec=0.9964  F1=0.9982  AUC=1.0000  Time=12.71s
+  Fold 2: Acc=0.9990  Prec=1.0000  Rec=0.9951  F1=0.9976  AUC=1.0000  Time=12.53s
+  Fold 3: Acc=0.9990  Prec=0.9997  Rec=0.9955  F1=0.9976  AUC=1.0000  Time=12.38s
+  Fold 4: Acc=0.9990  Prec=1.0000  Rec=0.9951  F1=0.9976  AUC=1.0000  Time=12.49s
+  Fold 5: Acc=0.9991  Prec=1.0000  Rec=0.9958  F1=0.9979  AUC=1.0000  Time=12.18s
 
 Feature Importance (mean across folds):
-  Data_2         : 0.2828 +/- 0.0043
-  Data_4         : 0.2048 +/- 0.0276
-  Data_0         : 0.1363 +/- 0.0126
-  Data_7         : 0.0882 +/- 0.0084
-  Data_5         : 0.0871 +/- 0.0125
-  Data_6         : 0.0685 +/- 0.0088
-  Data_1         : 0.0609 +/- 0.0093
-  CAN_ID_t       : 0.0314 +/- 0.0007
-  Data_3         : 0.0275 +/- 0.0124
-  CAN_ID_t-1     : 0.0107 +/- 0.0008
-  CAN_ID_t-2     : 0.0018 +/- 0.0005
-  CAN_ID_t-3     : 0.0001 +/- 0.0000
+  Data_2         : 0.2859 +/- 0.0007
+  Data_4         : 0.2779 +/- 0.0113
+  Data_0         : 0.1224 +/- 0.0119
+  Data_5         : 0.0865 +/- 0.0026
+  Data_7         : 0.0760 +/- 0.0025
+  Data_6         : 0.0549 +/- 0.0018
+  CAN_ID_t       : 0.0332 +/- 0.0020
+  Data_1         : 0.0303 +/- 0.0023
+  Data_3         : 0.0186 +/- 0.0022
+  CAN_ID_t-1     : 0.0125 +/- 0.0007
+  CAN_ID_t-2     : 0.0017 +/- 0.0002
+  CAN_ID_t-3     : 0.0002 +/- 0.0002
   CAN_ID_t-4     : 0.0000 +/- 0.0000
 
 ROC AUC (binary): 1.0000
