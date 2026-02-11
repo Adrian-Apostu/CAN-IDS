@@ -1,5 +1,5 @@
 CAN Bus Intrusion Detection Experiments
-Started: 2026-02-10 22:47:07
+Started: 2026-02-11 17:13:28
 ================================================================================
 
 
@@ -27,11 +27,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with LogisticRegression...
-  Fold 1/5: Acc=0.9908  Prec=0.8197  Rec=0.9783  F1=0.8920  AUC=0.9971
-  Fold 2/5: Acc=0.9912  Prec=0.8254  Rec=0.9826  F1=0.8972  AUC=0.9988
-  Fold 3/5: Acc=0.9913  Prec=0.8287  Rec=0.9793  F1=0.8978  AUC=0.9982
-  Fold 4/5: Acc=0.9901  Prec=0.8075  Rec=0.9804  F1=0.8856  AUC=0.9987
-  Fold 5/5: Acc=0.9902  Prec=0.8099  Rec=0.9772  F1=0.8857  AUC=0.9979
+  Fold 1/5: Acc=0.9908  Prec=0.8197  Rec=0.9783  F1=0.8920  AUC=0.9971  Time=0.4s
+  Fold 2/5: Acc=0.9912  Prec=0.8254  Rec=0.9826  F1=0.8972  AUC=0.9988  Time=0.3s
+  Fold 3/5: Acc=0.9913  Prec=0.8287  Rec=0.9793  F1=0.8978  AUC=0.9982  Time=0.4s
+  Fold 4/5: Acc=0.9901  Prec=0.8075  Rec=0.9804  F1=0.8856  AUC=0.9987  Time=0.4s
+  Fold 5/5: Acc=0.9902  Prec=0.8099  Rec=0.9772  F1=0.8857  AUC=0.9979  Time=0.5s
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -44,6 +44,8 @@ Recall (binary): 0.9796
 Recall Std: 0.0019
 F1-score (binary): 0.8916
 F1-score Std: 0.0053
+Training Time (per fold): 0.38s +/- 0.06s
+Training Time (total CV): 1.88s
 
 Confusion Matrix:
 [[112287   1001]
@@ -63,17 +65,35 @@ weighted avg       0.99      0.99      0.99    117886
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.9908  Prec=0.8197  Rec=0.9783  F1=0.8920  AUC=0.9971
-  Fold 2: Acc=0.9912  Prec=0.8254  Rec=0.9826  F1=0.8972  AUC=0.9988
-  Fold 3: Acc=0.9913  Prec=0.8287  Rec=0.9793  F1=0.8978  AUC=0.9982
-  Fold 4: Acc=0.9901  Prec=0.8075  Rec=0.9804  F1=0.8856  AUC=0.9987
-  Fold 5: Acc=0.9902  Prec=0.8099  Rec=0.9772  F1=0.8857  AUC=0.9979
+  Fold 1: Acc=0.9908  Prec=0.8197  Rec=0.9783  F1=0.8920  AUC=0.9971  Time=0.37s
+  Fold 2: Acc=0.9912  Prec=0.8254  Rec=0.9826  F1=0.8972  AUC=0.9988  Time=0.28s
+  Fold 3: Acc=0.9913  Prec=0.8287  Rec=0.9793  F1=0.8978  AUC=0.9982  Time=0.38s
+  Fold 4: Acc=0.9901  Prec=0.8075  Rec=0.9804  F1=0.8856  AUC=0.9987  Time=0.39s
+  Fold 5: Acc=0.9902  Prec=0.8099  Rec=0.9772  F1=0.8857  AUC=0.9979  Time=0.46s
+
+Feature Importance (mean across folds):
+  CAN_ID_t       : 24.7194 +/- 0.0882
+  Data_5         : 4.2932 +/- 0.0433
+  Data_6         : 2.7235 +/- 0.0877
+  Data_0         : 2.5597 +/- 0.0696
+  Data_3         : 1.7427 +/- 0.0891
+  Data_7         : 1.2224 +/- 0.0551
+  Data_2         : 0.7860 +/- 0.0597
+  Data_4         : 0.7193 +/- 0.0768
+  CAN_ID_t-3     : 0.3643 +/- 0.0601
+  CAN_ID_t-2     : 0.3253 +/- 0.0087
+  CAN_ID_t-4     : 0.2957 +/- 0.0561
+  Data_1         : 0.2302 +/- 0.0251
+  CAN_ID_t-1     : 0.1773 +/- 0.1140
 
 Results saved to results/Fuzzing___Vehicle_A___0x181___IDs_Datafield_Classification_logisticregression_results.txt
 
 ROC AUC (binary): 0.9981
 ROC AUC Std: 0.0006
 
+  Confusion matrix saved: results/figures/Fuzzing___Vehicle_A___0x181___IDs_Datafield_Classification_logisticregression_confusion_matrix.png
+  ROC curve saved: results/figures/Fuzzing___Vehicle_A___0x181___IDs_Datafield_Classification_logisticregression_roc_curve.png
+  Feature importance saved: results/figures/Fuzzing___Vehicle_A___0x181___IDs_Datafield_Classification_logisticregression_feature_importance.png
 
 --------------------------------------------------------------------------------
 [2/27] Running RandomForest...
@@ -96,11 +116,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with RandomForest...
-  Fold 1/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 2/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 3/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 4/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 5/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
+  Fold 1/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=2.5s
+  Fold 2/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=2.6s
+  Fold 3/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=2.6s
+  Fold 4/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=2.5s
+  Fold 5/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=2.5s
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -113,6 +133,8 @@ Recall (binary): 1.0000
 Recall Std: 0.0000
 F1-score (binary): 1.0000
 F1-score Std: 0.0000
+Training Time (per fold): 2.55s +/- 0.02s
+Training Time (total CV): 12.74s
 
 Confusion Matrix:
 [[113288      0]
@@ -132,17 +154,35 @@ weighted avg       1.00      1.00      1.00    117886
 
 
 Per-Fold Results:
-  Fold 1: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 2: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 3: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 4: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
+  Fold 1: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=2.55s
+  Fold 2: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=2.58s
+  Fold 3: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=2.55s
+  Fold 4: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=2.53s
+  Fold 5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=2.53s
+
+Feature Importance (mean across folds):
+  Data_7         : 0.1972 +/- 0.0080
+  Data_6         : 0.1862 +/- 0.0070
+  Data_5         : 0.1649 +/- 0.0036
+  CAN_ID_t       : 0.1636 +/- 0.0068
+  Data_3         : 0.0633 +/- 0.0056
+  CAN_ID_t-2     : 0.0541 +/- 0.0066
+  Data_4         : 0.0470 +/- 0.0081
+  Data_2         : 0.0345 +/- 0.0045
+  Data_0         : 0.0339 +/- 0.0048
+  CAN_ID_t-1     : 0.0270 +/- 0.0030
+  Data_1         : 0.0136 +/- 0.0012
+  CAN_ID_t-3     : 0.0134 +/- 0.0022
+  CAN_ID_t-4     : 0.0015 +/- 0.0005
 
 Results saved to results/Fuzzing___Vehicle_A___0x181___IDs_Datafield_Classification_randomforest_results.txt
 
 ROC AUC (binary): 1.0000
 ROC AUC Std: 0.0000
 
+  Confusion matrix saved: results/figures/Fuzzing___Vehicle_A___0x181___IDs_Datafield_Classification_randomforest_confusion_matrix.png
+  ROC curve saved: results/figures/Fuzzing___Vehicle_A___0x181___IDs_Datafield_Classification_randomforest_roc_curve.png
+  Feature importance saved: results/figures/Fuzzing___Vehicle_A___0x181___IDs_Datafield_Classification_randomforest_feature_importance.png
 
 --------------------------------------------------------------------------------
 [3/27] Running GradientBoosting...
@@ -165,11 +205,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with GradientBoosting...
-  Fold 1/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 2/5: Acc=0.9999  Prec=1.0000  Rec=0.9978  F1=0.9989  AUC=1.0000
-  Fold 3/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 4/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 5/5: Acc=1.0000  Prec=1.0000  Rec=0.9989  F1=0.9995  AUC=1.0000
+  Fold 1/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=5.6s
+  Fold 2/5: Acc=0.9999  Prec=1.0000  Rec=0.9978  F1=0.9989  AUC=1.0000  Time=5.6s
+  Fold 3/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=5.6s
+  Fold 4/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=5.6s
+  Fold 5/5: Acc=1.0000  Prec=1.0000  Rec=0.9989  F1=0.9995  AUC=1.0000  Time=5.6s
 --- GradientBoosting Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -182,6 +222,8 @@ Recall (binary): 0.9993
 Recall Std: 0.0009
 F1-score (binary): 0.9997
 F1-score Std: 0.0004
+Training Time (per fold): 5.60s +/- 0.01s
+Training Time (total CV): 28.02s
 
 Confusion Matrix:
 [[113288      0]
@@ -201,17 +243,35 @@ weighted avg       1.00      1.00      1.00    117886
 
 
 Per-Fold Results:
-  Fold 1: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 2: Acc=0.9999  Prec=1.0000  Rec=0.9978  F1=0.9989  AUC=1.0000
-  Fold 3: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 4: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 5: Acc=1.0000  Prec=1.0000  Rec=0.9989  F1=0.9995  AUC=1.0000
+  Fold 1: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=5.60s
+  Fold 2: Acc=0.9999  Prec=1.0000  Rec=0.9978  F1=0.9989  AUC=1.0000  Time=5.60s
+  Fold 3: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=5.60s
+  Fold 4: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=5.62s
+  Fold 5: Acc=1.0000  Prec=1.0000  Rec=0.9989  F1=0.9995  AUC=1.0000  Time=5.60s
+
+Feature Importance (mean across folds):
+  Data_7         : 0.6009 +/- 0.0175
+  CAN_ID_t       : 0.1825 +/- 0.0325
+  Data_2         : 0.0943 +/- 0.0020
+  Data_4         : 0.0817 +/- 0.0205
+  Data_6         : 0.0305 +/- 0.0124
+  Data_5         : 0.0057 +/- 0.0012
+  Data_0         : 0.0041 +/- 0.0034
+  Data_3         : 0.0001 +/- 0.0001
+  CAN_ID_t-2     : 0.0001 +/- 0.0000
+  Data_1         : 0.0000 +/- 0.0001
+  CAN_ID_t-1     : 0.0000 +/- 0.0000
+  CAN_ID_t-3     : 0.0000 +/- 0.0000
+  CAN_ID_t-4     : 0.0000 +/- 0.0000
 
 Results saved to results/Fuzzing___Vehicle_A___0x181___IDs_Datafield_Classification_gradientboosting_results.txt
 
 ROC AUC (binary): 1.0000
 ROC AUC Std: 0.0000
 
+  Confusion matrix saved: results/figures/Fuzzing___Vehicle_A___0x181___IDs_Datafield_Classification_gradientboosting_confusion_matrix.png
+  ROC curve saved: results/figures/Fuzzing___Vehicle_A___0x181___IDs_Datafield_Classification_gradientboosting_roc_curve.png
+  Feature importance saved: results/figures/Fuzzing___Vehicle_A___0x181___IDs_Datafield_Classification_gradientboosting_feature_importance.png
 
 --------------------------------------------------------------------------------
 
@@ -239,11 +299,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with LogisticRegression...
-  Fold 1/5: Acc=0.8870  Prec=0.6860  Rec=0.8061  F1=0.7412  AUC=0.9116
-  Fold 2/5: Acc=0.8888  Prec=0.6851  Rec=0.8261  F1=0.7490  AUC=0.9149
-  Fold 3/5: Acc=0.8888  Prec=0.6906  Rec=0.8082  F1=0.7448  AUC=0.9149
-  Fold 4/5: Acc=0.8889  Prec=0.6868  Rec=0.8214  F1=0.7481  AUC=0.9157
-  Fold 5/5: Acc=0.8906  Prec=0.6903  Rec=0.8261  F1=0.7522  AUC=0.9178
+  Fold 1/5: Acc=0.8870  Prec=0.6860  Rec=0.8061  F1=0.7412  AUC=0.9116  Time=0.1s
+  Fold 2/5: Acc=0.8888  Prec=0.6851  Rec=0.8261  F1=0.7490  AUC=0.9149  Time=0.1s
+  Fold 3/5: Acc=0.8888  Prec=0.6906  Rec=0.8082  F1=0.7448  AUC=0.9149  Time=0.1s
+  Fold 4/5: Acc=0.8889  Prec=0.6868  Rec=0.8214  F1=0.7481  AUC=0.9157  Time=0.1s
+  Fold 5/5: Acc=0.8906  Prec=0.6903  Rec=0.8261  F1=0.7522  AUC=0.9178  Time=0.1s
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -256,6 +316,8 @@ Recall (binary): 0.8176
 Recall Std: 0.0087
 F1-score (binary): 0.7471
 F1-score Std: 0.0037
+Training Time (per fold): 0.11s +/- 0.01s
+Training Time (total CV): 0.54s
 
 Confusion Matrix:
 [[50522  5197]
@@ -275,17 +337,35 @@ weighted avg       0.90      0.89      0.89     69720
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.8870  Prec=0.6860  Rec=0.8061  F1=0.7412  AUC=0.9116
-  Fold 2: Acc=0.8888  Prec=0.6851  Rec=0.8261  F1=0.7490  AUC=0.9149
-  Fold 3: Acc=0.8888  Prec=0.6906  Rec=0.8082  F1=0.7448  AUC=0.9149
-  Fold 4: Acc=0.8889  Prec=0.6868  Rec=0.8214  F1=0.7481  AUC=0.9157
-  Fold 5: Acc=0.8906  Prec=0.6903  Rec=0.8261  F1=0.7522  AUC=0.9178
+  Fold 1: Acc=0.8870  Prec=0.6860  Rec=0.8061  F1=0.7412  AUC=0.9116  Time=0.09s
+  Fold 2: Acc=0.8888  Prec=0.6851  Rec=0.8261  F1=0.7490  AUC=0.9149  Time=0.11s
+  Fold 3: Acc=0.8888  Prec=0.6906  Rec=0.8082  F1=0.7448  AUC=0.9149  Time=0.12s
+  Fold 4: Acc=0.8889  Prec=0.6868  Rec=0.8214  F1=0.7481  AUC=0.9157  Time=0.10s
+  Fold 5: Acc=0.8906  Prec=0.6903  Rec=0.8261  F1=0.7522  AUC=0.9178  Time=0.12s
+
+Feature Importance (mean across folds):
+  Data_2         : 1.2546 +/- 0.0086
+  Data_0         : 1.0222 +/- 0.0122
+  Data_3         : 1.0147 +/- 0.0080
+  Data_7         : 0.6963 +/- 0.0088
+  CAN_ID_t       : 0.5087 +/- 0.0139
+  Data_4         : 0.3061 +/- 0.0170
+  Data_1         : 0.2408 +/- 0.0121
+  Data_6         : 0.2242 +/- 0.0071
+  Data_5         : 0.2171 +/- 0.0115
+  CAN_ID_t-2     : 0.1831 +/- 0.0021
+  CAN_ID_t-4     : 0.1073 +/- 0.0090
+  CAN_ID_t-1     : 0.1007 +/- 0.0090
+  CAN_ID_t-3     : 0.0622 +/- 0.0060
 
 Results saved to results/Fuzzing___Vehicle_B___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
 
 ROC AUC (binary): 0.9150
 ROC AUC Std: 0.0020
 
+  Confusion matrix saved: results/figures/Fuzzing___Vehicle_B___all_IDs___IDs_Datafield_Classification_logisticregression_confusion_matrix.png
+  ROC curve saved: results/figures/Fuzzing___Vehicle_B___all_IDs___IDs_Datafield_Classification_logisticregression_roc_curve.png
+  Feature importance saved: results/figures/Fuzzing___Vehicle_B___all_IDs___IDs_Datafield_Classification_logisticregression_feature_importance.png
 
 --------------------------------------------------------------------------------
 [5/27] Running RandomForest...
@@ -308,11 +388,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with RandomForest...
-  Fold 1/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 2/5: Acc=0.9999  Prec=1.0000  Rec=0.9996  F1=0.9998  AUC=1.0000
-  Fold 3/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 4/5: Acc=0.9999  Prec=1.0000  Rec=0.9996  F1=0.9998  AUC=1.0000
-  Fold 5/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
+  Fold 1/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=2.3s
+  Fold 2/5: Acc=0.9999  Prec=1.0000  Rec=0.9996  F1=0.9998  AUC=1.0000  Time=1.8s
+  Fold 3/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=2.3s
+  Fold 4/5: Acc=0.9999  Prec=1.0000  Rec=0.9996  F1=0.9998  AUC=1.0000  Time=2.3s
+  Fold 5/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=2.3s
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -325,6 +405,8 @@ Recall (binary): 0.9999
 Recall Std: 0.0002
 F1-score (binary): 0.9999
 F1-score Std: 0.0001
+Training Time (per fold): 2.18s +/- 0.21s
+Training Time (total CV): 10.89s
 
 Confusion Matrix:
 [[55719     0]
@@ -344,17 +426,35 @@ weighted avg       1.00      1.00      1.00     69720
 
 
 Per-Fold Results:
-  Fold 1: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 2: Acc=0.9999  Prec=1.0000  Rec=0.9996  F1=0.9998  AUC=1.0000
-  Fold 3: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 4: Acc=0.9999  Prec=1.0000  Rec=0.9996  F1=0.9998  AUC=1.0000
-  Fold 5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
+  Fold 1: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=2.28s
+  Fold 2: Acc=0.9999  Prec=1.0000  Rec=0.9996  F1=0.9998  AUC=1.0000  Time=1.75s
+  Fold 3: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=2.28s
+  Fold 4: Acc=0.9999  Prec=1.0000  Rec=0.9996  F1=0.9998  AUC=1.0000  Time=2.26s
+  Fold 5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=2.32s
+
+Feature Importance (mean across folds):
+  Data_5         : 0.1619 +/- 0.0105
+  Data_4         : 0.1537 +/- 0.0049
+  Data_3         : 0.1210 +/- 0.0071
+  Data_0         : 0.1121 +/- 0.0062
+  Data_2         : 0.1100 +/- 0.0048
+  Data_6         : 0.0948 +/- 0.0060
+  Data_1         : 0.0714 +/- 0.0052
+  Data_7         : 0.0623 +/- 0.0033
+  CAN_ID_t       : 0.0599 +/- 0.0022
+  CAN_ID_t-2     : 0.0248 +/- 0.0030
+  CAN_ID_t-1     : 0.0237 +/- 0.0010
+  CAN_ID_t-3     : 0.0029 +/- 0.0004
+  CAN_ID_t-4     : 0.0015 +/- 0.0002
 
 Results saved to results/Fuzzing___Vehicle_B___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
 
 ROC AUC (binary): 1.0000
 ROC AUC Std: 0.0000
 
+  Confusion matrix saved: results/figures/Fuzzing___Vehicle_B___all_IDs___IDs_Datafield_Classification_randomforest_confusion_matrix.png
+  ROC curve saved: results/figures/Fuzzing___Vehicle_B___all_IDs___IDs_Datafield_Classification_randomforest_roc_curve.png
+  Feature importance saved: results/figures/Fuzzing___Vehicle_B___all_IDs___IDs_Datafield_Classification_randomforest_feature_importance.png
 
 --------------------------------------------------------------------------------
 [6/27] Running GradientBoosting...
@@ -377,11 +477,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with GradientBoosting...
-  Fold 1/5: Acc=0.9989  Prec=1.0000  Rec=0.9946  F1=0.9973  AUC=1.0000
-  Fold 2/5: Acc=0.9994  Prec=1.0000  Rec=0.9968  F1=0.9984  AUC=1.0000
-  Fold 3/5: Acc=0.9991  Prec=1.0000  Rec=0.9954  F1=0.9977  AUC=1.0000
-  Fold 4/5: Acc=0.9994  Prec=1.0000  Rec=0.9968  F1=0.9984  AUC=1.0000
-  Fold 5/5: Acc=0.9992  Prec=0.9993  Rec=0.9968  F1=0.9980  AUC=1.0000
+  Fold 1/5: Acc=0.9989  Prec=1.0000  Rec=0.9946  F1=0.9973  AUC=1.0000  Time=4.2s
+  Fold 2/5: Acc=0.9994  Prec=1.0000  Rec=0.9968  F1=0.9984  AUC=1.0000  Time=4.2s
+  Fold 3/5: Acc=0.9991  Prec=1.0000  Rec=0.9954  F1=0.9977  AUC=1.0000  Time=4.2s
+  Fold 4/5: Acc=0.9994  Prec=1.0000  Rec=0.9968  F1=0.9984  AUC=1.0000  Time=4.2s
+  Fold 5/5: Acc=0.9992  Prec=0.9993  Rec=0.9968  F1=0.9980  AUC=1.0000  Time=4.2s
 --- GradientBoosting Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -394,6 +494,8 @@ Recall (binary): 0.9961
 Recall Std: 0.0009
 F1-score (binary): 0.9980
 F1-score Std: 0.0004
+Training Time (per fold): 4.17s +/- 0.01s
+Training Time (total CV): 20.86s
 
 Confusion Matrix:
 [[55717     2]
@@ -413,17 +515,35 @@ weighted avg       1.00      1.00      1.00     69720
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.9989  Prec=1.0000  Rec=0.9946  F1=0.9973  AUC=1.0000
-  Fold 2: Acc=0.9994  Prec=1.0000  Rec=0.9968  F1=0.9984  AUC=1.0000
-  Fold 3: Acc=0.9991  Prec=1.0000  Rec=0.9954  F1=0.9977  AUC=1.0000
-  Fold 4: Acc=0.9994  Prec=1.0000  Rec=0.9968  F1=0.9984  AUC=1.0000
-  Fold 5: Acc=0.9992  Prec=0.9993  Rec=0.9968  F1=0.9980  AUC=1.0000
+  Fold 1: Acc=0.9989  Prec=1.0000  Rec=0.9946  F1=0.9973  AUC=1.0000  Time=4.18s
+  Fold 2: Acc=0.9994  Prec=1.0000  Rec=0.9968  F1=0.9984  AUC=1.0000  Time=4.16s
+  Fold 3: Acc=0.9991  Prec=1.0000  Rec=0.9954  F1=0.9977  AUC=1.0000  Time=4.18s
+  Fold 4: Acc=0.9994  Prec=1.0000  Rec=0.9968  F1=0.9984  AUC=1.0000  Time=4.16s
+  Fold 5: Acc=0.9992  Prec=0.9993  Rec=0.9968  F1=0.9980  AUC=1.0000  Time=4.18s
+
+Feature Importance (mean across folds):
+  Data_7         : 0.2821 +/- 0.0101
+  Data_2         : 0.1895 +/- 0.0208
+  Data_4         : 0.1790 +/- 0.0199
+  Data_0         : 0.0785 +/- 0.0132
+  Data_5         : 0.0759 +/- 0.0079
+  Data_3         : 0.0565 +/- 0.0181
+  CAN_ID_t       : 0.0465 +/- 0.0068
+  Data_1         : 0.0401 +/- 0.0163
+  Data_6         : 0.0380 +/- 0.0059
+  CAN_ID_t-1     : 0.0124 +/- 0.0012
+  CAN_ID_t-2     : 0.0014 +/- 0.0002
+  CAN_ID_t-3     : 0.0001 +/- 0.0001
+  CAN_ID_t-4     : 0.0000 +/- 0.0000
 
 Results saved to results/Fuzzing___Vehicle_B___all_IDs___IDs_Datafield_Classification_gradientboosting_results.txt
 
 ROC AUC (binary): 1.0000
 ROC AUC Std: 0.0000
 
+  Confusion matrix saved: results/figures/Fuzzing___Vehicle_B___all_IDs___IDs_Datafield_Classification_gradientboosting_confusion_matrix.png
+  ROC curve saved: results/figures/Fuzzing___Vehicle_B___all_IDs___IDs_Datafield_Classification_gradientboosting_roc_curve.png
+  Feature importance saved: results/figures/Fuzzing___Vehicle_B___all_IDs___IDs_Datafield_Classification_gradientboosting_feature_importance.png
 
 --------------------------------------------------------------------------------
 
@@ -451,11 +571,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with LogisticRegression...
-  Fold 1/5: Acc=0.8928  Prec=0.7048  Rec=0.8055  F1=0.7518  AUC=0.9111
-  Fold 2/5: Acc=0.8927  Prec=0.7048  Rec=0.8050  F1=0.7516  AUC=0.9063
-  Fold 3/5: Acc=0.8908  Prec=0.6930  Rec=0.8234  F1=0.7526  AUC=0.9122
-  Fold 4/5: Acc=0.8932  Prec=0.7030  Rec=0.8142  F1=0.7546  AUC=0.9131
-  Fold 5/5: Acc=0.8941  Prec=0.7071  Rec=0.8097  F1=0.7550  AUC=0.9129
+  Fold 1/5: Acc=0.8928  Prec=0.7048  Rec=0.8055  F1=0.7518  AUC=0.9111  Time=0.1s
+  Fold 2/5: Acc=0.8927  Prec=0.7048  Rec=0.8050  F1=0.7516  AUC=0.9063  Time=0.1s
+  Fold 3/5: Acc=0.8908  Prec=0.6930  Rec=0.8234  F1=0.7526  AUC=0.9122  Time=0.1s
+  Fold 4/5: Acc=0.8932  Prec=0.7030  Rec=0.8142  F1=0.7546  AUC=0.9131  Time=0.1s
+  Fold 5/5: Acc=0.8941  Prec=0.7071  Rec=0.8097  F1=0.7550  AUC=0.9129  Time=0.1s
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -468,6 +588,8 @@ Recall (binary): 0.8116
 Recall Std: 0.0068
 F1-score (binary): 0.7531
 F1-score Std: 0.0014
+Training Time (per fold): 0.10s +/- 0.01s
+Training Time (total CV): 0.52s
 
 Confusion Matrix:
 [[72711  6910]
@@ -487,17 +609,35 @@ weighted avg       0.90      0.89      0.90     99724
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.8928  Prec=0.7048  Rec=0.8055  F1=0.7518  AUC=0.9111
-  Fold 2: Acc=0.8927  Prec=0.7048  Rec=0.8050  F1=0.7516  AUC=0.9063
-  Fold 3: Acc=0.8908  Prec=0.6930  Rec=0.8234  F1=0.7526  AUC=0.9122
-  Fold 4: Acc=0.8932  Prec=0.7030  Rec=0.8142  F1=0.7546  AUC=0.9131
-  Fold 5: Acc=0.8941  Prec=0.7071  Rec=0.8097  F1=0.7550  AUC=0.9129
+  Fold 1: Acc=0.8928  Prec=0.7048  Rec=0.8055  F1=0.7518  AUC=0.9111  Time=0.09s
+  Fold 2: Acc=0.8927  Prec=0.7048  Rec=0.8050  F1=0.7516  AUC=0.9063  Time=0.11s
+  Fold 3: Acc=0.8908  Prec=0.6930  Rec=0.8234  F1=0.7526  AUC=0.9122  Time=0.12s
+  Fold 4: Acc=0.8932  Prec=0.7030  Rec=0.8142  F1=0.7546  AUC=0.9131  Time=0.10s
+  Fold 5: Acc=0.8941  Prec=0.7071  Rec=0.8097  F1=0.7550  AUC=0.9129  Time=0.10s
+
+Feature Importance (mean across folds):
+  Data_2         : 1.4126 +/- 0.0046
+  Data_3         : 1.0259 +/- 0.0072
+  Data_0         : 0.9453 +/- 0.0162
+  CAN_ID_t       : 0.5596 +/- 0.0134
+  Data_7         : 0.5416 +/- 0.0055
+  Data_6         : 0.4609 +/- 0.0061
+  Data_4         : 0.4337 +/- 0.0093
+  CAN_ID_t-2     : 0.1583 +/- 0.0070
+  Data_5         : 0.1184 +/- 0.0052
+  CAN_ID_t-3     : 0.1108 +/- 0.0095
+  CAN_ID_t-4     : 0.1092 +/- 0.0049
+  CAN_ID_t-1     : 0.0893 +/- 0.0082
+  Data_1         : 0.0863 +/- 0.0089
 
 Results saved to results/Fuzzing___Vehicle_C___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
 
 ROC AUC (binary): 0.9111
 ROC AUC Std: 0.0025
 
+  Confusion matrix saved: results/figures/Fuzzing___Vehicle_C___all_IDs___IDs_Datafield_Classification_logisticregression_confusion_matrix.png
+  ROC curve saved: results/figures/Fuzzing___Vehicle_C___all_IDs___IDs_Datafield_Classification_logisticregression_roc_curve.png
+  Feature importance saved: results/figures/Fuzzing___Vehicle_C___all_IDs___IDs_Datafield_Classification_logisticregression_feature_importance.png
 
 --------------------------------------------------------------------------------
 [8/27] Running RandomForest...
@@ -520,11 +660,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with RandomForest...
-  Fold 1/5: Acc=0.9999  Prec=0.9998  Rec=0.9998  F1=0.9998  AUC=1.0000
-  Fold 2/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 3/5: Acc=0.9999  Prec=0.9998  Rec=1.0000  F1=0.9999  AUC=1.0000
-  Fold 4/5: Acc=0.9999  Prec=1.0000  Rec=0.9998  F1=0.9999  AUC=1.0000
-  Fold 5/5: Acc=0.9998  Prec=1.0000  Rec=0.9993  F1=0.9996  AUC=1.0000
+  Fold 1/5: Acc=0.9999  Prec=0.9998  Rec=0.9998  F1=0.9998  AUC=1.0000  Time=3.4s
+  Fold 2/5: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=3.4s
+  Fold 3/5: Acc=0.9999  Prec=0.9998  Rec=1.0000  F1=0.9999  AUC=1.0000  Time=3.5s
+  Fold 4/5: Acc=0.9999  Prec=1.0000  Rec=0.9998  F1=0.9999  AUC=1.0000  Time=3.5s
+  Fold 5/5: Acc=0.9998  Prec=1.0000  Rec=0.9993  F1=0.9996  AUC=1.0000  Time=3.4s
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -537,6 +677,8 @@ Recall (binary): 0.9998
 Recall Std: 0.0003
 F1-score (binary): 0.9998
 F1-score Std: 0.0001
+Training Time (per fold): 3.46s +/- 0.04s
+Training Time (total CV): 17.28s
 
 Confusion Matrix:
 [[79619     2]
@@ -556,17 +698,35 @@ weighted avg       1.00      1.00      1.00     99724
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.9999  Prec=0.9998  Rec=0.9998  F1=0.9998  AUC=1.0000
-  Fold 2: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000
-  Fold 3: Acc=0.9999  Prec=0.9998  Rec=1.0000  F1=0.9999  AUC=1.0000
-  Fold 4: Acc=0.9999  Prec=1.0000  Rec=0.9998  F1=0.9999  AUC=1.0000
-  Fold 5: Acc=0.9998  Prec=1.0000  Rec=0.9993  F1=0.9996  AUC=1.0000
+  Fold 1: Acc=0.9999  Prec=0.9998  Rec=0.9998  F1=0.9998  AUC=1.0000  Time=3.44s
+  Fold 2: Acc=1.0000  Prec=1.0000  Rec=1.0000  F1=1.0000  AUC=1.0000  Time=3.45s
+  Fold 3: Acc=0.9999  Prec=0.9998  Rec=1.0000  F1=0.9999  AUC=1.0000  Time=3.46s
+  Fold 4: Acc=0.9999  Prec=1.0000  Rec=0.9998  F1=0.9999  AUC=1.0000  Time=3.53s
+  Fold 5: Acc=0.9998  Prec=1.0000  Rec=0.9993  F1=0.9996  AUC=1.0000  Time=3.41s
+
+Feature Importance (mean across folds):
+  Data_4         : 0.1885 +/- 0.0119
+  Data_5         : 0.1671 +/- 0.0131
+  Data_0         : 0.1228 +/- 0.0063
+  Data_2         : 0.1140 +/- 0.0071
+  Data_6         : 0.0882 +/- 0.0057
+  Data_3         : 0.0880 +/- 0.0058
+  Data_1         : 0.0825 +/- 0.0084
+  CAN_ID_t       : 0.0559 +/- 0.0029
+  Data_7         : 0.0458 +/- 0.0025
+  CAN_ID_t-1     : 0.0225 +/- 0.0022
+  CAN_ID_t-2     : 0.0207 +/- 0.0032
+  CAN_ID_t-3     : 0.0024 +/- 0.0002
+  CAN_ID_t-4     : 0.0016 +/- 0.0004
 
 Results saved to results/Fuzzing___Vehicle_C___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
 
 ROC AUC (binary): 1.0000
 ROC AUC Std: 0.0000
 
+  Confusion matrix saved: results/figures/Fuzzing___Vehicle_C___all_IDs___IDs_Datafield_Classification_randomforest_confusion_matrix.png
+  ROC curve saved: results/figures/Fuzzing___Vehicle_C___all_IDs___IDs_Datafield_Classification_randomforest_roc_curve.png
+  Feature importance saved: results/figures/Fuzzing___Vehicle_C___all_IDs___IDs_Datafield_Classification_randomforest_feature_importance.png
 
 --------------------------------------------------------------------------------
 [9/27] Running GradientBoosting...
@@ -589,11 +749,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with GradientBoosting...
-  Fold 1/5: Acc=0.9996  Prec=1.0000  Rec=0.9980  F1=0.9990  AUC=1.0000
-  Fold 2/5: Acc=0.9992  Prec=1.0000  Rec=0.9960  F1=0.9980  AUC=1.0000
-  Fold 3/5: Acc=0.9991  Prec=1.0000  Rec=0.9955  F1=0.9978  AUC=1.0000
-  Fold 4/5: Acc=0.9991  Prec=1.0000  Rec=0.9958  F1=0.9979  AUC=1.0000
-  Fold 5/5: Acc=0.9992  Prec=1.0000  Rec=0.9960  F1=0.9980  AUC=1.0000
+  Fold 1/5: Acc=0.9996  Prec=1.0000  Rec=0.9980  F1=0.9990  AUC=1.0000  Time=6.0s
+  Fold 2/5: Acc=0.9992  Prec=1.0000  Rec=0.9960  F1=0.9980  AUC=1.0000  Time=6.0s
+  Fold 3/5: Acc=0.9991  Prec=1.0000  Rec=0.9955  F1=0.9978  AUC=1.0000  Time=6.0s
+  Fold 4/5: Acc=0.9991  Prec=1.0000  Rec=0.9958  F1=0.9979  AUC=1.0000  Time=6.0s
+  Fold 5/5: Acc=0.9992  Prec=1.0000  Rec=0.9960  F1=0.9980  AUC=1.0000  Time=6.0s
 --- GradientBoosting Results ---
 Dataset: ./Datasets with attacks/Fuzzing/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -606,6 +766,8 @@ Recall (binary): 0.9963
 Recall Std: 0.0009
 F1-score (binary): 0.9981
 F1-score Std: 0.0004
+Training Time (per fold): 5.99s +/- 0.02s
+Training Time (total CV): 29.97s
 
 Confusion Matrix:
 [[79621     0]
@@ -625,17 +787,35 @@ weighted avg       1.00      1.00      1.00     99724
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.9996  Prec=1.0000  Rec=0.9980  F1=0.9990  AUC=1.0000
-  Fold 2: Acc=0.9992  Prec=1.0000  Rec=0.9960  F1=0.9980  AUC=1.0000
-  Fold 3: Acc=0.9991  Prec=1.0000  Rec=0.9955  F1=0.9978  AUC=1.0000
-  Fold 4: Acc=0.9991  Prec=1.0000  Rec=0.9958  F1=0.9979  AUC=1.0000
-  Fold 5: Acc=0.9992  Prec=1.0000  Rec=0.9960  F1=0.9980  AUC=1.0000
+  Fold 1: Acc=0.9996  Prec=1.0000  Rec=0.9980  F1=0.9990  AUC=1.0000  Time=6.03s
+  Fold 2: Acc=0.9992  Prec=1.0000  Rec=0.9960  F1=0.9980  AUC=1.0000  Time=6.00s
+  Fold 3: Acc=0.9991  Prec=1.0000  Rec=0.9955  F1=0.9978  AUC=1.0000  Time=5.97s
+  Fold 4: Acc=0.9991  Prec=1.0000  Rec=0.9958  F1=0.9979  AUC=1.0000  Time=5.98s
+  Fold 5: Acc=0.9992  Prec=1.0000  Rec=0.9960  F1=0.9980  AUC=1.0000  Time=5.99s
+
+Feature Importance (mean across folds):
+  Data_2         : 0.2828 +/- 0.0043
+  Data_4         : 0.2048 +/- 0.0276
+  Data_0         : 0.1363 +/- 0.0126
+  Data_7         : 0.0882 +/- 0.0084
+  Data_5         : 0.0871 +/- 0.0125
+  Data_6         : 0.0685 +/- 0.0088
+  Data_1         : 0.0609 +/- 0.0093
+  CAN_ID_t       : 0.0314 +/- 0.0007
+  Data_3         : 0.0275 +/- 0.0124
+  CAN_ID_t-1     : 0.0107 +/- 0.0008
+  CAN_ID_t-2     : 0.0018 +/- 0.0005
+  CAN_ID_t-3     : 0.0001 +/- 0.0000
+  CAN_ID_t-4     : 0.0000 +/- 0.0000
 
 Results saved to results/Fuzzing___Vehicle_C___all_IDs___IDs_Datafield_Classification_gradientboosting_results.txt
 
 ROC AUC (binary): 1.0000
 ROC AUC Std: 0.0000
 
+  Confusion matrix saved: results/figures/Fuzzing___Vehicle_C___all_IDs___IDs_Datafield_Classification_gradientboosting_confusion_matrix.png
+  ROC curve saved: results/figures/Fuzzing___Vehicle_C___all_IDs___IDs_Datafield_Classification_gradientboosting_roc_curve.png
+  Feature importance saved: results/figures/Fuzzing___Vehicle_C___all_IDs___IDs_Datafield_Classification_gradientboosting_feature_importance.png
 
 --------------------------------------------------------------------------------
 
@@ -663,11 +843,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with LogisticRegression...
-  Fold 1/5: Acc=0.8428  Prec=0.2003  Rec=0.9872  F1=0.3330  AUC=0.9778
-  Fold 2/5: Acc=0.8429  Prec=0.2000  Rec=0.9829  F1=0.3323  AUC=0.9787
-  Fold 3/5: Acc=0.8422  Prec=0.1987  Rec=0.9797  F1=0.3305  AUC=0.9768
-  Fold 4/5: Acc=0.8433  Prec=0.2008  Rec=0.9872  F1=0.3337  AUC=0.9787
-  Fold 5/5: Acc=0.8413  Prec=0.1985  Rec=0.9861  F1=0.3305  AUC=0.9775
+  Fold 1/5: Acc=0.8428  Prec=0.2003  Rec=0.9872  F1=0.3330  AUC=0.9778  Time=0.4s
+  Fold 2/5: Acc=0.8429  Prec=0.2000  Rec=0.9829  F1=0.3323  AUC=0.9787  Time=0.4s
+  Fold 3/5: Acc=0.8422  Prec=0.1987  Rec=0.9797  F1=0.3305  AUC=0.9768  Time=0.5s
+  Fold 4/5: Acc=0.8433  Prec=0.2008  Rec=0.9872  F1=0.3337  AUC=0.9787  Time=0.8s
+  Fold 5/5: Acc=0.8413  Prec=0.1985  Rec=0.9861  F1=0.3305  AUC=0.9775  Time=0.8s
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -680,6 +860,8 @@ Recall (binary): 0.9846
 Recall Std: 0.0029
 F1-score (binary): 0.3320
 F1-score Std: 0.0013
+Training Time (per fold): 0.59s +/- 0.16s
+Training Time (total CV): 2.94s
 
 Confusion Matrix:
 [[94725 18496]
@@ -699,17 +881,35 @@ weighted avg       0.97      0.84      0.89    117907
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.8428  Prec=0.2003  Rec=0.9872  F1=0.3330  AUC=0.9778
-  Fold 2: Acc=0.8429  Prec=0.2000  Rec=0.9829  F1=0.3323  AUC=0.9787
-  Fold 3: Acc=0.8422  Prec=0.1987  Rec=0.9797  F1=0.3305  AUC=0.9768
-  Fold 4: Acc=0.8433  Prec=0.2008  Rec=0.9872  F1=0.3337  AUC=0.9787
-  Fold 5: Acc=0.8413  Prec=0.1985  Rec=0.9861  F1=0.3305  AUC=0.9775
+  Fold 1: Acc=0.8428  Prec=0.2003  Rec=0.9872  F1=0.3330  AUC=0.9778  Time=0.44s
+  Fold 2: Acc=0.8429  Prec=0.2000  Rec=0.9829  F1=0.3323  AUC=0.9787  Time=0.44s
+  Fold 3: Acc=0.8422  Prec=0.1987  Rec=0.9797  F1=0.3305  AUC=0.9768  Time=0.51s
+  Fold 4: Acc=0.8433  Prec=0.2008  Rec=0.9872  F1=0.3337  AUC=0.9787  Time=0.78s
+  Fold 5: Acc=0.8413  Prec=0.1985  Rec=0.9861  F1=0.3305  AUC=0.9775  Time=0.78s
+
+Feature Importance (mean across folds):
+  CAN_ID_t       : 6.3084 +/- 0.1619
+  Data_7         : 4.2118 +/- 0.0287
+  Data_6         : 1.2741 +/- 0.2790
+  CAN_ID_t-2     : 0.9627 +/- 0.0085
+  Data_5         : 0.8982 +/- 0.1513
+  Data_4         : 0.5609 +/- 0.2423
+  CAN_ID_t-3     : 0.5274 +/- 0.0229
+  Data_3         : 0.4782 +/- 0.2630
+  Data_0         : 0.4725 +/- 0.1289
+  CAN_ID_t-1     : 0.2702 +/- 0.0262
+  CAN_ID_t-4     : 0.2256 +/- 0.0136
+  Data_2         : 0.1286 +/- 0.0688
+  Data_1         : 0.0115 +/- 0.0081
 
 Results saved to results/Replay___Vehicle_A___0x181___IDs_Datafield_Classification_logisticregression_results.txt
 
 ROC AUC (binary): 0.9779
 ROC AUC Std: 0.0007
 
+  Confusion matrix saved: results/figures/Replay___Vehicle_A___0x181___IDs_Datafield_Classification_logisticregression_confusion_matrix.png
+  ROC curve saved: results/figures/Replay___Vehicle_A___0x181___IDs_Datafield_Classification_logisticregression_roc_curve.png
+  Feature importance saved: results/figures/Replay___Vehicle_A___0x181___IDs_Datafield_Classification_logisticregression_feature_importance.png
 
 --------------------------------------------------------------------------------
 [11/27] Running RandomForest...
@@ -732,11 +932,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with RandomForest...
-  Fold 1/5: Acc=0.9986  Prec=0.9871  Rec=0.9776  F1=0.9823  AUC=0.9899
-  Fold 2/5: Acc=0.9989  Prec=0.9841  Rec=0.9883  F1=0.9862  AUC=0.9965
-  Fold 3/5: Acc=0.9987  Prec=0.9778  Rec=0.9893  F1=0.9836  AUC=0.9953
-  Fold 4/5: Acc=0.9987  Prec=0.9850  Rec=0.9819  F1=0.9834  AUC=0.9921
-  Fold 5/5: Acc=0.9988  Prec=0.9861  Rec=0.9840  F1=0.9850  AUC=0.9927
+  Fold 1/5: Acc=0.9986  Prec=0.9871  Rec=0.9776  F1=0.9823  AUC=0.9899  Time=2.4s
+  Fold 2/5: Acc=0.9989  Prec=0.9841  Rec=0.9883  F1=0.9862  AUC=0.9965  Time=2.6s
+  Fold 3/5: Acc=0.9987  Prec=0.9778  Rec=0.9893  F1=0.9836  AUC=0.9953  Time=2.6s
+  Fold 4/5: Acc=0.9987  Prec=0.9850  Rec=0.9819  F1=0.9834  AUC=0.9921  Time=2.5s
+  Fold 5/5: Acc=0.9988  Prec=0.9861  Rec=0.9840  F1=0.9850  AUC=0.9927  Time=2.5s
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -749,6 +949,8 @@ Recall (binary): 0.9842
 Recall Std: 0.0043
 F1-score (binary): 0.9841
 F1-score Std: 0.0014
+Training Time (per fold): 2.52s +/- 0.04s
+Training Time (total CV): 12.62s
 
 Confusion Matrix:
 [[113146     75]
@@ -768,17 +970,35 @@ weighted avg       1.00      1.00      1.00    117907
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.9986  Prec=0.9871  Rec=0.9776  F1=0.9823  AUC=0.9899
-  Fold 2: Acc=0.9989  Prec=0.9841  Rec=0.9883  F1=0.9862  AUC=0.9965
-  Fold 3: Acc=0.9987  Prec=0.9778  Rec=0.9893  F1=0.9836  AUC=0.9953
-  Fold 4: Acc=0.9987  Prec=0.9850  Rec=0.9819  F1=0.9834  AUC=0.9921
-  Fold 5: Acc=0.9988  Prec=0.9861  Rec=0.9840  F1=0.9850  AUC=0.9927
+  Fold 1: Acc=0.9986  Prec=0.9871  Rec=0.9776  F1=0.9823  AUC=0.9899  Time=2.44s
+  Fold 2: Acc=0.9989  Prec=0.9841  Rec=0.9883  F1=0.9862  AUC=0.9965  Time=2.55s
+  Fold 3: Acc=0.9987  Prec=0.9778  Rec=0.9893  F1=0.9836  AUC=0.9953  Time=2.56s
+  Fold 4: Acc=0.9987  Prec=0.9850  Rec=0.9819  F1=0.9834  AUC=0.9921  Time=2.53s
+  Fold 5: Acc=0.9988  Prec=0.9861  Rec=0.9840  F1=0.9850  AUC=0.9927  Time=2.53s
+
+Feature Importance (mean across folds):
+  Data_7         : 0.1684 +/- 0.0084
+  Data_6         : 0.1521 +/- 0.0090
+  CAN_ID_t       : 0.1465 +/- 0.0062
+  CAN_ID_t-2     : 0.1199 +/- 0.0056
+  Data_5         : 0.1019 +/- 0.0041
+  CAN_ID_t-1     : 0.0745 +/- 0.0062
+  Data_4         : 0.0638 +/- 0.0039
+  Data_3         : 0.0516 +/- 0.0022
+  CAN_ID_t-3     : 0.0368 +/- 0.0051
+  Data_2         : 0.0316 +/- 0.0022
+  CAN_ID_t-4     : 0.0221 +/- 0.0020
+  Data_0         : 0.0163 +/- 0.0014
+  Data_1         : 0.0144 +/- 0.0023
 
 Results saved to results/Replay___Vehicle_A___0x181___IDs_Datafield_Classification_randomforest_results.txt
 
 ROC AUC (binary): 0.9933
 ROC AUC Std: 0.0023
 
+  Confusion matrix saved: results/figures/Replay___Vehicle_A___0x181___IDs_Datafield_Classification_randomforest_confusion_matrix.png
+  ROC curve saved: results/figures/Replay___Vehicle_A___0x181___IDs_Datafield_Classification_randomforest_roc_curve.png
+  Feature importance saved: results/figures/Replay___Vehicle_A___0x181___IDs_Datafield_Classification_randomforest_feature_importance.png
 
 --------------------------------------------------------------------------------
 [12/27] Running GradientBoosting...
@@ -801,11 +1021,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with GradientBoosting...
-  Fold 1/5: Acc=0.9986  Prec=0.9871  Rec=0.9787  F1=0.9829  AUC=0.9978
-  Fold 2/5: Acc=0.9989  Prec=0.9841  Rec=0.9893  F1=0.9867  AUC=0.9990
-  Fold 3/5: Acc=0.9987  Prec=0.9768  Rec=0.9904  F1=0.9836  AUC=0.9993
-  Fold 4/5: Acc=0.9986  Prec=0.9850  Rec=0.9797  F1=0.9823  AUC=0.9984
-  Fold 5/5: Acc=0.9988  Prec=0.9861  Rec=0.9840  F1=0.9850  AUC=0.9986
+  Fold 1/5: Acc=0.9986  Prec=0.9871  Rec=0.9787  F1=0.9829  AUC=0.9978  Time=4.4s
+  Fold 2/5: Acc=0.9989  Prec=0.9841  Rec=0.9893  F1=0.9867  AUC=0.9990  Time=4.4s
+  Fold 3/5: Acc=0.9987  Prec=0.9768  Rec=0.9904  F1=0.9836  AUC=0.9993  Time=4.3s
+  Fold 4/5: Acc=0.9986  Prec=0.9850  Rec=0.9797  F1=0.9823  AUC=0.9984  Time=4.4s
+  Fold 5/5: Acc=0.9988  Prec=0.9861  Rec=0.9840  F1=0.9850  AUC=0.9986  Time=4.4s
 --- GradientBoosting Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle A/Vehicle A - 0x181 - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -818,6 +1038,8 @@ Recall (binary): 0.9844
 Recall Std: 0.0048
 F1-score (binary): 0.9841
 F1-score Std: 0.0016
+Training Time (per fold): 4.36s +/- 0.03s
+Training Time (total CV): 21.80s
 
 Confusion Matrix:
 [[113145     76]
@@ -837,17 +1059,35 @@ weighted avg       1.00      1.00      1.00    117907
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.9986  Prec=0.9871  Rec=0.9787  F1=0.9829  AUC=0.9978
-  Fold 2: Acc=0.9989  Prec=0.9841  Rec=0.9893  F1=0.9867  AUC=0.9990
-  Fold 3: Acc=0.9987  Prec=0.9768  Rec=0.9904  F1=0.9836  AUC=0.9993
-  Fold 4: Acc=0.9986  Prec=0.9850  Rec=0.9797  F1=0.9823  AUC=0.9984
-  Fold 5: Acc=0.9988  Prec=0.9861  Rec=0.9840  F1=0.9850  AUC=0.9986
+  Fold 1: Acc=0.9986  Prec=0.9871  Rec=0.9787  F1=0.9829  AUC=0.9978  Time=4.37s
+  Fold 2: Acc=0.9989  Prec=0.9841  Rec=0.9893  F1=0.9867  AUC=0.9990  Time=4.40s
+  Fold 3: Acc=0.9987  Prec=0.9768  Rec=0.9904  F1=0.9836  AUC=0.9993  Time=4.30s
+  Fold 4: Acc=0.9986  Prec=0.9850  Rec=0.9797  F1=0.9823  AUC=0.9984  Time=4.36s
+  Fold 5: Acc=0.9988  Prec=0.9861  Rec=0.9840  F1=0.9850  AUC=0.9986  Time=4.37s
+
+Feature Importance (mean across folds):
+  CAN_ID_t-1     : 0.6270 +/- 0.0012
+  Data_7         : 0.1647 +/- 0.0004
+  CAN_ID_t       : 0.0699 +/- 0.0114
+  Data_6         : 0.0656 +/- 0.0134
+  Data_4         : 0.0411 +/- 0.0222
+  Data_5         : 0.0275 +/- 0.0030
+  CAN_ID_t-3     : 0.0018 +/- 0.0004
+  CAN_ID_t-4     : 0.0015 +/- 0.0003
+  CAN_ID_t-2     : 0.0007 +/- 0.0001
+  Data_3         : 0.0001 +/- 0.0000
+  Data_2         : 0.0001 +/- 0.0000
+  Data_1         : 0.0001 +/- 0.0000
+  Data_0         : 0.0000 +/- 0.0000
 
 Results saved to results/Replay___Vehicle_A___0x181___IDs_Datafield_Classification_gradientboosting_results.txt
 
 ROC AUC (binary): 0.9986
 ROC AUC Std: 0.0005
 
+  Confusion matrix saved: results/figures/Replay___Vehicle_A___0x181___IDs_Datafield_Classification_gradientboosting_confusion_matrix.png
+  ROC curve saved: results/figures/Replay___Vehicle_A___0x181___IDs_Datafield_Classification_gradientboosting_roc_curve.png
+  Feature importance saved: results/figures/Replay___Vehicle_A___0x181___IDs_Datafield_Classification_gradientboosting_feature_importance.png
 
 --------------------------------------------------------------------------------
 
@@ -875,11 +1115,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with LogisticRegression...
-  Fold 1/5: Acc=0.5806  Prec=0.2562  Rec=0.5818  F1=0.3558  AUC=0.5976
-  Fold 2/5: Acc=0.6038  Prec=0.2640  Rec=0.5543  F1=0.3576  AUC=0.5982
-  Fold 3/5: Acc=0.5938  Prec=0.2568  Rec=0.5496  F1=0.3500  AUC=0.5943
-  Fold 4/5: Acc=0.5820  Prec=0.2547  Rec=0.5710  F1=0.3523  AUC=0.5861
-  Fold 5/5: Acc=0.6050  Prec=0.2677  Rec=0.5674  F1=0.3638  AUC=0.6065
+  Fold 1/5: Acc=0.5806  Prec=0.2562  Rec=0.5818  F1=0.3558  AUC=0.5976  Time=0.1s
+  Fold 2/5: Acc=0.6038  Prec=0.2640  Rec=0.5543  F1=0.3576  AUC=0.5982  Time=0.1s
+  Fold 3/5: Acc=0.5938  Prec=0.2568  Rec=0.5496  F1=0.3500  AUC=0.5943  Time=0.1s
+  Fold 4/5: Acc=0.5820  Prec=0.2547  Rec=0.5710  F1=0.3523  AUC=0.5861  Time=0.1s
+  Fold 5/5: Acc=0.6050  Prec=0.2677  Rec=0.5674  F1=0.3638  AUC=0.6065  Time=0.1s
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -892,6 +1132,8 @@ Recall (binary): 0.5648
 Recall Std: 0.0116
 F1-score (binary): 0.3559
 F1-score Std: 0.0048
+Training Time (per fold): 0.09s +/- 0.01s
+Training Time (total CV): 0.45s
 
 Confusion Matrix:
 [[33487 22321]
@@ -911,17 +1153,35 @@ weighted avg       0.73      0.59      0.63     69676
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.5806  Prec=0.2562  Rec=0.5818  F1=0.3558  AUC=0.5976
-  Fold 2: Acc=0.6038  Prec=0.2640  Rec=0.5543  F1=0.3576  AUC=0.5982
-  Fold 3: Acc=0.5938  Prec=0.2568  Rec=0.5496  F1=0.3500  AUC=0.5943
-  Fold 4: Acc=0.5820  Prec=0.2547  Rec=0.5710  F1=0.3523  AUC=0.5861
-  Fold 5: Acc=0.6050  Prec=0.2677  Rec=0.5674  F1=0.3638  AUC=0.6065
+  Fold 1: Acc=0.5806  Prec=0.2562  Rec=0.5818  F1=0.3558  AUC=0.5976  Time=0.07s
+  Fold 2: Acc=0.6038  Prec=0.2640  Rec=0.5543  F1=0.3576  AUC=0.5982  Time=0.09s
+  Fold 3: Acc=0.5938  Prec=0.2568  Rec=0.5496  F1=0.3500  AUC=0.5943  Time=0.10s
+  Fold 4: Acc=0.5820  Prec=0.2547  Rec=0.5710  F1=0.3523  AUC=0.5861  Time=0.10s
+  Fold 5: Acc=0.6050  Prec=0.2677  Rec=0.5674  F1=0.3638  AUC=0.6065  Time=0.09s
+
+Feature Importance (mean across folds):
+  CAN_ID_t-2     : 0.1986 +/- 0.0044
+  CAN_ID_t-4     : 0.1000 +/- 0.0089
+  CAN_ID_t-3     : 0.0592 +/- 0.0027
+  CAN_ID_t-1     : 0.0298 +/- 0.0060
+  Data_0         : 0.0279 +/- 0.0043
+  Data_3         : 0.0235 +/- 0.0026
+  Data_6         : 0.0223 +/- 0.0081
+  CAN_ID_t       : 0.0142 +/- 0.0047
+  Data_5         : 0.0107 +/- 0.0024
+  Data_4         : 0.0098 +/- 0.0036
+  Data_7         : 0.0082 +/- 0.0067
+  Data_2         : 0.0069 +/- 0.0078
+  Data_1         : 0.0056 +/- 0.0044
 
 Results saved to results/Replay___Vehicle_B___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
 
 ROC AUC (binary): 0.5966
 ROC AUC Std: 0.0066
 
+  Confusion matrix saved: results/figures/Replay___Vehicle_B___all_IDs___IDs_Datafield_Classification_logisticregression_confusion_matrix.png
+  ROC curve saved: results/figures/Replay___Vehicle_B___all_IDs___IDs_Datafield_Classification_logisticregression_roc_curve.png
+  Feature importance saved: results/figures/Replay___Vehicle_B___all_IDs___IDs_Datafield_Classification_logisticregression_feature_importance.png
 
 --------------------------------------------------------------------------------
 [14/27] Running RandomForest...
@@ -944,11 +1204,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with RandomForest...
-  Fold 1/5: Acc=0.8980  Prec=0.7747  Rec=0.6878  F1=0.7287  AUC=0.9033
-  Fold 2/5: Acc=0.8959  Prec=0.7628  Rec=0.6924  F1=0.7259  AUC=0.9020
-  Fold 3/5: Acc=0.8993  Prec=0.7767  Rec=0.6935  F1=0.7327  AUC=0.9096
-  Fold 4/5: Acc=0.8942  Prec=0.7609  Rec=0.6828  F1=0.7197  AUC=0.9036
-  Fold 5/5: Acc=0.9032  Prec=0.7933  Rec=0.6947  F1=0.7407  AUC=0.9040
+  Fold 1/5: Acc=0.8980  Prec=0.7747  Rec=0.6878  F1=0.7287  AUC=0.9033  Time=2.7s
+  Fold 2/5: Acc=0.8959  Prec=0.7628  Rec=0.6924  F1=0.7259  AUC=0.9020  Time=2.8s
+  Fold 3/5: Acc=0.8993  Prec=0.7767  Rec=0.6935  F1=0.7327  AUC=0.9096  Time=3.1s
+  Fold 4/5: Acc=0.8942  Prec=0.7609  Rec=0.6828  F1=0.7197  AUC=0.9036  Time=3.2s
+  Fold 5/5: Acc=0.9032  Prec=0.7933  Rec=0.6947  F1=0.7407  AUC=0.9040  Time=3.1s
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -961,6 +1221,8 @@ Recall (binary): 0.6902
 Recall Std: 0.0044
 F1-score (binary): 0.7295
 F1-score Std: 0.0070
+Training Time (per fold): 2.99s +/- 0.20s
+Training Time (total CV): 14.93s
 
 Confusion Matrix:
 [[53006  2802]
@@ -980,17 +1242,35 @@ weighted avg       0.89      0.90      0.90     69676
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.8980  Prec=0.7747  Rec=0.6878  F1=0.7287  AUC=0.9033
-  Fold 2: Acc=0.8959  Prec=0.7628  Rec=0.6924  F1=0.7259  AUC=0.9020
-  Fold 3: Acc=0.8993  Prec=0.7767  Rec=0.6935  F1=0.7327  AUC=0.9096
-  Fold 4: Acc=0.8942  Prec=0.7609  Rec=0.6828  F1=0.7197  AUC=0.9036
-  Fold 5: Acc=0.9032  Prec=0.7933  Rec=0.6947  F1=0.7407  AUC=0.9040
+  Fold 1: Acc=0.8980  Prec=0.7747  Rec=0.6878  F1=0.7287  AUC=0.9033  Time=2.70s
+  Fold 2: Acc=0.8959  Prec=0.7628  Rec=0.6924  F1=0.7259  AUC=0.9020  Time=2.79s
+  Fold 3: Acc=0.8993  Prec=0.7767  Rec=0.6935  F1=0.7327  AUC=0.9096  Time=3.14s
+  Fold 4: Acc=0.8942  Prec=0.7609  Rec=0.6828  F1=0.7197  AUC=0.9036  Time=3.16s
+  Fold 5: Acc=0.9032  Prec=0.7933  Rec=0.6947  F1=0.7407  AUC=0.9040  Time=3.15s
+
+Feature Importance (mean across folds):
+  CAN_ID_t-1     : 0.2205 +/- 0.0032
+  CAN_ID_t-2     : 0.1531 +/- 0.0022
+  Data_0         : 0.1029 +/- 0.0010
+  CAN_ID_t-3     : 0.0985 +/- 0.0003
+  CAN_ID_t-4     : 0.0859 +/- 0.0013
+  Data_4         : 0.0660 +/- 0.0014
+  Data_2         : 0.0602 +/- 0.0010
+  CAN_ID_t       : 0.0573 +/- 0.0009
+  Data_1         : 0.0521 +/- 0.0011
+  Data_3         : 0.0512 +/- 0.0014
+  Data_5         : 0.0269 +/- 0.0009
+  Data_7         : 0.0132 +/- 0.0005
+  Data_6         : 0.0122 +/- 0.0006
 
 Results saved to results/Replay___Vehicle_B___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
 
 ROC AUC (binary): 0.9045
 ROC AUC Std: 0.0026
 
+  Confusion matrix saved: results/figures/Replay___Vehicle_B___all_IDs___IDs_Datafield_Classification_randomforest_confusion_matrix.png
+  ROC curve saved: results/figures/Replay___Vehicle_B___all_IDs___IDs_Datafield_Classification_randomforest_roc_curve.png
+  Feature importance saved: results/figures/Replay___Vehicle_B___all_IDs___IDs_Datafield_Classification_randomforest_feature_importance.png
 
 --------------------------------------------------------------------------------
 [15/27] Running GradientBoosting...
@@ -1013,11 +1293,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with GradientBoosting...
-  Fold 1/5: Acc=0.8684  Prec=0.8672  Rec=0.4001  F1=0.5476  AUC=0.8781
-  Fold 2/5: Acc=0.8654  Prec=0.8680  Rec=0.3819  F1=0.5304  AUC=0.8748
-  Fold 3/5: Acc=0.8681  Prec=0.8497  Rec=0.4097  F1=0.5528  AUC=0.8741
-  Fold 4/5: Acc=0.8671  Prec=0.8503  Rec=0.4034  F1=0.5472  AUC=0.8758
-  Fold 5/5: Acc=0.8740  Prec=0.8699  Rec=0.4315  F1=0.5769  AUC=0.8805
+  Fold 1/5: Acc=0.8684  Prec=0.8672  Rec=0.4001  F1=0.5476  AUC=0.8781  Time=3.5s
+  Fold 2/5: Acc=0.8654  Prec=0.8680  Rec=0.3819  F1=0.5304  AUC=0.8748  Time=3.5s
+  Fold 3/5: Acc=0.8681  Prec=0.8497  Rec=0.4097  F1=0.5528  AUC=0.8741  Time=3.5s
+  Fold 4/5: Acc=0.8671  Prec=0.8503  Rec=0.4034  F1=0.5472  AUC=0.8758  Time=3.5s
+  Fold 5/5: Acc=0.8740  Prec=0.8699  Rec=0.4315  F1=0.5769  AUC=0.8805  Time=3.5s
 --- GradientBoosting Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle B/Vehicle B - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -1030,6 +1310,8 @@ Recall (binary): 0.4053
 Recall Std: 0.0160
 F1-score (binary): 0.5510
 F1-score Std: 0.0150
+Training Time (per fold): 3.48s +/- 0.01s
+Training Time (total CV): 17.41s
 
 Confusion Matrix:
 [[54900   908]
@@ -1049,17 +1331,35 @@ weighted avg       0.87      0.87      0.85     69676
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.8684  Prec=0.8672  Rec=0.4001  F1=0.5476  AUC=0.8781
-  Fold 2: Acc=0.8654  Prec=0.8680  Rec=0.3819  F1=0.5304  AUC=0.8748
-  Fold 3: Acc=0.8681  Prec=0.8497  Rec=0.4097  F1=0.5528  AUC=0.8741
-  Fold 4: Acc=0.8671  Prec=0.8503  Rec=0.4034  F1=0.5472  AUC=0.8758
-  Fold 5: Acc=0.8740  Prec=0.8699  Rec=0.4315  F1=0.5769  AUC=0.8805
+  Fold 1: Acc=0.8684  Prec=0.8672  Rec=0.4001  F1=0.5476  AUC=0.8781  Time=3.46s
+  Fold 2: Acc=0.8654  Prec=0.8680  Rec=0.3819  F1=0.5304  AUC=0.8748  Time=3.49s
+  Fold 3: Acc=0.8681  Prec=0.8497  Rec=0.4097  F1=0.5528  AUC=0.8741  Time=3.48s
+  Fold 4: Acc=0.8671  Prec=0.8503  Rec=0.4034  F1=0.5472  AUC=0.8758  Time=3.49s
+  Fold 5: Acc=0.8740  Prec=0.8699  Rec=0.4315  F1=0.5769  AUC=0.8805  Time=3.48s
+
+Feature Importance (mean across folds):
+  CAN_ID_t-1     : 0.2684 +/- 0.0108
+  CAN_ID_t-2     : 0.1888 +/- 0.0087
+  Data_4         : 0.1134 +/- 0.0187
+  Data_5         : 0.1059 +/- 0.0438
+  Data_7         : 0.0879 +/- 0.0157
+  CAN_ID_t       : 0.0830 +/- 0.0068
+  CAN_ID_t-3     : 0.0629 +/- 0.0089
+  Data_3         : 0.0443 +/- 0.0032
+  Data_1         : 0.0138 +/- 0.0029
+  CAN_ID_t-4     : 0.0135 +/- 0.0007
+  Data_2         : 0.0097 +/- 0.0029
+  Data_6         : 0.0067 +/- 0.0009
+  Data_0         : 0.0017 +/- 0.0002
 
 Results saved to results/Replay___Vehicle_B___all_IDs___IDs_Datafield_Classification_gradientboosting_results.txt
 
 ROC AUC (binary): 0.8766
 ROC AUC Std: 0.0024
 
+  Confusion matrix saved: results/figures/Replay___Vehicle_B___all_IDs___IDs_Datafield_Classification_gradientboosting_confusion_matrix.png
+  ROC curve saved: results/figures/Replay___Vehicle_B___all_IDs___IDs_Datafield_Classification_gradientboosting_roc_curve.png
+  Feature importance saved: results/figures/Replay___Vehicle_B___all_IDs___IDs_Datafield_Classification_gradientboosting_feature_importance.png
 
 --------------------------------------------------------------------------------
 
@@ -1087,11 +1387,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with LogisticRegression...
-  Fold 1/5: Acc=0.6030  Prec=0.2709  Rec=0.5786  F1=0.3691  AUC=0.5961
-  Fold 2/5: Acc=0.5979  Prec=0.2722  Rec=0.5996  F1=0.3744  AUC=0.6067
-  Fold 3/5: Acc=0.5898  Prec=0.2621  Rec=0.5748  F1=0.3600  AUC=0.5974
-  Fold 4/5: Acc=0.6038  Prec=0.2715  Rec=0.5784  F1=0.3695  AUC=0.5988
-  Fold 5/5: Acc=0.5906  Prec=0.2719  Rec=0.6195  F1=0.3779  AUC=0.6076
+  Fold 1/5: Acc=0.6030  Prec=0.2709  Rec=0.5786  F1=0.3691  AUC=0.5961  Time=0.1s
+  Fold 2/5: Acc=0.5979  Prec=0.2722  Rec=0.5996  F1=0.3744  AUC=0.6067  Time=0.1s
+  Fold 3/5: Acc=0.5898  Prec=0.2621  Rec=0.5748  F1=0.3600  AUC=0.5974  Time=0.2s
+  Fold 4/5: Acc=0.6038  Prec=0.2715  Rec=0.5784  F1=0.3695  AUC=0.5988  Time=0.2s
+  Fold 5/5: Acc=0.5906  Prec=0.2719  Rec=0.6195  F1=0.3779  AUC=0.6076  Time=0.1s
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -1104,6 +1404,8 @@ Recall (binary): 0.5902
 Recall Std: 0.0171
 F1-score (binary): 0.3702
 F1-score Std: 0.0060
+Training Time (per fold): 0.13s +/- 0.05s
+Training Time (total CV): 0.66s
 
 Confusion Matrix:
 [[47723 31985]
@@ -1123,17 +1425,35 @@ weighted avg       0.74      0.60      0.64     99724
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.6030  Prec=0.2709  Rec=0.5786  F1=0.3691  AUC=0.5961
-  Fold 2: Acc=0.5979  Prec=0.2722  Rec=0.5996  F1=0.3744  AUC=0.6067
-  Fold 3: Acc=0.5898  Prec=0.2621  Rec=0.5748  F1=0.3600  AUC=0.5974
-  Fold 4: Acc=0.6038  Prec=0.2715  Rec=0.5784  F1=0.3695  AUC=0.5988
-  Fold 5: Acc=0.5906  Prec=0.2719  Rec=0.6195  F1=0.3779  AUC=0.6076
+  Fold 1: Acc=0.6030  Prec=0.2709  Rec=0.5786  F1=0.3691  AUC=0.5961  Time=0.07s
+  Fold 2: Acc=0.5979  Prec=0.2722  Rec=0.5996  F1=0.3744  AUC=0.6067  Time=0.10s
+  Fold 3: Acc=0.5898  Prec=0.2621  Rec=0.5748  F1=0.3600  AUC=0.5974  Time=0.19s
+  Fold 4: Acc=0.6038  Prec=0.2715  Rec=0.5784  F1=0.3695  AUC=0.5988  Time=0.19s
+  Fold 5: Acc=0.5906  Prec=0.2719  Rec=0.6195  F1=0.3779  AUC=0.6076  Time=0.11s
+
+Feature Importance (mean across folds):
+  CAN_ID_t-2     : 0.1895 +/- 0.0061
+  CAN_ID_t-4     : 0.0966 +/- 0.0046
+  CAN_ID_t-3     : 0.0845 +/- 0.0036
+  CAN_ID_t-1     : 0.0549 +/- 0.0038
+  Data_0         : 0.0281 +/- 0.0098
+  Data_4         : 0.0264 +/- 0.0169
+  Data_6         : 0.0240 +/- 0.0072
+  Data_7         : 0.0189 +/- 0.0058
+  Data_5         : 0.0156 +/- 0.0174
+  Data_3         : 0.0099 +/- 0.0039
+  CAN_ID_t       : 0.0099 +/- 0.0051
+  Data_2         : 0.0072 +/- 0.0079
+  Data_1         : 0.0070 +/- 0.0029
 
 Results saved to results/Replay___Vehicle_C___all_IDs___IDs_Datafield_Classification_logisticregression_results.txt
 
 ROC AUC (binary): 0.6013
 ROC AUC Std: 0.0048
 
+  Confusion matrix saved: results/figures/Replay___Vehicle_C___all_IDs___IDs_Datafield_Classification_logisticregression_confusion_matrix.png
+  ROC curve saved: results/figures/Replay___Vehicle_C___all_IDs___IDs_Datafield_Classification_logisticregression_roc_curve.png
+  Feature importance saved: results/figures/Replay___Vehicle_C___all_IDs___IDs_Datafield_Classification_logisticregression_feature_importance.png
 
 --------------------------------------------------------------------------------
 [17/27] Running RandomForest...
@@ -1156,11 +1476,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with RandomForest...
-  Fold 1/5: Acc=0.8957  Prec=0.7712  Rec=0.6827  F1=0.7243  AUC=0.9016
-  Fold 2/5: Acc=0.8967  Prec=0.7676  Rec=0.6957  F1=0.7299  AUC=0.9025
-  Fold 3/5: Acc=0.8948  Prec=0.7595  Rec=0.6965  F1=0.7266  AUC=0.8985
-  Fold 4/5: Acc=0.8937  Prec=0.7590  Rec=0.6891  F1=0.7223  AUC=0.9016
-  Fold 5/5: Acc=0.8944  Prec=0.7605  Rec=0.6917  F1=0.7245  AUC=0.9031
+  Fold 1/5: Acc=0.8957  Prec=0.7712  Rec=0.6827  F1=0.7243  AUC=0.9016  Time=4.8s
+  Fold 2/5: Acc=0.8967  Prec=0.7676  Rec=0.6957  F1=0.7299  AUC=0.9025  Time=3.9s
+  Fold 3/5: Acc=0.8948  Prec=0.7595  Rec=0.6965  F1=0.7266  AUC=0.8985  Time=4.7s
+  Fold 4/5: Acc=0.8937  Prec=0.7590  Rec=0.6891  F1=0.7223  AUC=0.9016  Time=4.0s
+  Fold 5/5: Acc=0.8944  Prec=0.7605  Rec=0.6917  F1=0.7245  AUC=0.9031  Time=4.7s
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -1173,6 +1493,8 @@ Recall (binary): 0.6911
 Recall Std: 0.0050
 F1-score (binary): 0.7255
 F1-score Std: 0.0026
+Training Time (per fold): 4.42s +/- 0.39s
+Training Time (total CV): 22.11s
 
 Confusion Matrix:
 [[75423  4285]
@@ -1192,17 +1514,35 @@ weighted avg       0.89      0.90      0.89     99724
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.8957  Prec=0.7712  Rec=0.6827  F1=0.7243  AUC=0.9016
-  Fold 2: Acc=0.8967  Prec=0.7676  Rec=0.6957  F1=0.7299  AUC=0.9025
-  Fold 3: Acc=0.8948  Prec=0.7595  Rec=0.6965  F1=0.7266  AUC=0.8985
-  Fold 4: Acc=0.8937  Prec=0.7590  Rec=0.6891  F1=0.7223  AUC=0.9016
-  Fold 5: Acc=0.8944  Prec=0.7605  Rec=0.6917  F1=0.7245  AUC=0.9031
+  Fold 1: Acc=0.8957  Prec=0.7712  Rec=0.6827  F1=0.7243  AUC=0.9016  Time=4.77s
+  Fold 2: Acc=0.8967  Prec=0.7676  Rec=0.6957  F1=0.7299  AUC=0.9025  Time=3.88s
+  Fold 3: Acc=0.8948  Prec=0.7595  Rec=0.6965  F1=0.7266  AUC=0.8985  Time=4.73s
+  Fold 4: Acc=0.8937  Prec=0.7590  Rec=0.6891  F1=0.7223  AUC=0.9016  Time=4.03s
+  Fold 5: Acc=0.8944  Prec=0.7605  Rec=0.6917  F1=0.7245  AUC=0.9031  Time=4.71s
+
+Feature Importance (mean across folds):
+  CAN_ID_t-1     : 0.2222 +/- 0.0029
+  CAN_ID_t-2     : 0.1511 +/- 0.0021
+  CAN_ID_t-3     : 0.1012 +/- 0.0015
+  Data_0         : 0.0966 +/- 0.0006
+  CAN_ID_t-4     : 0.0875 +/- 0.0014
+  Data_4         : 0.0643 +/- 0.0009
+  Data_2         : 0.0605 +/- 0.0010
+  CAN_ID_t       : 0.0569 +/- 0.0017
+  Data_3         : 0.0520 +/- 0.0011
+  Data_1         : 0.0501 +/- 0.0011
+  Data_5         : 0.0304 +/- 0.0015
+  Data_6         : 0.0141 +/- 0.0014
+  Data_7         : 0.0131 +/- 0.0007
 
 Results saved to results/Replay___Vehicle_C___all_IDs___IDs_Datafield_Classification_randomforest_results.txt
 
 ROC AUC (binary): 0.9015
 ROC AUC Std: 0.0016
 
+  Confusion matrix saved: results/figures/Replay___Vehicle_C___all_IDs___IDs_Datafield_Classification_randomforest_confusion_matrix.png
+  ROC curve saved: results/figures/Replay___Vehicle_C___all_IDs___IDs_Datafield_Classification_randomforest_roc_curve.png
+  Feature importance saved: results/figures/Replay___Vehicle_C___all_IDs___IDs_Datafield_Classification_randomforest_feature_importance.png
 
 --------------------------------------------------------------------------------
 [18/27] Running GradientBoosting...
@@ -1225,11 +1565,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with GradientBoosting...
-  Fold 1/5: Acc=0.8668  Prec=0.8466  Rec=0.4109  F1=0.5533  AUC=0.8782
-  Fold 2/5: Acc=0.8712  Prec=0.8477  Rec=0.4367  F1=0.5764  AUC=0.8813
-  Fold 3/5: Acc=0.8711  Prec=0.8406  Rec=0.4414  F1=0.5789  AUC=0.8715
-  Fold 4/5: Acc=0.8683  Prec=0.8438  Rec=0.4223  F1=0.5629  AUC=0.8788
-  Fold 5/5: Acc=0.8679  Prec=0.8434  Rec=0.4197  F1=0.5605  AUC=0.8834
+  Fold 1/5: Acc=0.8668  Prec=0.8466  Rec=0.4109  F1=0.5533  AUC=0.8782  Time=5.0s
+  Fold 2/5: Acc=0.8712  Prec=0.8477  Rec=0.4367  F1=0.5764  AUC=0.8813  Time=5.0s
+  Fold 3/5: Acc=0.8711  Prec=0.8406  Rec=0.4414  F1=0.5789  AUC=0.8715  Time=5.0s
+  Fold 4/5: Acc=0.8683  Prec=0.8438  Rec=0.4223  F1=0.5629  AUC=0.8788  Time=5.0s
+  Fold 5/5: Acc=0.8679  Prec=0.8434  Rec=0.4197  F1=0.5605  AUC=0.8834  Time=5.0s
 --- GradientBoosting Results ---
 Dataset: ./Datasets with attacks/Replay/Vehicle C/Vehicle C - all IDs - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -1242,6 +1582,8 @@ Recall (binary): 0.4262
 Recall Std: 0.0112
 F1-score (binary): 0.5664
 F1-score Std: 0.0097
+Training Time (per fold): 5.02s +/- 0.02s
+Training Time (total CV): 25.09s
 
 Confusion Matrix:
 [[78136  1572]
@@ -1261,17 +1603,35 @@ weighted avg       0.87      0.87      0.85     99724
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.8668  Prec=0.8466  Rec=0.4109  F1=0.5533  AUC=0.8782
-  Fold 2: Acc=0.8712  Prec=0.8477  Rec=0.4367  F1=0.5764  AUC=0.8813
-  Fold 3: Acc=0.8711  Prec=0.8406  Rec=0.4414  F1=0.5789  AUC=0.8715
-  Fold 4: Acc=0.8683  Prec=0.8438  Rec=0.4223  F1=0.5629  AUC=0.8788
-  Fold 5: Acc=0.8679  Prec=0.8434  Rec=0.4197  F1=0.5605  AUC=0.8834
+  Fold 1: Acc=0.8668  Prec=0.8466  Rec=0.4109  F1=0.5533  AUC=0.8782  Time=5.01s
+  Fold 2: Acc=0.8712  Prec=0.8477  Rec=0.4367  F1=0.5764  AUC=0.8813  Time=5.02s
+  Fold 3: Acc=0.8711  Prec=0.8406  Rec=0.4414  F1=0.5789  AUC=0.8715  Time=5.05s
+  Fold 4: Acc=0.8683  Prec=0.8438  Rec=0.4223  F1=0.5629  AUC=0.8788  Time=5.01s
+  Fold 5: Acc=0.8679  Prec=0.8434  Rec=0.4197  F1=0.5605  AUC=0.8834  Time=5.00s
+
+Feature Importance (mean across folds):
+  Data_5         : 0.2338 +/- 0.0119
+  CAN_ID_t-1     : 0.2139 +/- 0.0064
+  CAN_ID_t       : 0.1573 +/- 0.0146
+  CAN_ID_t-2     : 0.1204 +/- 0.0057
+  Data_4         : 0.1025 +/- 0.0051
+  CAN_ID_t-3     : 0.0569 +/- 0.0020
+  Data_6         : 0.0465 +/- 0.0049
+  Data_3         : 0.0189 +/- 0.0052
+  Data_7         : 0.0175 +/- 0.0042
+  CAN_ID_t-4     : 0.0169 +/- 0.0015
+  Data_1         : 0.0059 +/- 0.0022
+  Data_2         : 0.0047 +/- 0.0010
+  Data_0         : 0.0047 +/- 0.0017
 
 Results saved to results/Replay___Vehicle_C___all_IDs___IDs_Datafield_Classification_gradientboosting_results.txt
 
 ROC AUC (binary): 0.8786
 ROC AUC Std: 0.0040
 
+  Confusion matrix saved: results/figures/Replay___Vehicle_C___all_IDs___IDs_Datafield_Classification_gradientboosting_confusion_matrix.png
+  ROC curve saved: results/figures/Replay___Vehicle_C___all_IDs___IDs_Datafield_Classification_gradientboosting_roc_curve.png
+  Feature importance saved: results/figures/Replay___Vehicle_C___all_IDs___IDs_Datafield_Classification_gradientboosting_feature_importance.png
 
 --------------------------------------------------------------------------------
 
@@ -1299,11 +1659,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with LogisticRegression...
-  Fold 1/5: Acc=0.6635  Prec=0.2670  Rec=0.7465  F1=0.3933  AUC=0.7714
-  Fold 2/5: Acc=0.6572  Prec=0.2634  Rec=0.7493  F1=0.3898  AUC=0.7680
-  Fold 3/5: Acc=0.6623  Prec=0.2647  Rec=0.7374  F1=0.3896  AUC=0.7634
-  Fold 4/5: Acc=0.6578  Prec=0.2608  Rec=0.7315  F1=0.3845  AUC=0.7640
-  Fold 5/5: Acc=0.6644  Prec=0.2678  Rec=0.7477  F1=0.3944  AUC=0.7687
+  Fold 1/5: Acc=0.6635  Prec=0.2670  Rec=0.7465  F1=0.3933  AUC=0.7714  Time=0.2s
+  Fold 2/5: Acc=0.6572  Prec=0.2634  Rec=0.7493  F1=0.3898  AUC=0.7680  Time=0.2s
+  Fold 3/5: Acc=0.6623  Prec=0.2647  Rec=0.7374  F1=0.3896  AUC=0.7634  Time=0.2s
+  Fold 4/5: Acc=0.6578  Prec=0.2608  Rec=0.7315  F1=0.3845  AUC=0.7640  Time=0.3s
+  Fold 5/5: Acc=0.6644  Prec=0.2678  Rec=0.7477  F1=0.3944  AUC=0.7687  Time=0.2s
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -1316,6 +1676,8 @@ Recall (binary): 0.7425
 Recall Std: 0.0069
 F1-score (binary): 0.3903
 F1-score Std: 0.0035
+Training Time (per fold): 0.24s +/- 0.02s
+Training Time (total CV): 1.19s
 
 Confusion Matrix:
 [[73374 40013]
@@ -1335,17 +1697,35 @@ weighted avg       0.84      0.66      0.71    132792
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.6635  Prec=0.2670  Rec=0.7465  F1=0.3933  AUC=0.7714
-  Fold 2: Acc=0.6572  Prec=0.2634  Rec=0.7493  F1=0.3898  AUC=0.7680
-  Fold 3: Acc=0.6623  Prec=0.2647  Rec=0.7374  F1=0.3896  AUC=0.7634
-  Fold 4: Acc=0.6578  Prec=0.2608  Rec=0.7315  F1=0.3845  AUC=0.7640
-  Fold 5: Acc=0.6644  Prec=0.2678  Rec=0.7477  F1=0.3944  AUC=0.7687
+  Fold 1: Acc=0.6635  Prec=0.2670  Rec=0.7465  F1=0.3933  AUC=0.7714  Time=0.23s
+  Fold 2: Acc=0.6572  Prec=0.2634  Rec=0.7493  F1=0.3898  AUC=0.7680  Time=0.20s
+  Fold 3: Acc=0.6623  Prec=0.2647  Rec=0.7374  F1=0.3896  AUC=0.7634  Time=0.25s
+  Fold 4: Acc=0.6578  Prec=0.2608  Rec=0.7315  F1=0.3845  AUC=0.7640  Time=0.26s
+  Fold 5: Acc=0.6644  Prec=0.2678  Rec=0.7477  F1=0.3944  AUC=0.7687  Time=0.25s
+
+Feature Importance (mean across folds):
+  Data_2         : 0.9312 +/- 0.0111
+  CAN_ID_t       : 0.8041 +/- 0.0084
+  Data_1         : 0.6609 +/- 0.0082
+  Data_7         : 0.6252 +/- 0.0034
+  Data_5         : 0.5396 +/- 0.0171
+  Data_4         : 0.5041 +/- 0.0159
+  Data_0         : 0.3530 +/- 0.0054
+  CAN_ID_t-2     : 0.1925 +/- 0.0073
+  CAN_ID_t-3     : 0.1612 +/- 0.0088
+  CAN_ID_t-1     : 0.1246 +/- 0.0080
+  CAN_ID_t-4     : 0.1210 +/- 0.0056
+  Data_3         : 0.0256 +/- 0.0031
+  Data_6         : 0.0124 +/- 0.0030
 
 Results saved to results/Combined___Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_logisticregression_results.txt
 
 ROC AUC (binary): 0.7671
 ROC AUC Std: 0.0030
 
+  Confusion matrix saved: results/figures/Combined___Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_logisticregression_confusion_matrix.png
+  ROC curve saved: results/figures/Combined___Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_logisticregression_roc_curve.png
+  Feature importance saved: results/figures/Combined___Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_logisticregression_feature_importance.png
 
 --------------------------------------------------------------------------------
 [20/27] Running RandomForest...
@@ -1368,11 +1748,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with RandomForest...
-  Fold 1/5: Acc=0.9417  Prec=0.7779  Rec=0.8413  F1=0.8084  AUC=0.9668
-  Fold 2/5: Acc=0.9389  Prec=0.7680  Rec=0.8335  F1=0.7995  AUC=0.9643
-  Fold 3/5: Acc=0.9402  Prec=0.7723  Rec=0.8382  F1=0.8039  AUC=0.9663
-  Fold 4/5: Acc=0.9439  Prec=0.7924  Rec=0.8348  F1=0.8130  AUC=0.9659
-  Fold 5/5: Acc=0.9404  Prec=0.7734  Rec=0.8374  F1=0.8042  AUC=0.9640
+  Fold 1/5: Acc=0.9417  Prec=0.7779  Rec=0.8413  F1=0.8084  AUC=0.9668  Time=4.8s
+  Fold 2/5: Acc=0.9389  Prec=0.7680  Rec=0.8335  F1=0.7995  AUC=0.9643  Time=4.9s
+  Fold 3/5: Acc=0.9402  Prec=0.7723  Rec=0.8382  F1=0.8039  AUC=0.9663  Time=3.7s
+  Fold 4/5: Acc=0.9439  Prec=0.7924  Rec=0.8348  F1=0.8130  AUC=0.9659  Time=4.8s
+  Fold 5/5: Acc=0.9404  Prec=0.7734  Rec=0.8374  F1=0.8042  AUC=0.9640  Time=4.8s
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -1385,6 +1765,8 @@ Recall (binary): 0.8371
 Recall Std: 0.0027
 F1-score (binary): 0.8058
 F1-score Std: 0.0046
+Training Time (per fold): 4.60s +/- 0.45s
+Training Time (total CV): 22.98s
 
 Confusion Matrix:
 [[108718   4669]
@@ -1404,17 +1786,35 @@ weighted avg       0.94      0.94      0.94    132792
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.9417  Prec=0.7779  Rec=0.8413  F1=0.8084  AUC=0.9668
-  Fold 2: Acc=0.9389  Prec=0.7680  Rec=0.8335  F1=0.7995  AUC=0.9643
-  Fold 3: Acc=0.9402  Prec=0.7723  Rec=0.8382  F1=0.8039  AUC=0.9663
-  Fold 4: Acc=0.9439  Prec=0.7924  Rec=0.8348  F1=0.8130  AUC=0.9659
-  Fold 5: Acc=0.9404  Prec=0.7734  Rec=0.8374  F1=0.8042  AUC=0.9640
+  Fold 1: Acc=0.9417  Prec=0.7779  Rec=0.8413  F1=0.8084  AUC=0.9668  Time=4.83s
+  Fold 2: Acc=0.9389  Prec=0.7680  Rec=0.8335  F1=0.7995  AUC=0.9643  Time=4.86s
+  Fold 3: Acc=0.9402  Prec=0.7723  Rec=0.8382  F1=0.8039  AUC=0.9663  Time=3.70s
+  Fold 4: Acc=0.9439  Prec=0.7924  Rec=0.8348  F1=0.8130  AUC=0.9659  Time=4.78s
+  Fold 5: Acc=0.9404  Prec=0.7734  Rec=0.8374  F1=0.8042  AUC=0.9640  Time=4.80s
+
+Feature Importance (mean across folds):
+  CAN_ID_t-1     : 0.1329 +/- 0.0064
+  CAN_ID_t-2     : 0.1096 +/- 0.0058
+  Data_4         : 0.0954 +/- 0.0026
+  Data_2         : 0.0943 +/- 0.0029
+  Data_0         : 0.0919 +/- 0.0043
+  CAN_ID_t       : 0.0816 +/- 0.0027
+  Data_6         : 0.0799 +/- 0.0048
+  Data_5         : 0.0784 +/- 0.0023
+  CAN_ID_t-3     : 0.0702 +/- 0.0011
+  Data_1         : 0.0643 +/- 0.0035
+  CAN_ID_t-4     : 0.0482 +/- 0.0019
+  Data_3         : 0.0278 +/- 0.0027
+  Data_7         : 0.0256 +/- 0.0034
 
 Results saved to results/Combined___Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_randomforest_results.txt
 
 ROC AUC (binary): 0.9655
 ROC AUC Std: 0.0011
 
+  Confusion matrix saved: results/figures/Combined___Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_randomforest_confusion_matrix.png
+  ROC curve saved: results/figures/Combined___Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_randomforest_roc_curve.png
+  Feature importance saved: results/figures/Combined___Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_randomforest_feature_importance.png
 
 --------------------------------------------------------------------------------
 [21/27] Running GradientBoosting...
@@ -1437,11 +1837,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with GradientBoosting...
-  Fold 1/5: Acc=0.9516  Prec=0.9723  Rec=0.6885  F1=0.8062  AUC=0.9699
-  Fold 2/5: Acc=0.9497  Prec=0.9572  Rec=0.6862  F1=0.7993  AUC=0.9671
-  Fold 3/5: Acc=0.9498  Prec=0.9684  Rec=0.6787  F1=0.7981  AUC=0.9689
-  Fold 4/5: Acc=0.9483  Prec=0.9617  Rec=0.6728  F1=0.7917  AUC=0.9686
-  Fold 5/5: Acc=0.9493  Prec=0.9665  Rec=0.6766  F1=0.7960  AUC=0.9689
+  Fold 1/5: Acc=0.9516  Prec=0.9723  Rec=0.6885  F1=0.8062  AUC=0.9699  Time=7.4s
+  Fold 2/5: Acc=0.9497  Prec=0.9572  Rec=0.6862  F1=0.7993  AUC=0.9671  Time=7.9s
+  Fold 3/5: Acc=0.9498  Prec=0.9684  Rec=0.6787  F1=0.7981  AUC=0.9689  Time=7.3s
+  Fold 4/5: Acc=0.9483  Prec=0.9617  Rec=0.6728  F1=0.7917  AUC=0.9686  Time=7.3s
+  Fold 5/5: Acc=0.9493  Prec=0.9665  Rec=0.6766  F1=0.7960  AUC=0.9689  Time=7.1s
 --- GradientBoosting Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle A/Vehicle A - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -1454,6 +1854,8 @@ Recall (binary): 0.6805
 Recall Std: 0.0059
 F1-score (binary): 0.7982
 F1-score Std: 0.0047
+Training Time (per fold): 7.40s +/- 0.25s
+Training Time (total CV): 37.02s
 
 Confusion Matrix:
 [[112911    476]
@@ -1473,17 +1875,35 @@ weighted avg       0.95      0.95      0.95    132792
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.9516  Prec=0.9723  Rec=0.6885  F1=0.8062  AUC=0.9699
-  Fold 2: Acc=0.9497  Prec=0.9572  Rec=0.6862  F1=0.7993  AUC=0.9671
-  Fold 3: Acc=0.9498  Prec=0.9684  Rec=0.6787  F1=0.7981  AUC=0.9689
-  Fold 4: Acc=0.9483  Prec=0.9617  Rec=0.6728  F1=0.7917  AUC=0.9686
-  Fold 5: Acc=0.9493  Prec=0.9665  Rec=0.6766  F1=0.7960  AUC=0.9689
+  Fold 1: Acc=0.9516  Prec=0.9723  Rec=0.6885  F1=0.8062  AUC=0.9699  Time=7.42s
+  Fold 2: Acc=0.9497  Prec=0.9572  Rec=0.6862  F1=0.7993  AUC=0.9671  Time=7.87s
+  Fold 3: Acc=0.9498  Prec=0.9684  Rec=0.6787  F1=0.7981  AUC=0.9689  Time=7.32s
+  Fold 4: Acc=0.9483  Prec=0.9617  Rec=0.6728  F1=0.7917  AUC=0.9686  Time=7.29s
+  Fold 5: Acc=0.9493  Prec=0.9665  Rec=0.6766  F1=0.7960  AUC=0.9689  Time=7.12s
+
+Feature Importance (mean across folds):
+  Data_2         : 0.1489 +/- 0.0016
+  CAN_ID_t-2     : 0.1461 +/- 0.0124
+  CAN_ID_t       : 0.1346 +/- 0.0065
+  Data_5         : 0.1254 +/- 0.0073
+  CAN_ID_t-1     : 0.1246 +/- 0.0274
+  Data_7         : 0.0977 +/- 0.0206
+  Data_6         : 0.0951 +/- 0.0105
+  CAN_ID_t-3     : 0.0484 +/- 0.0024
+  Data_4         : 0.0317 +/- 0.0044
+  Data_0         : 0.0257 +/- 0.0113
+  CAN_ID_t-4     : 0.0125 +/- 0.0035
+  Data_1         : 0.0074 +/- 0.0020
+  Data_3         : 0.0020 +/- 0.0013
 
 Results saved to results/Combined___Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_gradientboosting_results.txt
 
 ROC AUC (binary): 0.9687
 ROC AUC Std: 0.0009
 
+  Confusion matrix saved: results/figures/Combined___Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_gradientboosting_confusion_matrix.png
+  ROC curve saved: results/figures/Combined___Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_gradientboosting_roc_curve.png
+  Feature importance saved: results/figures/Combined___Vehicle_A___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_gradientboosting_feature_importance.png
 
 --------------------------------------------------------------------------------
 
@@ -1511,11 +1931,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with LogisticRegression...
-  Fold 1/5: Acc=0.8406  Prec=0.2015  Rec=0.9957  F1=0.3351  AUC=0.9749
-  Fold 2/5: Acc=0.8457  Prec=0.2067  Rec=0.9979  F1=0.3424  AUC=0.9756
-  Fold 3/5: Acc=0.8428  Prec=0.2039  Rec=1.0000  F1=0.3388  AUC=0.9748
-  Fold 4/5: Acc=0.8377  Prec=0.1989  Rec=0.9979  F1=0.3317  AUC=0.9749
-  Fold 5/5: Acc=0.8434  Prec=0.2049  Rec=1.0000  F1=0.3401  AUC=0.9738
+  Fold 1/5: Acc=0.8406  Prec=0.2015  Rec=0.9957  F1=0.3351  AUC=0.9749  Time=0.4s
+  Fold 2/5: Acc=0.8457  Prec=0.2067  Rec=0.9979  F1=0.3424  AUC=0.9756  Time=0.4s
+  Fold 3/5: Acc=0.8428  Prec=0.2039  Rec=1.0000  F1=0.3388  AUC=0.9748  Time=0.4s
+  Fold 4/5: Acc=0.8377  Prec=0.1989  Rec=0.9979  F1=0.3317  AUC=0.9749  Time=0.3s
+  Fold 5/5: Acc=0.8434  Prec=0.2049  Rec=1.0000  F1=0.3401  AUC=0.9738  Time=0.4s
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle B/Vehicle B - Replay 0x181 - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -1528,6 +1948,8 @@ Recall (binary): 0.9983
 Recall Std: 0.0016
 F1-score (binary): 0.3376
 F1-score Std: 0.0038
+Training Time (per fold): 0.38s +/- 0.03s
+Training Time (total CV): 1.90s
 
 Confusion Matrix:
 [[46502  9156]
@@ -1547,17 +1969,35 @@ weighted avg       0.97      0.84      0.89     57996
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.8406  Prec=0.2015  Rec=0.9957  F1=0.3351  AUC=0.9749
-  Fold 2: Acc=0.8457  Prec=0.2067  Rec=0.9979  F1=0.3424  AUC=0.9756
-  Fold 3: Acc=0.8428  Prec=0.2039  Rec=1.0000  F1=0.3388  AUC=0.9748
-  Fold 4: Acc=0.8377  Prec=0.1989  Rec=0.9979  F1=0.3317  AUC=0.9749
-  Fold 5: Acc=0.8434  Prec=0.2049  Rec=1.0000  F1=0.3401  AUC=0.9738
+  Fold 1: Acc=0.8406  Prec=0.2015  Rec=0.9957  F1=0.3351  AUC=0.9749  Time=0.37s
+  Fold 2: Acc=0.8457  Prec=0.2067  Rec=0.9979  F1=0.3424  AUC=0.9756  Time=0.38s
+  Fold 3: Acc=0.8428  Prec=0.2039  Rec=1.0000  F1=0.3388  AUC=0.9748  Time=0.43s
+  Fold 4: Acc=0.8377  Prec=0.1989  Rec=0.9979  F1=0.3317  AUC=0.9749  Time=0.34s
+  Fold 5: Acc=0.8434  Prec=0.2049  Rec=1.0000  F1=0.3401  AUC=0.9738  Time=0.38s
+
+Feature Importance (mean across folds):
+  CAN_ID_t       : 6.3764 +/- 0.1270
+  Data_7         : 4.7092 +/- 0.0637
+  Data_4         : 1.3800 +/- 0.0925
+  CAN_ID_t-2     : 1.2759 +/- 0.0329
+  Data_6         : 1.0145 +/- 0.0550
+  Data_3         : 0.8646 +/- 0.0833
+  Data_0         : 0.5613 +/- 0.1392
+  CAN_ID_t-4     : 0.4319 +/- 0.0072
+  Data_5         : 0.2275 +/- 0.0701
+  CAN_ID_t-1     : 0.1676 +/- 0.0214
+  Data_2         : 0.1142 +/- 0.0854
+  CAN_ID_t-3     : 0.0837 +/- 0.0174
+  Data_1         : 0.0214 +/- 0.0142
 
 Results saved to results/Combined___Vehicle_B___Replay_0x181___IDs_Datafield_Classification_logisticregression_results.txt
 
 ROC AUC (binary): 0.9748
 ROC AUC Std: 0.0006
 
+  Confusion matrix saved: results/figures/Combined___Vehicle_B___Replay_0x181___IDs_Datafield_Classification_logisticregression_confusion_matrix.png
+  ROC curve saved: results/figures/Combined___Vehicle_B___Replay_0x181___IDs_Datafield_Classification_logisticregression_roc_curve.png
+  Feature importance saved: results/figures/Combined___Vehicle_B___Replay_0x181___IDs_Datafield_Classification_logisticregression_feature_importance.png
 
 --------------------------------------------------------------------------------
 [23/27] Running RandomForest...
@@ -1580,11 +2020,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with RandomForest...
-  Fold 1/5: Acc=0.9990  Prec=0.9872  Rec=0.9872  F1=0.9872  AUC=0.9942
-  Fold 2/5: Acc=0.9985  Prec=0.9849  Rec=0.9786  F1=0.9817  AUC=0.9921
-  Fold 3/5: Acc=0.9986  Prec=0.9808  Rec=0.9850  F1=0.9829  AUC=0.9952
-  Fold 4/5: Acc=0.9990  Prec=0.9831  Rec=0.9915  F1=0.9872  AUC=0.9953
-  Fold 5/5: Acc=0.9982  Prec=0.9765  Rec=0.9786  F1=0.9776  AUC=0.9897
+  Fold 1/5: Acc=0.9990  Prec=0.9872  Rec=0.9872  F1=0.9872  AUC=0.9942  Time=1.2s
+  Fold 2/5: Acc=0.9985  Prec=0.9849  Rec=0.9786  F1=0.9817  AUC=0.9921  Time=1.2s
+  Fold 3/5: Acc=0.9986  Prec=0.9808  Rec=0.9850  F1=0.9829  AUC=0.9952  Time=1.3s
+  Fold 4/5: Acc=0.9990  Prec=0.9831  Rec=0.9915  F1=0.9872  AUC=0.9953  Time=1.3s
+  Fold 5/5: Acc=0.9982  Prec=0.9765  Rec=0.9786  F1=0.9776  AUC=0.9897  Time=1.3s
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle B/Vehicle B - Replay 0x181 - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -1597,6 +2037,8 @@ Recall (binary): 0.9842
 Recall Std: 0.0050
 F1-score (binary): 0.9833
 F1-score Std: 0.0036
+Training Time (per fold): 1.26s +/- 0.03s
+Training Time (total CV): 6.29s
 
 Confusion Matrix:
 [[55617    41]
@@ -1616,17 +2058,35 @@ weighted avg       1.00      1.00      1.00     57996
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.9990  Prec=0.9872  Rec=0.9872  F1=0.9872  AUC=0.9942
-  Fold 2: Acc=0.9985  Prec=0.9849  Rec=0.9786  F1=0.9817  AUC=0.9921
-  Fold 3: Acc=0.9986  Prec=0.9808  Rec=0.9850  F1=0.9829  AUC=0.9952
-  Fold 4: Acc=0.9990  Prec=0.9831  Rec=0.9915  F1=0.9872  AUC=0.9953
-  Fold 5: Acc=0.9982  Prec=0.9765  Rec=0.9786  F1=0.9776  AUC=0.9897
+  Fold 1: Acc=0.9990  Prec=0.9872  Rec=0.9872  F1=0.9872  AUC=0.9942  Time=1.22s
+  Fold 2: Acc=0.9985  Prec=0.9849  Rec=0.9786  F1=0.9817  AUC=0.9921  Time=1.24s
+  Fold 3: Acc=0.9986  Prec=0.9808  Rec=0.9850  F1=0.9829  AUC=0.9952  Time=1.25s
+  Fold 4: Acc=0.9990  Prec=0.9831  Rec=0.9915  F1=0.9872  AUC=0.9953  Time=1.30s
+  Fold 5: Acc=0.9982  Prec=0.9765  Rec=0.9786  F1=0.9776  AUC=0.9897  Time=1.27s
+
+Feature Importance (mean across folds):
+  Data_7         : 0.1592 +/- 0.0091
+  Data_6         : 0.1522 +/- 0.0089
+  CAN_ID_t       : 0.1394 +/- 0.0056
+  CAN_ID_t-2     : 0.1318 +/- 0.0048
+  Data_5         : 0.1114 +/- 0.0097
+  CAN_ID_t-1     : 0.0697 +/- 0.0047
+  Data_4         : 0.0621 +/- 0.0019
+  Data_3         : 0.0502 +/- 0.0040
+  CAN_ID_t-4     : 0.0360 +/- 0.0049
+  Data_2         : 0.0314 +/- 0.0023
+  Data_0         : 0.0242 +/- 0.0039
+  CAN_ID_t-3     : 0.0168 +/- 0.0005
+  Data_1         : 0.0155 +/- 0.0017
 
 Results saved to results/Combined___Vehicle_B___Replay_0x181___IDs_Datafield_Classification_randomforest_results.txt
 
 ROC AUC (binary): 0.9933
 ROC AUC Std: 0.0021
 
+  Confusion matrix saved: results/figures/Combined___Vehicle_B___Replay_0x181___IDs_Datafield_Classification_randomforest_confusion_matrix.png
+  ROC curve saved: results/figures/Combined___Vehicle_B___Replay_0x181___IDs_Datafield_Classification_randomforest_roc_curve.png
+  Feature importance saved: results/figures/Combined___Vehicle_B___Replay_0x181___IDs_Datafield_Classification_randomforest_feature_importance.png
 
 --------------------------------------------------------------------------------
 [24/27] Running GradientBoosting...
@@ -1649,11 +2109,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with GradientBoosting...
-  Fold 1/5: Acc=0.9988  Prec=0.9830  Rec=0.9872  F1=0.9851  AUC=0.9984
-  Fold 2/5: Acc=0.9987  Prec=0.9829  Rec=0.9850  F1=0.9840  AUC=0.9985
-  Fold 3/5: Acc=0.9986  Prec=0.9788  Rec=0.9872  F1=0.9829  AUC=0.9982
-  Fold 4/5: Acc=0.9986  Prec=0.9748  Rec=0.9915  F1=0.9831  AUC=0.9989
-  Fold 5/5: Acc=0.9983  Prec=0.9766  Rec=0.9808  F1=0.9787  AUC=0.9982
+  Fold 1/5: Acc=0.9988  Prec=0.9830  Rec=0.9872  F1=0.9851  AUC=0.9984  Time=2.5s
+  Fold 2/5: Acc=0.9987  Prec=0.9829  Rec=0.9850  F1=0.9840  AUC=0.9985  Time=2.4s
+  Fold 3/5: Acc=0.9986  Prec=0.9788  Rec=0.9872  F1=0.9829  AUC=0.9982  Time=2.4s
+  Fold 4/5: Acc=0.9986  Prec=0.9748  Rec=0.9915  F1=0.9831  AUC=0.9989  Time=2.4s
+  Fold 5/5: Acc=0.9983  Prec=0.9766  Rec=0.9808  F1=0.9787  AUC=0.9982  Time=2.6s
 --- GradientBoosting Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle B/Vehicle B - Replay 0x181 - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -1666,6 +2126,8 @@ Recall (binary): 0.9863
 Recall Std: 0.0035
 F1-score (binary): 0.9827
 F1-score Std: 0.0022
+Training Time (per fold): 2.45s +/- 0.08s
+Training Time (total CV): 12.27s
 
 Confusion Matrix:
 [[55609    49]
@@ -1685,17 +2147,35 @@ weighted avg       1.00      1.00      1.00     57996
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.9988  Prec=0.9830  Rec=0.9872  F1=0.9851  AUC=0.9984
-  Fold 2: Acc=0.9987  Prec=0.9829  Rec=0.9850  F1=0.9840  AUC=0.9985
-  Fold 3: Acc=0.9986  Prec=0.9788  Rec=0.9872  F1=0.9829  AUC=0.9982
-  Fold 4: Acc=0.9986  Prec=0.9748  Rec=0.9915  F1=0.9831  AUC=0.9989
-  Fold 5: Acc=0.9983  Prec=0.9766  Rec=0.9808  F1=0.9787  AUC=0.9982
+  Fold 1: Acc=0.9988  Prec=0.9830  Rec=0.9872  F1=0.9851  AUC=0.9984  Time=2.47s
+  Fold 2: Acc=0.9987  Prec=0.9829  Rec=0.9850  F1=0.9840  AUC=0.9985  Time=2.41s
+  Fold 3: Acc=0.9986  Prec=0.9788  Rec=0.9872  F1=0.9829  AUC=0.9982  Time=2.40s
+  Fold 4: Acc=0.9986  Prec=0.9748  Rec=0.9915  F1=0.9831  AUC=0.9989  Time=2.38s
+  Fold 5: Acc=0.9983  Prec=0.9766  Rec=0.9808  F1=0.9787  AUC=0.9982  Time=2.61s
+
+Feature Importance (mean across folds):
+  CAN_ID_t-1     : 0.5215 +/- 0.0275
+  Data_7         : 0.1631 +/- 0.0048
+  CAN_ID_t-2     : 0.1107 +/- 0.0337
+  CAN_ID_t       : 0.0815 +/- 0.0382
+  Data_6         : 0.0559 +/- 0.0435
+  Data_5         : 0.0395 +/- 0.0233
+  Data_4         : 0.0219 +/- 0.0076
+  Data_3         : 0.0023 +/- 0.0043
+  CAN_ID_t-4     : 0.0020 +/- 0.0037
+  CAN_ID_t-3     : 0.0016 +/- 0.0006
+  Data_2         : 0.0001 +/- 0.0001
+  Data_1         : 0.0001 +/- 0.0001
+  Data_0         : 0.0000 +/- 0.0000
 
 Results saved to results/Combined___Vehicle_B___Replay_0x181___IDs_Datafield_Classification_gradientboosting_results.txt
 
 ROC AUC (binary): 0.9984
 ROC AUC Std: 0.0003
 
+  Confusion matrix saved: results/figures/Combined___Vehicle_B___Replay_0x181___IDs_Datafield_Classification_gradientboosting_confusion_matrix.png
+  ROC curve saved: results/figures/Combined___Vehicle_B___Replay_0x181___IDs_Datafield_Classification_gradientboosting_roc_curve.png
+  Feature importance saved: results/figures/Combined___Vehicle_B___Replay_0x181___IDs_Datafield_Classification_gradientboosting_feature_importance.png
 
 --------------------------------------------------------------------------------
 
@@ -1723,11 +2203,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with LogisticRegression...
-  Fold 1/5: Acc=0.6337  Prec=0.2628  Rec=0.8183  F1=0.3979  AUC=0.7897
-  Fold 2/5: Acc=0.6422  Prec=0.2718  Rec=0.8461  F1=0.4115  AUC=0.8023
-  Fold 3/5: Acc=0.6277  Prec=0.2634  Rec=0.8450  F1=0.4016  AUC=0.7934
-  Fold 4/5: Acc=0.6389  Prec=0.2689  Rec=0.8392  F1=0.4073  AUC=0.7904
-  Fold 5/5: Acc=0.6407  Prec=0.2670  Rec=0.8194  F1=0.4027  AUC=0.7860
+  Fold 1/5: Acc=0.6337  Prec=0.2628  Rec=0.8183  F1=0.3979  AUC=0.7897  Time=0.1s
+  Fold 2/5: Acc=0.6422  Prec=0.2718  Rec=0.8461  F1=0.4115  AUC=0.8023  Time=0.3s
+  Fold 3/5: Acc=0.6277  Prec=0.2634  Rec=0.8450  F1=0.4016  AUC=0.7934  Time=0.2s
+  Fold 4/5: Acc=0.6389  Prec=0.2689  Rec=0.8392  F1=0.4073  AUC=0.7904  Time=0.2s
+  Fold 5/5: Acc=0.6407  Prec=0.2670  Rec=0.8194  F1=0.4027  AUC=0.7860  Time=0.2s
 --- LogisticRegression Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle C/Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -1740,6 +2220,8 @@ Recall (binary): 0.8336
 Recall Std: 0.0123
 F1-score (binary): 0.4042
 F1-score Std: 0.0047
+Training Time (per fold): 0.21s +/- 0.05s
+Training Time (total CV): 1.06s
 
 Confusion Matrix:
 [[48064 31714]
@@ -1759,17 +2241,35 @@ weighted avg       0.85      0.64      0.69     93619
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.6337  Prec=0.2628  Rec=0.8183  F1=0.3979  AUC=0.7897
-  Fold 2: Acc=0.6422  Prec=0.2718  Rec=0.8461  F1=0.4115  AUC=0.8023
-  Fold 3: Acc=0.6277  Prec=0.2634  Rec=0.8450  F1=0.4016  AUC=0.7934
-  Fold 4: Acc=0.6389  Prec=0.2689  Rec=0.8392  F1=0.4073  AUC=0.7904
-  Fold 5: Acc=0.6407  Prec=0.2670  Rec=0.8194  F1=0.4027  AUC=0.7860
+  Fold 1: Acc=0.6337  Prec=0.2628  Rec=0.8183  F1=0.3979  AUC=0.7897  Time=0.13s
+  Fold 2: Acc=0.6422  Prec=0.2718  Rec=0.8461  F1=0.4115  AUC=0.8023  Time=0.29s
+  Fold 3: Acc=0.6277  Prec=0.2634  Rec=0.8450  F1=0.4016  AUC=0.7934  Time=0.20s
+  Fold 4: Acc=0.6389  Prec=0.2689  Rec=0.8392  F1=0.4073  AUC=0.7904  Time=0.25s
+  Fold 5: Acc=0.6407  Prec=0.2670  Rec=0.8194  F1=0.4027  AUC=0.7860  Time=0.20s
+
+Feature Importance (mean across folds):
+  Data_2         : 1.5027 +/- 0.0185
+  Data_7         : 1.4145 +/- 0.0136
+  Data_4         : 0.7500 +/- 0.0194
+  CAN_ID_t       : 0.7318 +/- 0.0107
+  Data_5         : 0.6758 +/- 0.0166
+  Data_6         : 0.6096 +/- 0.0055
+  Data_3         : 0.3054 +/- 0.0133
+  Data_0         : 0.2354 +/- 0.0067
+  CAN_ID_t-2     : 0.1897 +/- 0.0048
+  CAN_ID_t-4     : 0.1337 +/- 0.0095
+  CAN_ID_t-3     : 0.0590 +/- 0.0044
+  CAN_ID_t-1     : 0.0371 +/- 0.0064
+  Data_1         : 0.0307 +/- 0.0054
 
 Results saved to results/Combined___Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_logisticregression_results.txt
 
 ROC AUC (binary): 0.7924
 ROC AUC Std: 0.0055
 
+  Confusion matrix saved: results/figures/Combined___Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_logisticregression_confusion_matrix.png
+  ROC curve saved: results/figures/Combined___Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_logisticregression_roc_curve.png
+  Feature importance saved: results/figures/Combined___Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_logisticregression_feature_importance.png
 
 --------------------------------------------------------------------------------
 [26/27] Running RandomForest...
@@ -1792,11 +2292,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with RandomForest...
-  Fold 1/5: Acc=0.9221  Prec=0.7189  Rec=0.7768  F1=0.7467  AUC=0.9484
-  Fold 2/5: Acc=0.9221  Prec=0.7234  Rec=0.7663  F1=0.7442  AUC=0.9480
-  Fold 3/5: Acc=0.9257  Prec=0.7353  Rec=0.7767  F1=0.7554  AUC=0.9479
-  Fold 4/5: Acc=0.9254  Prec=0.7369  Rec=0.7710  F1=0.7535  AUC=0.9499
-  Fold 5/5: Acc=0.9218  Prec=0.7227  Rec=0.7637  F1=0.7427  AUC=0.9495
+  Fold 1/5: Acc=0.9221  Prec=0.7189  Rec=0.7768  F1=0.7467  AUC=0.9484  Time=3.6s
+  Fold 2/5: Acc=0.9221  Prec=0.7234  Rec=0.7663  F1=0.7442  AUC=0.9480  Time=3.5s
+  Fold 3/5: Acc=0.9257  Prec=0.7353  Rec=0.7767  F1=0.7554  AUC=0.9479  Time=3.5s
+  Fold 4/5: Acc=0.9254  Prec=0.7369  Rec=0.7710  F1=0.7535  AUC=0.9499  Time=2.7s
+  Fold 5/5: Acc=0.9218  Prec=0.7227  Rec=0.7637  F1=0.7427  AUC=0.9495  Time=3.5s
 --- RandomForest Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle C/Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -1809,6 +2309,8 @@ Recall (binary): 0.7709
 Recall Std: 0.0053
 F1-score (binary): 0.7485
 F1-score Std: 0.0051
+Training Time (per fold): 3.37s +/- 0.31s
+Training Time (total CV): 16.86s
 
 Confusion Matrix:
 [[75779  3999]
@@ -1828,17 +2330,35 @@ weighted avg       0.93      0.92      0.92     93619
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.9221  Prec=0.7189  Rec=0.7768  F1=0.7467  AUC=0.9484
-  Fold 2: Acc=0.9221  Prec=0.7234  Rec=0.7663  F1=0.7442  AUC=0.9480
-  Fold 3: Acc=0.9257  Prec=0.7353  Rec=0.7767  F1=0.7554  AUC=0.9479
-  Fold 4: Acc=0.9254  Prec=0.7369  Rec=0.7710  F1=0.7535  AUC=0.9499
-  Fold 5: Acc=0.9218  Prec=0.7227  Rec=0.7637  F1=0.7427  AUC=0.9495
+  Fold 1: Acc=0.9221  Prec=0.7189  Rec=0.7768  F1=0.7467  AUC=0.9484  Time=3.57s
+  Fold 2: Acc=0.9221  Prec=0.7234  Rec=0.7663  F1=0.7442  AUC=0.9480  Time=3.54s
+  Fold 3: Acc=0.9257  Prec=0.7353  Rec=0.7767  F1=0.7554  AUC=0.9479  Time=3.50s
+  Fold 4: Acc=0.9254  Prec=0.7369  Rec=0.7710  F1=0.7535  AUC=0.9499  Time=2.75s
+  Fold 5: Acc=0.9218  Prec=0.7227  Rec=0.7637  F1=0.7427  AUC=0.9495  Time=3.50s
+
+Feature Importance (mean across folds):
+  Data_4         : 0.1186 +/- 0.0035
+  Data_0         : 0.1182 +/- 0.0044
+  CAN_ID_t-1     : 0.1138 +/- 0.0018
+  CAN_ID_t-2     : 0.1106 +/- 0.0028
+  Data_2         : 0.0892 +/- 0.0027
+  Data_6         : 0.0759 +/- 0.0066
+  CAN_ID_t       : 0.0677 +/- 0.0037
+  Data_5         : 0.0664 +/- 0.0068
+  CAN_ID_t-3     : 0.0587 +/- 0.0009
+  CAN_ID_t-4     : 0.0550 +/- 0.0009
+  Data_1         : 0.0540 +/- 0.0068
+  Data_7         : 0.0501 +/- 0.0043
+  Data_3         : 0.0218 +/- 0.0010
 
 Results saved to results/Combined___Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_randomforest_results.txt
 
 ROC AUC (binary): 0.9487
 ROC AUC Std: 0.0008
 
+  Confusion matrix saved: results/figures/Combined___Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_randomforest_confusion_matrix.png
+  ROC curve saved: results/figures/Combined___Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_randomforest_roc_curve.png
+  Feature importance saved: results/figures/Combined___Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_randomforest_feature_importance.png
 
 --------------------------------------------------------------------------------
 [27/27] Running GradientBoosting...
@@ -1861,11 +2381,11 @@ Number of classes: 2
 Data loaded and preprocessed (unscaled).
 
 Running 5-Fold Stratified Cross-Validation with GradientBoosting...
-  Fold 1/5: Acc=0.9348  Prec=0.9521  Rec=0.5890  F1=0.7278  AUC=0.9559
-  Fold 2/5: Acc=0.9334  Prec=0.9584  Rec=0.5744  F1=0.7183  AUC=0.9556
-  Fold 3/5: Acc=0.9359  Prec=0.9495  Rec=0.5979  F1=0.7338  AUC=0.9555
-  Fold 4/5: Acc=0.9339  Prec=0.9489  Rec=0.5842  F1=0.7232  AUC=0.9582
-  Fold 5/5: Acc=0.9346  Prec=0.9595  Rec=0.5820  F1=0.7245  AUC=0.9558
+  Fold 1/5: Acc=0.9348  Prec=0.9521  Rec=0.5890  F1=0.7278  AUC=0.9559  Time=4.9s
+  Fold 2/5: Acc=0.9334  Prec=0.9584  Rec=0.5744  F1=0.7183  AUC=0.9556  Time=4.9s
+  Fold 3/5: Acc=0.9359  Prec=0.9495  Rec=0.5979  F1=0.7338  AUC=0.9555  Time=4.9s
+  Fold 4/5: Acc=0.9339  Prec=0.9489  Rec=0.5842  F1=0.7232  AUC=0.9582  Time=4.8s
+  Fold 5/5: Acc=0.9346  Prec=0.9595  Rec=0.5820  F1=0.7245  AUC=0.9558  Time=4.9s
 --- GradientBoosting Results ---
 Dataset: ./Datasets with attacks/Combined/Vehicle C/Vehicle C - Replay 0x181, 0x161, 0x1a5, Fuzzing 0x244, 0x284, 0x354 - IDs_Datafield_Classification.csv
 Classification Type: Binary
@@ -1878,6 +2398,8 @@ Recall (binary): 0.5855
 Recall Std: 0.0078
 F1-score (binary): 0.7255
 F1-score Std: 0.0051
+Training Time (per fold): 4.87s +/- 0.02s
+Training Time (total CV): 24.37s
 
 Confusion Matrix:
 [[79384   394]
@@ -1897,17 +2419,35 @@ weighted avg       0.94      0.93      0.93     93619
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.9348  Prec=0.9521  Rec=0.5890  F1=0.7278  AUC=0.9559
-  Fold 2: Acc=0.9334  Prec=0.9584  Rec=0.5744  F1=0.7183  AUC=0.9556
-  Fold 3: Acc=0.9359  Prec=0.9495  Rec=0.5979  F1=0.7338  AUC=0.9555
-  Fold 4: Acc=0.9339  Prec=0.9489  Rec=0.5842  F1=0.7232  AUC=0.9582
-  Fold 5: Acc=0.9346  Prec=0.9595  Rec=0.5820  F1=0.7245  AUC=0.9558
+  Fold 1: Acc=0.9348  Prec=0.9521  Rec=0.5890  F1=0.7278  AUC=0.9559  Time=4.92s
+  Fold 2: Acc=0.9334  Prec=0.9584  Rec=0.5744  F1=0.7183  AUC=0.9556  Time=4.86s
+  Fold 3: Acc=0.9359  Prec=0.9495  Rec=0.5979  F1=0.7338  AUC=0.9555  Time=4.86s
+  Fold 4: Acc=0.9339  Prec=0.9489  Rec=0.5842  F1=0.7232  AUC=0.9582  Time=4.85s
+  Fold 5: Acc=0.9346  Prec=0.9595  Rec=0.5820  F1=0.7245  AUC=0.9558  Time=4.89s
+
+Feature Importance (mean across folds):
+  Data_5         : 0.1695 +/- 0.0130
+  Data_6         : 0.1587 +/- 0.0221
+  Data_2         : 0.1519 +/- 0.0052
+  CAN_ID_t-1     : 0.1383 +/- 0.0179
+  CAN_ID_t       : 0.0974 +/- 0.0134
+  CAN_ID_t-2     : 0.0969 +/- 0.0040
+  Data_7         : 0.0619 +/- 0.0025
+  Data_3         : 0.0386 +/- 0.0187
+  CAN_ID_t-3     : 0.0347 +/- 0.0032
+  CAN_ID_t-4     : 0.0225 +/- 0.0017
+  Data_4         : 0.0212 +/- 0.0055
+  Data_1         : 0.0065 +/- 0.0074
+  Data_0         : 0.0021 +/- 0.0015
 
 Results saved to results/Combined___Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_gradientboosting_results.txt
 
 ROC AUC (binary): 0.9562
 ROC AUC Std: 0.0010
 
+  Confusion matrix saved: results/figures/Combined___Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_gradientboosting_confusion_matrix.png
+  ROC curve saved: results/figures/Combined___Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_gradientboosting_roc_curve.png
+  Feature importance saved: results/figures/Combined___Vehicle_C___Replay_0x181,_0x161,_0x1a5,_Fuzzing_0x244,_0x284,_0x354___IDs_Datafield_Classification_gradientboosting_feature_importance.png
 
 --------------------------------------------------------------------------------
 
@@ -1918,4 +2458,4 @@ Total experiments: 27
 Completed: 27
 Failed: 0
 Success rate: 100.0%
-Finished: 2026-02-10 22:53:50
+Finished: 2026-02-11 17:20:38

@@ -1,6 +1,6 @@
 # CAN Bus Intrusion Detection: Experimental Results Summary
 
-**Date**: 2026-02-10
+**Date**: 2026-02-11
 
 This document summarizes the experimental results for CAN bus intrusion detection using Logistic Regression and Random Forest models across various vehicle datasets and attack scenarios (Fuzzing, Replay, Combined).
 

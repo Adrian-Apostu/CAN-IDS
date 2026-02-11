@@ -10,6 +10,8 @@ Recall (binary): 0.9983
 Recall Std: 0.0016
 F1-score (binary): 0.3376
 F1-score Std: 0.0038
+Training Time (per fold): 0.38s +/- 0.03s
+Training Time (total CV): 1.90s
 
 Confusion Matrix:
 [[46502  9156]
@@ -29,11 +31,26 @@ weighted avg       0.97      0.84      0.89     57996
 
 
 Per-Fold Results:
-  Fold 1: Acc=0.8406  Prec=0.2015  Rec=0.9957  F1=0.3351  AUC=0.9749
-  Fold 2: Acc=0.8457  Prec=0.2067  Rec=0.9979  F1=0.3424  AUC=0.9756
-  Fold 3: Acc=0.8428  Prec=0.2039  Rec=1.0000  F1=0.3388  AUC=0.9748
-  Fold 4: Acc=0.8377  Prec=0.1989  Rec=0.9979  F1=0.3317  AUC=0.9749
-  Fold 5: Acc=0.8434  Prec=0.2049  Rec=1.0000  F1=0.3401  AUC=0.9738
+  Fold 1: Acc=0.8406  Prec=0.2015  Rec=0.9957  F1=0.3351  AUC=0.9749  Time=0.37s
+  Fold 2: Acc=0.8457  Prec=0.2067  Rec=0.9979  F1=0.3424  AUC=0.9756  Time=0.38s
+  Fold 3: Acc=0.8428  Prec=0.2039  Rec=1.0000  F1=0.3388  AUC=0.9748  Time=0.43s
+  Fold 4: Acc=0.8377  Prec=0.1989  Rec=0.9979  F1=0.3317  AUC=0.9749  Time=0.34s
+  Fold 5: Acc=0.8434  Prec=0.2049  Rec=1.0000  F1=0.3401  AUC=0.9738  Time=0.38s
+
+Feature Importance (mean across folds):
+  CAN_ID_t       : 6.3764 +/- 0.1270
+  Data_7         : 4.7092 +/- 0.0637
+  Data_4         : 1.3800 +/- 0.0925
+  CAN_ID_t-2     : 1.2759 +/- 0.0329
+  Data_6         : 1.0145 +/- 0.0550
+  Data_3         : 0.8646 +/- 0.0833
+  Data_0         : 0.5613 +/- 0.1392
+  CAN_ID_t-4     : 0.4319 +/- 0.0072
+  Data_5         : 0.2275 +/- 0.0701
+  CAN_ID_t-1     : 0.1676 +/- 0.0214
+  Data_2         : 0.1142 +/- 0.0854
+  CAN_ID_t-3     : 0.0837 +/- 0.0174
+  Data_1         : 0.0214 +/- 0.0142
 
 ROC AUC (binary): 0.9748
 ROC AUC Std: 0.0006
